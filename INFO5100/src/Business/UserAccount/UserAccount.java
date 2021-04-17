@@ -5,6 +5,7 @@
 package Business.UserAccount;
 
 import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
 import Business.Role.Role;
 import Business.WorkQueue.WorkQueue;
 
@@ -13,19 +14,18 @@ import Business.WorkQueue.WorkQueue;
  * @author raunak
  */
 public class UserAccount {
-    
+
     private String username;
     private String password;
     private Employee employee;
     private Role role;
     private WorkQueue workQueue;
+    private Enterprise enter;
 
     public UserAccount() {
         workQueue = new WorkQueue();
     }
-    
-    
-    
+
     public String getUsername() {
         return username;
     }
@@ -62,13 +62,17 @@ public class UserAccount {
         return workQueue;
     }
 
-    
-    
+    public Enterprise getEnter() {
+        return enter;
+    }
+
+    public void setEnter(Enterprise enter) {
+        this.enter = enter;
+    }
+
     @Override
     public String toString() {
         return username;
     }
-    
-    
-    
+
 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author raunak
+ * @author Shreya Vivek Bhosale
  */
 public abstract class Organization {
 
@@ -21,14 +21,27 @@ public abstract class Organization {
     private EmployeeDirectory employeeDirectory;
     private UserAccountDirectory userAccountDirectory;
     private int organizationID;
-    private static int counter=0;
-    
-    public enum Type{
-        Admin("Admin Organization"), Doctor("Doctor Organization"), Lab("Lab Organization");
+    private static int counter = 0;
+    private OrganizationType organType;
+
+    public enum OrganizationType {
+        Admin("Admin Organization"),
+        Doctor("Doctor Organization"),
+        Lab("Lab Organization"),
+        Nurse("Nurse Organization"),
+        VolunteerCamp("HealthCamp Organization"),
+        VolunteerEvent("Event Organization"),
+        Receptionist("Receptionist Organization"),
+        Fund("Fundraiser Organization"),       
+        Driver("Driver");
+        ;
+
         private String value;
-        private Type(String value) {
+
+        private OrganizationType(String value) {
             this.value = value;
         }
+
         public String getValue() {
             return value;
         }
@@ -44,7 +57,7 @@ public abstract class Organization {
     }
 
     public abstract ArrayList<Role> getSupportedRole();
-    
+
     public UserAccountDirectory getUserAccountDirectory() {
         return userAccountDirectory;
     }
@@ -56,7 +69,7 @@ public abstract class Organization {
     public EmployeeDirectory getEmployeeDirectory() {
         return employeeDirectory;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -73,10 +86,17 @@ public abstract class Organization {
         this.workQueue = workQueue;
     }
 
+    public OrganizationType getOrganType() {
+        return organType;
+    }
+
+    public void setOrganType(OrganizationType organType) {
+        this.organType = organType;
+    }
+
     @Override
     public String toString() {
         return name;
     }
-    
-    
+
 }

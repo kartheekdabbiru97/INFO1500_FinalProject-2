@@ -4,15 +4,15 @@
  */
 package Business.Organization;
 
-import Business.Organization.Organization.Type;
+import Business.Organization.Organization.OrganizationType;
 import java.util.ArrayList;
 
 /**
  *
- * @author raunak
+ * @author Shreya Vivek Bhosale
  */
 public class OrganizationDirectory {
-    
+
     private ArrayList<Organization> organizationList;
 
     public OrganizationDirectory() {
@@ -22,17 +22,43 @@ public class OrganizationDirectory {
     public ArrayList<Organization> getOrganizationList() {
         return organizationList;
     }
-    
-    public Organization createOrganization(Type type){
+
+    public Organization createOrganization(OrganizationType type) {
         Organization organization = null;
-        if (type.getValue().equals(Type.Doctor.getValue())){
+        if (type.getValue().equals(OrganizationType.Doctor.getValue())) {
             organization = new DoctorOrganization();
             organizationList.add(organization);
-        }
-        else if (type.getValue().equals(Type.Lab.getValue())){
+        } else if (type.getValue().equals(OrganizationType.Lab.getValue())) {
             organization = new LabOrganization();
+            organizationList.add(organization);
+        } else if (type.getValue().equals(OrganizationType.Nurse.getValue())) {
+            organization = new NurseOrganization();
+            organizationList.add(organization);
+            //Fundraiser
+        } else if (type.getValue().equals(OrganizationType.Fund.getValue())) {
+            organization = new FundraiserOrganization();
+            organizationList.add(organization);
+            //Volunteer camp
+        } else if (type.getValue().equals(OrganizationType.VolunteerCamp.getValue())) {
+            organization = new VolunteerCampOrganization();
+            organizationList.add(organization);
+            //Volunteer event
+        } else if (type.getValue().equals(OrganizationType.VolunteerEvent.getValue())) {
+            organization = new VolunteerEventOrganization();
+            organizationList.add(organization);
+            //receptionist
+        } else if (type.getValue().equals(OrganizationType.Receptionist.getValue())) {
+            organization = new ReceptionistOrganization();
+            organizationList.add(organization);
+            //Driver
+        } else if (type.getValue().equals(OrganizationType.Driver.getValue())) {
+            organization = new DriverOrganization();
             organizationList.add(organization);
         }
         return organization;
+    }
+
+    public void removeOrganization(Organization organization) {
+        organizationList.remove(organization);
     }
 }

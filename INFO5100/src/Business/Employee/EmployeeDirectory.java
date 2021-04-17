@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 /**
  *
- * @author raunak
+ * @author Shreya Vivek Bhosale
  */
 public class EmployeeDirectory {
-    
+
     private ArrayList<Employee> employeeList;
 
     public EmployeeDirectory() {
@@ -21,11 +21,24 @@ public class EmployeeDirectory {
     public ArrayList<Employee> getEmployeeList() {
         return employeeList;
     }
-    
-    public Employee createEmployee(String name){
+
+    public Employee createEmployee(String name) {
         Employee employee = new Employee();
         employee.setName(name);
         employeeList.add(employee);
         return employee;
+    }
+
+    public void removeEmployee(Employee employee) {
+        employeeList.remove(employee);
+    }
+
+    public Employee uniqueEmployee(String name) {
+        for (Employee em : employeeList) {
+            if (em.getName().equals(name)) {
+                return em;
+            }
+        }
+        return null;
     }
 }

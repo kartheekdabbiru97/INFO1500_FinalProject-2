@@ -5,7 +5,7 @@
 package ui.AdministrativeRole;
 
 import Business.Organization.Organization;
-import Business.Organization.Organization.Type;
+import Business.Organization.Organization.OrganizationType;
 import Business.Organization.OrganizationDirectory;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -34,8 +34,8 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     
     private void populateCombo(){
         organizationJComboBox.removeAllItems();
-        for (Type type : Organization.Type.values()){
-            if (!type.getValue().equals(Type.Admin.getValue()))
+        for (OrganizationType type : Organization.OrganizationType.values()){
+            if (!type.getValue().equals(OrganizationType.Admin.getValue()))
                 organizationJComboBox.addItem(type);
         }
     }
@@ -159,7 +159,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
 
     private void addJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJButtonActionPerformed
 
-        Type type = (Type) organizationJComboBox.getSelectedItem();
+        OrganizationType type = (OrganizationType) organizationJComboBox.getSelectedItem();
         directory.createOrganization(type);
         populateTable();
     }//GEN-LAST:event_addJButtonActionPerformed
