@@ -27,19 +27,170 @@ public class SendHospitalRequest extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        fundcollected = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        workRequestJTable = new javax.swing.JTable();
+        bttnBack = new rojerusan.RSMaterialButtonRectangle();
+        bttnConfirmRequest = new rojerusan.RSMaterialButtonRectangle();
+        comboHospital = new rojerusan.RSComboMetro();
+
+        setBackground(new java.awt.Color(232, 243, 255));
+
+        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("HOSPITAL REQUEST MANAGEMENT");
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("FUNDS COLLECTED:");
+
+        fundcollected.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        fundcollected.setForeground(new java.awt.Color(255, 255, 255));
+        fundcollected.setText("jLabel2");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(463, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(fundcollected)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(fundcollected))
+                .addContainerGap())
+        );
+
+        workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Patient Name", "Patient ", "Priority", "Age", "Request Type", "Status", "Disease", "Hospital Fee"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        workRequestJTable.setSelectionBackground(new java.awt.Color(15, 19, 52));
+        jScrollPane1.setViewportView(workRequestJTable);
+
+        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
+        bttnBack.setText("Back");
+        bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnBackActionPerformed(evt);
+            }
+        });
+
+        bttnConfirmRequest.setBackground(new java.awt.Color(15, 19, 52));
+        bttnConfirmRequest.setText("ASSIGN TO HOSPITAL");
+        bttnConfirmRequest.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnConfirmRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnConfirmRequestActionPerformed(evt);
+            }
+        });
+
+        comboHospital.setBackground(new java.awt.Color(15, 19, 52));
+        comboHospital.setColorArrow(new java.awt.Color(15, 19, 52));
+        comboHospital.setColorBorde(new java.awt.Color(15, 19, 52));
+        comboHospital.setColorFondo(new java.awt.Color(15, 19, 52));
+        comboHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboHospitalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(641, 641, 641)
+                        .addComponent(comboHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(bttnConfirmRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bttnConfirmRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnBackActionPerformed
+
+    private void bttnConfirmRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnConfirmRequestActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnConfirmRequestActionPerformed
+
+    private void comboHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboHospitalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboHospitalActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojerusan.RSMaterialButtonRectangle bttnBack;
+    private rojerusan.RSMaterialButtonRectangle bttnConfirmRequest;
+    private rojerusan.RSComboMetro comboHospital;
+    private javax.swing.JLabel fundcollected;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
 }

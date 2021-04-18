@@ -79,7 +79,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         bttnDelete = new rojerusan.RSMaterialButtonRectangle();
         bttnUpdate = new rojerusan.RSMaterialButtonRectangle();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(232, 243, 255));
 
         enterpriseJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

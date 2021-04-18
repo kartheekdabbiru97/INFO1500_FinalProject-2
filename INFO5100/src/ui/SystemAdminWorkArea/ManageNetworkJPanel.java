@@ -64,7 +64,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         bttnDelete = new rojerusan.RSMaterialButtonRectangle();
         bttnUpdate = new rojerusan.RSMaterialButtonRectangle();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(232, 243, 255));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Network Name:");

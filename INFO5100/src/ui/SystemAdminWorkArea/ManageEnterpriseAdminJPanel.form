@@ -3,7 +3,7 @@
 <Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+      <Color blue="ff" green="f3" red="e8" type="rgb"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -95,12 +95,14 @@
                   <Component id="txtName" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="bttnBack" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-                  <Component id="bttnSubmit" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="bttnDelete" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                       <Component id="bttnUpdate" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="bttnBack" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="bttnSubmit" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="116" max="32767" attributes="0"/>
