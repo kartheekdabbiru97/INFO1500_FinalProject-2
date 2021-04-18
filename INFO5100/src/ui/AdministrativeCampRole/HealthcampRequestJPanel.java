@@ -32,12 +32,8 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        bttnrefresh = new rojerusan.RSMaterialButtonRectangle();
         jScrollPane1 = new javax.swing.JScrollPane();
         workRequestJTable = new javax.swing.JTable();
-        bttnBack = new rojerusan.RSMaterialButtonRectangle();
-        bttnViewDetails = new rojerusan.RSMaterialButtonRectangle();
-        bttnGenerateBarChart = new rojerusan.RSMaterialButtonRectangle();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -47,16 +43,6 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("HEALTH CAMP REQUEST PANEL");
 
-        bttnrefresh.setBackground(new java.awt.Color(255, 255, 255));
-        bttnrefresh.setForeground(new java.awt.Color(0, 0, 0));
-        bttnrefresh.setText("Refresh");
-        bttnrefresh.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnrefresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnrefreshActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -64,20 +50,14 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bttnrefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(618, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(bttnrefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -105,33 +85,6 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(workRequestJTable);
 
-        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
-        bttnBack.setText("Back");
-        bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnBackActionPerformed(evt);
-            }
-        });
-
-        bttnViewDetails.setBackground(new java.awt.Color(15, 19, 52));
-        bttnViewDetails.setText("View Details");
-        bttnViewDetails.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnViewDetails.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnViewDetailsActionPerformed(evt);
-            }
-        });
-
-        bttnGenerateBarChart.setBackground(new java.awt.Color(15, 19, 52));
-        bttnGenerateBarChart.setText("Generate Bar Chart");
-        bttnGenerateBarChart.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnGenerateBarChart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnGenerateBarChartActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,14 +92,7 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1018, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(bttnViewDetails, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
-                            .addComponent(bttnGenerateBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1018, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -155,26 +101,20 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnGenerateBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnrefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnrefreshActionPerformed
         // TODO add your handling code here:
-        populateTable();
+//        populateTable();
     }//GEN-LAST:event_bttnrefreshActionPerformed
 
     private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+//        userProcessContainer.remove(this);
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.previous(userProcessContainer);
     }//GEN-LAST:event_bttnBackActionPerformed
 
     private void bttnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnViewDetailsActionPerformed
@@ -182,52 +122,48 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
         int selectedRow = workRequestJTable.getSelectedRow();
 
         if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please make a selection");
+//            JOptionPane.showMessageDialog(null, "Please make a selection");
             return;
         }
 
-        WorkRequest request = (WorkRequest) workRequestJTable.getValueAt(selectedRow, 0);
-        request.setReceiver(userAccount);
+//        WorkRequest request = (WorkRequest) workRequestJTable.getValueAt(selectedRow, 0);
+//        request.setReceiver(userAccount);
         //request.setStatus("Pending");
-        populateTable();
-        ViewCampRequestJPanel viewCamp = new ViewCampRequestJPanel(userProcessContainer, userAccount, business, request, network, enterprise);
-        userProcessContainer.add("ViewCampRequestJPanel", viewCamp);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+//        populateTable();
+//        ViewCampRequestJPanel viewCamp = new ViewCampRequestJPanel(userProcessContainer, userAccount, business, request, network, enterprise);
+//        userProcessContainer.add("ViewCampRequestJPanel", viewCamp);
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.next(userProcessContainer);
     }//GEN-LAST:event_bttnViewDetailsActionPerformed
 
     private void bttnGenerateBarChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnGenerateBarChartActionPerformed
         // TODO add your handling code here:
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+//        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         // dataset.setValue(80, "M", "M");
-        for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+//        for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+//
+//            //System.out.println(e.getName()+ "---" +e.getEnterpriseType().equals(Enterprise.EnterpriseType.Camp));
+//            if (e.getEnterpriseType().equals(Enterprise.EnterpriseType.Camp)) {
+//                CampEnterprise c = (CampEnterprise) e;
+//                System.out.println(c.getName());
+//                System.out.println(c.getPeopleAffected());
+//                if (c.getPeopleAffected() != null) {
+//                    dataset.setValue(Double.parseDouble(c.getPeopleAffected()), "No. of People Affected", c.getName());
+//                }
+//            }
+//
+//        }
 
-            //System.out.println(e.getName()+ "---" +e.getEnterpriseType().equals(Enterprise.EnterpriseType.Camp));
-            if (e.getEnterpriseType().equals(Enterprise.EnterpriseType.Camp)) {
-                CampEnterprise c = (CampEnterprise) e;
-                System.out.println(c.getName());
-                System.out.println(c.getPeopleAffected());
-                if (c.getPeopleAffected() != null) {
-                    dataset.setValue(Double.parseDouble(c.getPeopleAffected()), "No. of People Affected", c.getName());
-                }
-            }
-
-        }
-
-        JFreeChart chart = ChartFactory.createBarChart("People affected respective to Areas", "Camp Name", "No. of People Affected", dataset, PlotOrientation.VERTICAL, false, true, false);
-        CategoryPlot p = chart.getCategoryPlot();
-        p.setRangeGridlinePaint(Color.BLACK);
-        ChartFrame frame = new ChartFrame("Plot for Most Affected People in Different Areas", chart);
-        frame.setVisible(true);
-        frame.setSize(450, 350);
+//        JFreeChart chart = ChartFactory.createBarChart("People affected respective to Areas", "Camp Name", "No. of People Affected", dataset, PlotOrientation.VERTICAL, false, true, false);
+//        CategoryPlot p = chart.getCategoryPlot();
+//        p.setRangeGridlinePaint(Color.BLACK);
+//        ChartFrame frame = new ChartFrame("Plot for Most Affected People in Different Areas", chart);
+//        frame.setVisible(true);
+//        frame.setSize(450, 350);
     }//GEN-LAST:event_bttnGenerateBarChartActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rojerusan.RSMaterialButtonRectangle bttnBack;
-    private rojerusan.RSMaterialButtonRectangle bttnGenerateBarChart;
-    private rojerusan.RSMaterialButtonRectangle bttnViewDetails;
-    private rojerusan.RSMaterialButtonRectangle bttnrefresh;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
