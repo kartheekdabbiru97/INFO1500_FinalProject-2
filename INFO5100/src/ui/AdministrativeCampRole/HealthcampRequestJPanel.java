@@ -167,59 +167,22 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
 
     private void bttnrefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnrefreshActionPerformed
         // TODO add your handling code here:
-        populateTable();
+        
     }//GEN-LAST:event_bttnrefreshActionPerformed
 
     private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        
     }//GEN-LAST:event_bttnBackActionPerformed
 
     private void bttnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnViewDetailsActionPerformed
         // TODO add your handling code here:
-        int selectedRow = workRequestJTable.getSelectedRow();
-
-        if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please make a selection");
-            return;
-        }
-
-        WorkRequest request = (WorkRequest) workRequestJTable.getValueAt(selectedRow, 0);
-        request.setReceiver(userAccount);
-        //request.setStatus("Pending");
-        populateTable();
-        ViewCampRequestJPanel viewCamp = new ViewCampRequestJPanel(userProcessContainer, userAccount, business, request, network, enterprise);
-        userProcessContainer.add("ViewCampRequestJPanel", viewCamp);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        
     }//GEN-LAST:event_bttnViewDetailsActionPerformed
 
     private void bttnGenerateBarChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnGenerateBarChartActionPerformed
         // TODO add your handling code here:
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        // dataset.setValue(80, "M", "M");
-        for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
-
-            //System.out.println(e.getName()+ "---" +e.getEnterpriseType().equals(Enterprise.EnterpriseType.Camp));
-            if (e.getEnterpriseType().equals(Enterprise.EnterpriseType.Camp)) {
-                CampEnterprise c = (CampEnterprise) e;
-                System.out.println(c.getName());
-                System.out.println(c.getPeopleAffected());
-                if (c.getPeopleAffected() != null) {
-                    dataset.setValue(Double.parseDouble(c.getPeopleAffected()), "No. of People Affected", c.getName());
-                }
-            }
-
-        }
-
-        JFreeChart chart = ChartFactory.createBarChart("People affected respective to Areas", "Camp Name", "No. of People Affected", dataset, PlotOrientation.VERTICAL, false, true, false);
-        CategoryPlot p = chart.getCategoryPlot();
-        p.setRangeGridlinePaint(Color.BLACK);
-        ChartFrame frame = new ChartFrame("Plot for Most Affected People in Different Areas", chart);
-        frame.setVisible(true);
-        frame.setSize(450, 350);
+        
     }//GEN-LAST:event_bttnGenerateBarChartActionPerformed
 
 
