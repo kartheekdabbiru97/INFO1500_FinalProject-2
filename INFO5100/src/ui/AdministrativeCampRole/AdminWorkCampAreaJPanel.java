@@ -55,7 +55,7 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
         bttnVolunteerApproval = new rojerusan.RSMaterialButtonRectangle();
         bttnHealthCampRequest = new rojerusan.RSMaterialButtonRectangle();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(232, 243, 255));
 
         jPanel1.setBackground(new java.awt.Color(15, 19, 52));
 
