@@ -49,11 +49,6 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         enterpriseLabel1 = new javax.swing.JLabel();
         valueLabel1 = new javax.swing.JLabel();
-        bttnManageOrganization = new rojerusan.RSMaterialButtonRectangle();
-        bttnManageUser = new rojerusan.RSMaterialButtonRectangle();
-        bttnManageEmployee1 = new rojerusan.RSMaterialButtonRectangle();
-        bttnVolunteerApproval = new rojerusan.RSMaterialButtonRectangle();
-        bttnHealthCampRequest = new rojerusan.RSMaterialButtonRectangle();
 
         setBackground(new java.awt.Color(232, 243, 255));
 
@@ -83,7 +78,7 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
                         .addComponent(enterpriseLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(valueLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,115 +92,41 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        bttnManageOrganization.setBackground(new java.awt.Color(15, 19, 52));
-        bttnManageOrganization.setText("Manage Organization");
-        bttnManageOrganization.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnManageOrganization.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnManageOrganizationActionPerformed(evt);
-            }
-        });
-
-        bttnManageUser.setBackground(new java.awt.Color(15, 19, 52));
-        bttnManageUser.setText("Manage User");
-        bttnManageUser.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnManageUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnManageUserActionPerformed(evt);
-            }
-        });
-
-        bttnManageEmployee1.setBackground(new java.awt.Color(15, 19, 52));
-        bttnManageEmployee1.setText("Manage Employee");
-        bttnManageEmployee1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnManageEmployee1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnManageEmployee1ActionPerformed(evt);
-            }
-        });
-
-        bttnVolunteerApproval.setBackground(new java.awt.Color(15, 19, 52));
-        bttnVolunteerApproval.setText("Volunteer Approval");
-        bttnVolunteerApproval.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnVolunteerApproval.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnVolunteerApprovalActionPerformed(evt);
-            }
-        });
-
-        bttnHealthCampRequest.setBackground(new java.awt.Color(15, 19, 52));
-        bttnHealthCampRequest.setText("Health Camp Request");
-        bttnHealthCampRequest.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnHealthCampRequest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnHealthCampRequestActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(321, 321, 321)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bttnHealthCampRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnVolunteerApproval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnManageEmployee1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(375, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(bttnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnManageEmployee1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnVolunteerApproval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnHealthCampRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganizationActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_bttnManageOrganizationActionPerformed
 
     private void bttnManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageUserActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_bttnManageUserActionPerformed
 
     private void bttnManageEmployee1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageEmployee1ActionPerformed
         // TODO add your handling code here:
-       
     }//GEN-LAST:event_bttnManageEmployee1ActionPerformed
 
     private void bttnVolunteerApprovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnVolunteerApprovalActionPerformed
         // TODO add your handling code here:
-       
     }//GEN-LAST:event_bttnVolunteerApprovalActionPerformed
 
     private void bttnHealthCampRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnHealthCampRequestActionPerformed
         // TODO add your handling code here:
-       
     }//GEN-LAST:event_bttnHealthCampRequestActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rojerusan.RSMaterialButtonRectangle bttnHealthCampRequest;
-    private rojerusan.RSMaterialButtonRectangle bttnManageEmployee1;
-    private rojerusan.RSMaterialButtonRectangle bttnManageOrganization;
-    private rojerusan.RSMaterialButtonRectangle bttnManageUser;
-    private rojerusan.RSMaterialButtonRectangle bttnVolunteerApproval;
     private javax.swing.JLabel enterpriseLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
