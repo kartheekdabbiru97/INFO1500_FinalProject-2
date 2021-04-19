@@ -50,7 +50,7 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel1 = new javax.swing.JLabel();
         valueLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(232, 243, 255));
 
         jPanel1.setBackground(new java.awt.Color(15, 19, 52));
 
@@ -108,42 +108,22 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
 
     private void bttnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganizationActionPerformed
         // TODO add your handling code here:
-//        ManageOrganizationJPanel manageOrganizationJPanel = new ManageOrganizationJPanel(userProcessContainer, enterprise);
-//        userProcessContainer.add("manageOrganizationJPanel", manageOrganizationJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
     }//GEN-LAST:event_bttnManageOrganizationActionPerformed
 
     private void bttnManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageUserActionPerformed
         // TODO add your handling code here:
-//        ManageUserAccountJPanel manageUserAccountJPanel = new ManageUserAccountJPanel(userProcessContainer, enterprise);
-//        userProcessContainer.add("ManageUserAccountJPanel", manageUserAccountJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
     }//GEN-LAST:event_bttnManageUserActionPerformed
 
     private void bttnManageEmployee1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageEmployee1ActionPerformed
         // TODO add your handling code here:
-//        ManageEmployeeJPanel manageEmployeeJPanel = new ManageEmployeeJPanel(userProcessContainer, enterprise);
-//        userProcessContainer.add("manageEmployeeJPanel", manageEmployeeJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
     }//GEN-LAST:event_bttnManageEmployee1ActionPerformed
 
     private void bttnVolunteerApprovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnVolunteerApprovalActionPerformed
         // TODO add your handling code here:
-//        VolunteerCampApprovalJPanel volunteerApprovalJPanel = new VolunteerCampApprovalJPanel(userProcessContainer, enterprise, account);
-//        userProcessContainer.add("VolunteerApprovalJPanel", volunteerApprovalJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
     }//GEN-LAST:event_bttnVolunteerApprovalActionPerformed
 
     private void bttnHealthCampRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnHealthCampRequestActionPerformed
         // TODO add your handling code here:
-//        HealthcampRequestJPanel HealthcampRequestJPanel = new HealthcampRequestJPanel(userProcessContainer, account, ecosystem,network,enterprise);
-//        userProcessContainer.add("HealthcampRequestJPanel", HealthcampRequestJPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
     }//GEN-LAST:event_bttnHealthCampRequestActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

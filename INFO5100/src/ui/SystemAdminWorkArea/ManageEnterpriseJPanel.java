@@ -51,16 +51,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     }
 
     private void populateComboBox() {
-        networkJComboBox.removeAllItems();
-        enterpriseTypeJComboBox.removeAllItems();
-
-        for (Network network : system.getNetworkList()) {
-            networkJComboBox.addItem(network);
-        }
-
-        for (Enterprise.EnterpriseType type : Enterprise.EnterpriseType.values()) {
-            enterpriseTypeJComboBox.addItem(type);
-        }
+        
 
     }
 
@@ -76,13 +67,19 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         enterpriseJTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        networkJComboBox = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
-        nameJTextField = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        enterpriseTypeJComboBox = new javax.swing.JComboBox();
-        submitJButton = new javax.swing.JButton();
-        backJButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        comboNetwork = new rojerusan.RSComboMetro();
+        comboEnterprise = new rojerusan.RSComboMetro();
+        bttnBack = new rojerusan.RSMaterialButtonRectangle();
+        bttnSubmit = new rojerusan.RSMaterialButtonRectangle();
+        bttnDelete = new rojerusan.RSMaterialButtonRectangle();
+        bttnUpdate = new rojerusan.RSMaterialButtonRectangle();
+
+        setBackground(new java.awt.Color(232, 243, 255));
 
         enterpriseJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,29 +100,89 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        enterpriseJTable.setSelectionBackground(new java.awt.Color(15, 19, 52));
         jScrollPane1.setViewportView(enterpriseJTable);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Network");
 
-        networkJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Name");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Enterprise Type");
 
-        enterpriseTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
 
-        submitJButton.setText("Submit");
-        submitJButton.addActionListener(new java.awt.event.ActionListener() {
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("WELCOME TO ENTERPRISE");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+
+        comboNetwork.setBackground(new java.awt.Color(15, 19, 52));
+        comboNetwork.setColorArrow(new java.awt.Color(15, 19, 52));
+        comboNetwork.setColorBorde(new java.awt.Color(15, 19, 52));
+        comboNetwork.setColorFondo(new java.awt.Color(15, 19, 52));
+        comboNetwork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitJButtonActionPerformed(evt);
+                comboNetworkActionPerformed(evt);
             }
         });
 
-        backJButton.setText("<< Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
+        comboEnterprise.setBackground(new java.awt.Color(15, 19, 52));
+        comboEnterprise.setColorArrow(new java.awt.Color(15, 19, 52));
+        comboEnterprise.setColorBorde(new java.awt.Color(15, 19, 52));
+        comboEnterprise.setColorFondo(new java.awt.Color(15, 19, 52));
+
+        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
+        bttnBack.setText("Back");
+        bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
+                bttnBackActionPerformed(evt);
+            }
+        });
+
+        bttnSubmit.setBackground(new java.awt.Color(15, 19, 52));
+        bttnSubmit.setText("Submit");
+        bttnSubmit.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnSubmitActionPerformed(evt);
+            }
+        });
+
+        bttnDelete.setBackground(new java.awt.Color(15, 19, 52));
+        bttnDelete.setText("Delete");
+        bttnDelete.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnDeleteActionPerformed(evt);
+            }
+        });
+
+        bttnUpdate.setBackground(new java.awt.Color(15, 19, 52));
+        bttnUpdate.setText("Update");
+        bttnUpdate.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnUpdateActionPerformed(evt);
             }
         });
 
@@ -133,94 +190,97 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(88, 88, 88)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3))
-                            .addGap(52, 52, 52)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(networkJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(enterpriseTypeJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(39, 39, 39)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(backJButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(submitJButton)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bttnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bttnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bttnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(comboNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                    .addComponent(comboEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(networkJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                    .addComponent(comboNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(enterpriseTypeJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(comboEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitJButton)
-                    .addComponent(backJButton))
-                .addContainerGap(57, Short.MAX_VALUE))
+                    .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
+    private void comboNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNetworkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboNetworkActionPerformed
 
-        Network network = (Network) networkJComboBox.getSelectedItem();
-        Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) enterpriseTypeJComboBox.getSelectedItem();
+    private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnBackActionPerformed
 
-        if (network == null || type == null) {
-            JOptionPane.showMessageDialog(null, "Invalid Input!");
-            return;
-        }
+    private void bttnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnSubmitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnSubmitActionPerformed
 
-        String name = nameJTextField.getText();
+    private void bttnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnDeleteActionPerformed
 
-        Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type);
-
-        populateTable();
-
-    }//GEN-LAST:event_submitJButtonActionPerformed
-
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-        userProcessContainer.remove(this);
-         Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
-        sysAdminwjp.populateTree();
-
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
+    private void bttnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnUpdateActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backJButton;
+    private rojerusan.RSMaterialButtonRectangle bttnBack;
+    private rojerusan.RSMaterialButtonRectangle bttnDelete;
+    private rojerusan.RSMaterialButtonRectangle bttnSubmit;
+    private rojerusan.RSMaterialButtonRectangle bttnUpdate;
+    private rojerusan.RSComboMetro comboEnterprise;
+    private rojerusan.RSComboMetro comboNetwork;
     private javax.swing.JTable enterpriseJTable;
-    private javax.swing.JComboBox enterpriseTypeJComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField nameJTextField;
-    private javax.swing.JComboBox networkJComboBox;
-    private javax.swing.JButton submitJButton;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }
