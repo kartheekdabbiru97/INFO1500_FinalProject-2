@@ -35,7 +35,7 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         workRequestJTable = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(232, 243, 255));
 
         jPanel1.setBackground(new java.awt.Color(15, 19, 52));
 

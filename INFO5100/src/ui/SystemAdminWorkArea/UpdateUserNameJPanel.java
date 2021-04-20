@@ -31,7 +31,6 @@ public class UpdateUserNameJPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        usernameJTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         comboNetwork = new rojerusan.RSComboMetro();
@@ -39,6 +38,7 @@ public class UpdateUserNameJPanel extends javax.swing.JPanel {
         comboEnterprise = new rojerusan.RSComboMetro();
         bttnSave = new rojerusan.RSMaterialButtonRectangle();
         bttnCancel = new rojerusan.RSMaterialButtonRectangle();
+        txtUserName = new rojerusan.RSMetroTextPlaceHolder();
 
         setBackground(new java.awt.Color(232, 243, 255));
 
@@ -125,6 +125,11 @@ public class UpdateUserNameJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtUserName.setForeground(new java.awt.Color(15, 19, 52));
+        txtUserName.setToolTipText("");
+        txtUserName.setBorderColor(new java.awt.Color(15, 19, 52));
+        txtUserName.setBotonColor(new java.awt.Color(15, 19, 52));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -148,7 +153,7 @@ public class UpdateUserNameJPanel extends javax.swing.JPanel {
                             .addComponent(comboNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
                             .addComponent(comboEnterpriseType, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
                             .addComponent(comboEnterprise, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                            .addComponent(usernameJTextField))))
+                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -170,7 +175,7 @@ public class UpdateUserNameJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(usernameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bttnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -212,6 +217,6 @@ public class UpdateUserNameJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField usernameJTextField;
+    private rojerusan.RSMetroTextPlaceHolder txtUserName;
     // End of variables declaration//GEN-END:variables
 }
