@@ -41,7 +41,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         bttnCreateEmployee = new rojerusan.RSMaterialButtonRectangle();
         bttnDeleteEmployee = new rojerusan.RSMaterialButtonRectangle();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(232, 243, 255));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Organization Name:");

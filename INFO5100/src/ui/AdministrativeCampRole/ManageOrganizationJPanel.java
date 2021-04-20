@@ -37,7 +37,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         bttnAddOrganization = new rojerusan.RSMaterialButtonRectangle();
         bttnDeleteOrganization = new rojerusan.RSMaterialButtonRectangle();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(232, 243, 255));
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

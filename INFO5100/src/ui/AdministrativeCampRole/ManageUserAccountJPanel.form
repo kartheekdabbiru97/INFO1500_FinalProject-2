@@ -31,7 +31,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+      <Color blue="ff" green="f3" red="e8" type="rgb"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -63,30 +63,20 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="cmboOrganization" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cmboOrganization1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cmboOrganization2" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="3" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="cmboOrganization" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmboOrganization1" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmboOrganization2" min="-2" max="-2" attributes="0"/>
                           <Component id="passwordJTextField" min="-2" pref="209" max="-2" attributes="0"/>
                           <Component id="nameJTextField" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" alignment="0" min="-2" pref="670" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="bttnBack" min="-2" pref="132" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="bttnCreateUser" min="-2" pref="240" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                              <Component id="bttnDeleteUser" min="-2" pref="240" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" alignment="0" min="-2" pref="670" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="bttnBack" min="-2" pref="132" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="bttnCreateUser" min="-2" pref="240" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                      <Component id="bttnDeleteUser" min="-2" pref="240" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
