@@ -23,15 +23,15 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="321" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="bttnHealthCampRequest" min="-2" max="-2" attributes="0"/>
-                  <Component id="bttnVolunteerApproval" min="-2" max="-2" attributes="0"/>
-                  <Component id="bttnManageUser" min="-2" max="-2" attributes="0"/>
-                  <Component id="bttnManageEmployee1" min="-2" max="-2" attributes="0"/>
-                  <Component id="bttnManageOrganization" min="-2" max="-2" attributes="0"/>
+                  <Component id="bttnVolunteerApprovalCopy" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="bttnManageUserCopy" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="bttnManageEmployeeCopy" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="bttnManageOrganizationCopy" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="bttnHealthCampRequestCopy" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="375" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -40,16 +40,16 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="bttnManageOrganization" min="-2" max="-2" attributes="0"/>
+              <Component id="bttnManageOrganizationCopy" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="bttnManageEmployee1" min="-2" max="-2" attributes="0"/>
+              <Component id="bttnManageEmployeeCopy" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="bttnManageUser" min="-2" max="-2" attributes="0"/>
+              <Component id="bttnManageUserCopy" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="bttnVolunteerApproval" min="-2" max="-2" attributes="0"/>
+              <Component id="bttnVolunteerApprovalCopy" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="bttnHealthCampRequest" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="97" max="32767" attributes="0"/>
+              <Component id="bttnHealthCampRequestCopy" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="82" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -75,7 +75,7 @@
                           <Component id="valueLabel1" min="-2" pref="300" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="252" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -132,35 +132,21 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="rojerusan.RSMaterialButtonRectangle" name="bttnManageOrganization">
+    <Component class="rojerusan.RSMaterialButtonRectangle" name="bttnManageOrganizationCopy">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="34" green="13" red="f" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Manage Organization"/>
+        <Property name="text" type="java.lang.String" value="manage organization"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto Medium" size="18" style="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnManageOrganizationActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnManageOrganizationCopyActionPerformed"/>
       </Events>
     </Component>
-    <Component class="rojerusan.RSMaterialButtonRectangle" name="bttnManageUser">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="34" green="13" red="f" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Manage User"/>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Roboto Medium" size="18" style="0"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnManageUserActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="rojerusan.RSMaterialButtonRectangle" name="bttnManageEmployee1">
+    <Component class="rojerusan.RSMaterialButtonRectangle" name="bttnManageEmployeeCopy">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="34" green="13" red="f" type="rgb"/>
@@ -171,10 +157,24 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnManageEmployee1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnManageEmployeeCopyActionPerformed"/>
       </Events>
     </Component>
-    <Component class="rojerusan.RSMaterialButtonRectangle" name="bttnVolunteerApproval">
+    <Component class="rojerusan.RSMaterialButtonRectangle" name="bttnManageUserCopy">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="34" green="13" red="f" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Manage User"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Roboto Medium" size="18" style="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnManageUserCopyActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="rojerusan.RSMaterialButtonRectangle" name="bttnVolunteerApprovalCopy">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="34" green="13" red="f" type="rgb"/>
@@ -185,10 +185,10 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnVolunteerApprovalActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnVolunteerApprovalCopyActionPerformed"/>
       </Events>
     </Component>
-    <Component class="rojerusan.RSMaterialButtonRectangle" name="bttnHealthCampRequest">
+    <Component class="rojerusan.RSMaterialButtonRectangle" name="bttnHealthCampRequestCopy">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="34" green="13" red="f" type="rgb"/>
@@ -199,7 +199,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnHealthCampRequestActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnHealthCampRequestCopyActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

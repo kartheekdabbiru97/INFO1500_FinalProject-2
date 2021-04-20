@@ -32,12 +32,12 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        bttnrefresh = new rojerusan.RSMaterialButtonRectangle();
+        bttnRefresh = new rojerusan.RSMaterialButtonRectangle();
         jScrollPane1 = new javax.swing.JScrollPane();
         workRequestJTable = new javax.swing.JTable();
         bttnBack = new rojerusan.RSMaterialButtonRectangle();
-        bttnViewDetails = new rojerusan.RSMaterialButtonRectangle();
         bttnGenerateBarChart = new rojerusan.RSMaterialButtonRectangle();
+        bttnViewDetailsCopy = new rojerusan.RSMaterialButtonRectangle();
 
         setBackground(new java.awt.Color(232, 243, 255));
 
@@ -45,15 +45,15 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("HEALTH CAMP REQUEST PANEL");
+        jLabel7.setText("HEALTH CAMP REQUEST");
 
-        bttnrefresh.setBackground(new java.awt.Color(255, 255, 255));
-        bttnrefresh.setForeground(new java.awt.Color(0, 0, 0));
-        bttnrefresh.setText("Refresh");
-        bttnrefresh.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnrefresh.addActionListener(new java.awt.event.ActionListener() {
+        bttnRefresh.setBackground(new java.awt.Color(255, 255, 255));
+        bttnRefresh.setForeground(new java.awt.Color(15, 19, 52));
+        bttnRefresh.setText("Refresh");
+        bttnRefresh.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnrefreshActionPerformed(evt);
+                bttnRefreshActionPerformed(evt);
             }
         });
 
@@ -64,10 +64,10 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(618, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bttnrefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bttnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -75,8 +75,8 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(bttnrefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(bttnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -103,6 +103,7 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        workRequestJTable.setSelectionBackground(new java.awt.Color(15, 19, 52));
         jScrollPane1.setViewportView(workRequestJTable);
 
         bttnBack.setBackground(new java.awt.Color(15, 19, 52));
@@ -111,15 +112,6 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
         bttnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttnBackActionPerformed(evt);
-            }
-        });
-
-        bttnViewDetails.setBackground(new java.awt.Color(15, 19, 52));
-        bttnViewDetails.setText("View Details");
-        bttnViewDetails.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnViewDetails.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnViewDetailsActionPerformed(evt);
             }
         });
 
@@ -132,6 +124,15 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
             }
         });
 
+        bttnViewDetailsCopy.setBackground(new java.awt.Color(15, 19, 52));
+        bttnViewDetailsCopy.setText("View Details");
+        bttnViewDetailsCopy.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnViewDetailsCopy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnViewDetailsCopyActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,13 +141,13 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1018, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1022, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(bttnViewDetails, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
-                            .addComponent(bttnGenerateBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bttnGenerateBarChart, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bttnViewDetailsCopy, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -158,39 +159,46 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bttnViewDetailsCopy, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bttnGenerateBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnrefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnrefreshActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_bttnrefreshActionPerformed
 
     private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_bttnBackActionPerformed
 
-    private void bttnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnViewDetailsActionPerformed
+    private void bttnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttanApproveActionPerformed
         // TODO add your handling code here:
+        //Donot write anything here, can't delete this
         
-    }//GEN-LAST:event_bttnViewDetailsActionPerformed
+    }//GEN-LAST:event_bttanApproveActionPerformed
+
+    private void bttnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRefreshActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnRefreshActionPerformed
 
     private void bttnGenerateBarChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnGenerateBarChartActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_bttnGenerateBarChartActionPerformed
+
+    private void bttnViewDetailsCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnViewDetailsCopyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnViewDetailsCopyActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojerusan.RSMaterialButtonRectangle bttnBack;
     private rojerusan.RSMaterialButtonRectangle bttnGenerateBarChart;
-    private rojerusan.RSMaterialButtonRectangle bttnViewDetails;
-    private rojerusan.RSMaterialButtonRectangle bttnrefresh;
+    private rojerusan.RSMaterialButtonRectangle bttnRefresh;
+    private rojerusan.RSMaterialButtonRectangle bttnViewDetailsCopy;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
