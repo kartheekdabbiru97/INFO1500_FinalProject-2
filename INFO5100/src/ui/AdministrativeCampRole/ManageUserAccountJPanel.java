@@ -39,8 +39,8 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         cmboOrganization = new rojerusan.RSComboMetro();
         jScrollPane2 = new javax.swing.JScrollPane();
         userJTable1 = new javax.swing.JTable();
-        cmboOrganization1 = new rojerusan.RSComboMetro();
-        cmboOrganization2 = new rojerusan.RSComboMetro();
+        cmboEmployee = new rojerusan.RSComboMetro();
+        cmboRole = new rojerusan.RSComboMetro();
         bttnBack = new rojerusan.RSMaterialButtonRectangle();
         bttnCreateUser = new rojerusan.RSMaterialButtonRectangle();
         bttnDeleteUser = new rojerusan.RSMaterialButtonRectangle();
@@ -144,15 +144,15 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         userJTable1.setSelectionBackground(new java.awt.Color(15, 19, 52));
         jScrollPane2.setViewportView(userJTable1);
 
-        cmboOrganization1.setBackground(new java.awt.Color(15, 19, 52));
-        cmboOrganization1.setColorArrow(new java.awt.Color(15, 19, 52));
-        cmboOrganization1.setColorBorde(new java.awt.Color(15, 19, 52));
-        cmboOrganization1.setColorFondo(new java.awt.Color(15, 19, 52));
+        cmboEmployee.setBackground(new java.awt.Color(15, 19, 52));
+        cmboEmployee.setColorArrow(new java.awt.Color(15, 19, 52));
+        cmboEmployee.setColorBorde(new java.awt.Color(15, 19, 52));
+        cmboEmployee.setColorFondo(new java.awt.Color(15, 19, 52));
 
-        cmboOrganization2.setBackground(new java.awt.Color(15, 19, 52));
-        cmboOrganization2.setColorArrow(new java.awt.Color(15, 19, 52));
-        cmboOrganization2.setColorBorde(new java.awt.Color(15, 19, 52));
-        cmboOrganization2.setColorFondo(new java.awt.Color(15, 19, 52));
+        cmboRole.setBackground(new java.awt.Color(15, 19, 52));
+        cmboRole.setColorArrow(new java.awt.Color(15, 19, 52));
+        cmboRole.setColorBorde(new java.awt.Color(15, 19, 52));
+        cmboRole.setColorFondo(new java.awt.Color(15, 19, 52));
 
         bttnBack.setBackground(new java.awt.Color(15, 19, 52));
         bttnBack.setText("Back");
@@ -218,8 +218,8 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel2))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(cmboOrganization1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cmboOrganization2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmboEmployee, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmboRole, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtUserName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                                     .addComponent(cmboOrganization, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(rSPasswordTextPlaceHolder1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -240,11 +240,11 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(cmboOrganization1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmboEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(cmboOrganization2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmboRole, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -280,9 +280,9 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     private rojerusan.RSMaterialButtonRectangle bttnBack;
     private rojerusan.RSMaterialButtonRectangle bttnCreateUser;
     private rojerusan.RSMaterialButtonRectangle bttnDeleteUser;
+    private rojerusan.RSComboMetro cmboEmployee;
     private rojerusan.RSComboMetro cmboOrganization;
-    private rojerusan.RSComboMetro cmboOrganization1;
-    private rojerusan.RSComboMetro cmboOrganization2;
+    private rojerusan.RSComboMetro cmboRole;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
