@@ -55,6 +55,7 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
         bttnVolunteerApprovalCopy = new rojerusan.RSMaterialButtonRectangle();
         bttnHealthCampRequestCopy = new rojerusan.RSMaterialButtonRectangle();
 
+
         setBackground(new java.awt.Color(232, 243, 255));
 
         jPanel1.setBackground(new java.awt.Color(15, 19, 52));
@@ -172,6 +173,7 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bttnHealthCampRequestCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(82, Short.MAX_VALUE))
+
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -188,6 +190,7 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
     private void bttnManageEmployee1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageEmployee1ActionPerformed
         // TODO add your handling code here:
         //Donot Write here, can't delete this
+
     }//GEN-LAST:event_bttnManageEmployee1ActionPerformed
 
     private void bttnVolunteerApprovalCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnVolunteerApprovalCopyActionPerformed
@@ -216,6 +219,7 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_bttnPatientFundRequestActionPerformed
 
+
     private void bttnHealthCampRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnPayPatientBillsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bttnPayPatientBillsActionPerformed
@@ -226,6 +230,7 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
     private rojerusan.RSMaterialButtonRectangle bttnManageOrganizationCopy;
     private rojerusan.RSMaterialButtonRectangle bttnManageUserCopy;
     private rojerusan.RSMaterialButtonRectangle bttnVolunteerApprovalCopy;
+
     private javax.swing.JLabel enterpriseLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
