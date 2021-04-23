@@ -5,17 +5,70 @@
  */
 package ui.AdministrativeCampRole;
 
+import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
+import Business.Role.Role;
+import Business.SendMailUsingAuthentication;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import javax.mail.*;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Shreya Vivek Bhosale
  */
 public class VolunteerCampApprovalJPanel extends javax.swing.JPanel {
 
+    private Enterprise enterprise;
+    private JPanel userProcessContainer;
+    private UserAccount userAccount;
+    private static String emailMsgTxt = "";
+    private static String emailSubjectTxt = "";
+    private static String emailFromAddress = "";
+// Add List of Email address to who email needs to be sent to
+    private static String[] emailList = new String[1];
+
     /**
-     * Creates new form VolunteerCampRequestJPanel
+     * Creates new form VolunteerAprovalJPanel
      */
-    public VolunteerCampApprovalJPanel() {
+    public VolunteerCampApprovalJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount account) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.enterprise = enterprise;
+        this.userAccount = account;
+        valueLabel.setText(enterprise.getName());
+        populateRequestTable();
+    }
+
+    public void populateRequestTable() {
+        DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
+
+        model.setRowCount(0);
+        for (WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()) {
+            if (request.toString().equals("Volunteer")) {
+                Object[] row = new Object[8];
+                row[0] = request;
+                row[1] = request.getVolunteerName();
+                row[2] = request.getUsername();
+                row[3] = request.getDob();
+                row[4] = request.getSsn();
+                row[5] = request.getMailid();
+                row[6] = request.getRole();
+                row[7] = request.getStatus();
+
+                //String result = ((VolunteerApprovalStatus) request).getTestResult();
+                // row[3] = result == null ? "Waiting" : result;
+                model.addRow(row);
+            }
+        }
     }
 
     /**
@@ -170,15 +223,101 @@ public class VolunteerCampApprovalJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
-        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_bttnBackActionPerformed
 
     private void bttanApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttanApproveActionPerformed
-        // TODO add your handling code here:
+        int selectedRow = workRequestJTable.getSelectedRow();
+
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please make a selection");
+            return;
+        }
+        WorkRequest request = (WorkRequest) workRequestJTable.getValueAt(selectedRow, 0);
+        if (request.getStatus().equals("Completed")) {
+            JOptionPane.showMessageDialog(null, "Already in completed state!");
+        }
+        Employee employee = null;
+        Role role = null;
+        for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            //System.out.println(request.getRole().equals(org.getOrganType().VolunteerCamp.toString()));
+            //System.out.println(request.getRole());
+            //System.out.println(request.getRole().equals("VolunteerCampRole"));
+            if (request.getRole().equals("VolunteerCampRole")) {
+                org.getEmployeeDirectory().createEmployee(request.getVolunteerName());
+                for (Employee e : org.getEmployeeDirectory().getEmployeeList()) {
+                    if (request.getVolunteerName() == e.getName()) {
+                        employee = e;
+                    }
+                    for (Role r : org.getSupportedRole()) {
+                        //System.out.println(r);
+                        if (request.getRole().equals("VolunteerCampRole")) {
+                            role = r;
+                        }
+                    }
+                }
+                org.getUserAccountDirectory().createUserAccount(request.getUsername(), request.getPassword(), employee, role);
+                break;
+            } else if (request.getRole().equals("VolunteerEventRole")) {
+                if (org.toString().equals("Event Organization")) {
+                    org.getEmployeeDirectory().createEmployee(request.getVolunteerName());
+                    for (Employee e : org.getEmployeeDirectory().getEmployeeList()) {
+                        if (request.getVolunteerName() == e.getName()) {
+                            employee = e;
+                        }
+
+                        for (Role r : org.getSupportedRole()) {
+                            if (r.toString().equals("VolunteerEventRole")) {
+                                role = r;
+                            }
+                        }
+                    }
+                    org.getUserAccountDirectory().createUserAccount(request.getUsername(), request.getPassword(), employee, role);
+                }
+            }
+        }
+        request.setStatus("Completed");
+        populateRequestTable();
+        if (request.getStatus().equals("Completed")) {
+
+            // System.out.println("Mail Begins");
+            String ab = request.getVolunteerName();
+            emailMsgTxt = "Hi " + ab.toUpperCase() + ", " + "\n" + "\n" + "Your User Account has been Created. You may login into the system now!" + "\n" + "\n" + "Regards," + "\n" + "NGO Admin";
+            emailSubjectTxt = "Volunteer Request Approved";
+            emailFromAddress = SendMailUsingAuthentication.SMTP_AUTH_USER;
+
+            // Add List of Email address to who email needs to be sent to
+            StringBuffer sb = new StringBuffer(request.getMailid());
+            StringTokenizer st = new StringTokenizer(request.getMailid());
+            int i = 0;
+            while (st.hasMoreTokens()) {
+                emailList[i] = st.nextToken(",");
+                // System.err.println(emailList[i]);
+                i++;
+            }
+            String emailReceipeint[] = new String[i];
+            for (int j = 0; j < i; j++) {
+                emailReceipeint[j] = emailList[j];
+                //System.out.println("Actually emails are " + j);
+            }
+
+            SendMailUsingAuthentication smtpMailSender = new SendMailUsingAuthentication();
+            try {
+                smtpMailSender.postMail(emailReceipeint, emailSubjectTxt, emailMsgTxt, emailFromAddress);
+                JOptionPane.showMessageDialog(null, "Request Approved and mail has been sent to Volunteer. Volunteer can request for Health Camp now!");
+            } catch (MessagingException ex) {
+                //    Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("Exception");
+            }
+            //  System.out.println("Sucessfully Sent mail to All Users");
+
+        }
     }//GEN-LAST:event_bttanApproveActionPerformed
 
     private void bttnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRefreshActionPerformed
-        // TODO add your handling code here:
+        populateRequestTable();
     }//GEN-LAST:event_bttnRefreshActionPerformed
 
 

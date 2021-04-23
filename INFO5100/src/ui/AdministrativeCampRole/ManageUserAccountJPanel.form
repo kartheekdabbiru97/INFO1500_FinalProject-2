@@ -75,7 +75,7 @@
                                   <Component id="cmboRole" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtUserName" alignment="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="cmboOrganization" max="32767" attributes="0"/>
-                                  <Component id="rSPasswordTextPlaceHolder1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -115,7 +115,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="rSPasswordTextPlaceHolder1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="txtPassword" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -226,6 +226,9 @@
           <Color blue="34" green="13" red="f" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmboOrganizationActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>
@@ -341,7 +344,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="rojerusan.RSPasswordTextPlaceHolder" name="rSPasswordTextPlaceHolder1">
+    <Component class="rojerusan.RSPasswordTextPlaceHolder" name="txtPassword">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
@@ -363,9 +366,6 @@
         </Property>
         <Property name="phColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="34" green="13" red="f" type="rgb"/>
-        </Property>
-        <Property name="selectedTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="selectionColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="34" green="13" red="f" type="rgb"/>

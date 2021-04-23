@@ -5,17 +5,75 @@
  */
 package ui.AdministrativeCampRole;
 
+import Business.Enterprise.Enterprise;
+import Business.Enterprise.Enterprise.EnterpriseType;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.Organization.Organization.OrganizationType;
+import Business.Organization.OrganizationDirectory;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Shreya Vivek Bhosale
  */
 public class ManageOrganizationJPanel extends javax.swing.JPanel {
 
+    private Enterprise enterprise;
+    private JPanel userProcessContainer;
+    private OrganizationDirectory directory;
+
     /**
      * Creates new form ManageOrganizationJPanel
      */
-    public ManageOrganizationJPanel() {
+    public ManageOrganizationJPanel(JPanel userProcessContainer, Enterprise enterprise) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.enterprise = enterprise;
+        populateTable();
+        populateCombo();
+    }
+
+    private void populateCombo() {
+        cmboOrganizationType.removeAllItems();
+        //System.out.println(enterprise.getEnterpriseType() == EnterpriseType.Hospital);
+        //System.out.println(enterprise.getEnterpriseType().equals("Hospital"));
+        if (enterprise.getEnterpriseType() == EnterpriseType.Hospital) {
+            for (OrganizationType type : Organization.OrganizationType.values()) {
+                if ((type.getValue().equals(OrganizationType.Doctor.getValue())) || (type.getValue().equals(OrganizationType.Lab.getValue())) || (type.getValue().equals(OrganizationType.Nurse.getValue()))) {
+                    cmboOrganizationType.addItem(type);
+                }
+            }
+        } else if (enterprise.getEnterpriseType() == EnterpriseType.Event) {
+            for (OrganizationType type : Organization.OrganizationType.values()) {
+                if ((type.getValue().equals(OrganizationType.Fund.getValue())) || (type.getValue().equals(OrganizationType.VolunteerEvent.getValue()))) {
+                    cmboOrganizationType.addItem(type);
+                }
+            }
+        } else if (enterprise.getEnterpriseType() == EnterpriseType.Camp) {
+            for (OrganizationType type : Organization.OrganizationType.values()) {
+                if ((type.getValue().equals(OrganizationType.VolunteerCamp.getValue()))) {
+                    cmboOrganizationType.addItem(type);
+                }
+            }
+        }
+    }
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) organizationJTable.getModel();
+
+        model.setRowCount(0);
+
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            Object[] row = new Object[2];
+            row[0] = organization.getOrganizationID();
+            row[1] = organization;
+
+            model.addRow(row);
+        }
     }
 
     /**
@@ -164,15 +222,32 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
-        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_bttnBackActionPerformed
 
     private void bttnAddOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAddOrganizationActionPerformed
-        // TODO add your handling code here:
+        OrganizationType type = (OrganizationType) cmboOrganizationType.getSelectedItem();
+        enterprise.getOrganizationDirectory().createOrganization(type);
+        populateTable();
+        JOptionPane.showMessageDialog(null, "An Organization has been added successfully");
     }//GEN-LAST:event_bttnAddOrganizationActionPerformed
 
     private void bttnDeleteOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnDeleteOrganizationActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) organizationJTable.getModel();
+        int selectedRow = organizationJTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                Organization organization = (Organization) organizationJTable.getValueAt(selectedRow, 1);
+                enterprise.getOrganizationDirectory().removeOrganization(organization);
+                populateTable();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row");
+        }
     }//GEN-LAST:event_bttnDeleteOrganizationActionPerformed
 
 

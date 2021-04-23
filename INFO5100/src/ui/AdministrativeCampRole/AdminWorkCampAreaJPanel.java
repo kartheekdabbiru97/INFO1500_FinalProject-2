@@ -49,11 +49,6 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         enterpriseLabel1 = new javax.swing.JLabel();
         valueLabel1 = new javax.swing.JLabel();
-        bttnManageOrganizationCopy = new rojerusan.RSMaterialButtonRectangle();
-        bttnManageEmployeeCopy = new rojerusan.RSMaterialButtonRectangle();
-        bttnManageUserCopy = new rojerusan.RSMaterialButtonRectangle();
-        bttnVolunteerApprovalCopy = new rojerusan.RSMaterialButtonRectangle();
-        bttnHealthCampRequestCopy = new rojerusan.RSMaterialButtonRectangle();
 
         setBackground(new java.awt.Color(232, 243, 255));
 
@@ -61,7 +56,7 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("HEALTHCAMP ADMINISTRATOR HOME");
+        jLabel2.setText("HEALTH CAMP ADMINISTRATOR HOME");
 
         enterpriseLabel1.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         enterpriseLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -83,7 +78,7 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
                         .addComponent(enterpriseLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(valueLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(244, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,135 +92,41 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        bttnManageOrganizationCopy.setBackground(new java.awt.Color(15, 19, 52));
-        bttnManageOrganizationCopy.setText("manage organization");
-        bttnManageOrganizationCopy.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnManageOrganizationCopy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnManageOrganizationCopyActionPerformed(evt);
-            }
-        });
-
-        bttnManageEmployeeCopy.setBackground(new java.awt.Color(15, 19, 52));
-        bttnManageEmployeeCopy.setText("Manage Employee");
-        bttnManageEmployeeCopy.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnManageEmployeeCopy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnManageEmployeeCopyActionPerformed(evt);
-            }
-        });
-
-        bttnManageUserCopy.setBackground(new java.awt.Color(15, 19, 52));
-        bttnManageUserCopy.setText("Manage User");
-        bttnManageUserCopy.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnManageUserCopy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnManageUserCopyActionPerformed(evt);
-            }
-        });
-
-        bttnVolunteerApprovalCopy.setBackground(new java.awt.Color(15, 19, 52));
-        bttnVolunteerApprovalCopy.setText("Volunteer Approval");
-        bttnVolunteerApprovalCopy.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnVolunteerApprovalCopy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnVolunteerApprovalCopyActionPerformed(evt);
-            }
-        });
-
-        bttnHealthCampRequestCopy.setBackground(new java.awt.Color(15, 19, 52));
-        bttnHealthCampRequestCopy.setText("Health Camp Request");
-        bttnHealthCampRequestCopy.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnHealthCampRequestCopy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnHealthCampRequestCopyActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bttnVolunteerApprovalCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnManageUserCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnManageEmployeeCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnManageOrganizationCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnHealthCampRequestCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(bttnManageOrganizationCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnManageEmployeeCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnManageUserCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnVolunteerApprovalCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnHealthCampRequestCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(403, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bttnManageOrganizationCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganizationCopyActionPerformed
+    private void bttnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganizationActionPerformed
         // TODO add your handling code here:
-        //Donot Write here, can't delete this
-    }//GEN-LAST:event_bttnManageOrganizationCopyActionPerformed
+    }//GEN-LAST:event_bttnManageOrganizationActionPerformed
 
-    private void bttnManageUserCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageUserCopyActionPerformed
+    private void bttnManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageUserActionPerformed
         // TODO add your handling code here:
-        //Donot Write here, can't delete this
-    }//GEN-LAST:event_bttnManageUserCopyActionPerformed
+    }//GEN-LAST:event_bttnManageUserActionPerformed
 
     private void bttnManageEmployee1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageEmployee1ActionPerformed
         // TODO add your handling code here:
-        //Donot Write here, can't delete this
     }//GEN-LAST:event_bttnManageEmployee1ActionPerformed
 
-    private void bttnVolunteerApprovalCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnVolunteerApprovalCopyActionPerformed
+    private void bttnVolunteerApprovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnVolunteerApprovalActionPerformed
         // TODO add your handling code here:
-        //Donot Write here, can't delete this
-    }//GEN-LAST:event_bttnVolunteerApprovalCopyActionPerformed
+    }//GEN-LAST:event_bttnVolunteerApprovalActionPerformed
 
-    private void bttnHealthCampRequestCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnHealthCampRequestCopyActionPerformed
+    private void bttnHealthCampRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnHealthCampRequestActionPerformed
         // TODO add your handling code here:
-        //Donot Write here, can't delete this
-    }//GEN-LAST:event_bttnHealthCampRequestCopyActionPerformed
-
-    private void bttnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageNetworkActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnManageNetworkActionPerformed
-
-    private void bttnManageEmployeeCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageEmployeeCopyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnManageEmployeeCopyActionPerformed
-
-    private void bttnManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageEnterpriseAdminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnManageEnterpriseAdminActionPerformed
-
-    private void bttnVolunteerApprovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnPatientFundRequestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnPatientFundRequestActionPerformed
-
-    private void bttnHealthCampRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnPayPatientBillsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnPayPatientBillsActionPerformed
+    }//GEN-LAST:event_bttnHealthCampRequestActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rojerusan.RSMaterialButtonRectangle bttnHealthCampRequestCopy;
-    private rojerusan.RSMaterialButtonRectangle bttnManageEmployeeCopy;
-    private rojerusan.RSMaterialButtonRectangle bttnManageOrganizationCopy;
-    private rojerusan.RSMaterialButtonRectangle bttnManageUserCopy;
-    private rojerusan.RSMaterialButtonRectangle bttnVolunteerApprovalCopy;
     private javax.swing.JLabel enterpriseLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

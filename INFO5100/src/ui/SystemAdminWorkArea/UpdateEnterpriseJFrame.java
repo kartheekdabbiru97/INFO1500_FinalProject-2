@@ -5,17 +5,50 @@
  */
 package ui.SystemAdminWorkArea;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Shreya Vivek Bhosale
  */
-public class UpdateEnterpriseJFrame extends javax.swing.JPanel {
+public class UpdateEnterpriseJFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form UpdateEnterpriseJFrame
-     */
-    public UpdateEnterpriseJFrame() {
+    private EcoSystem system;
+    private Network selectedNetwork;
+    private ManageEnterpriseJPanel panel;
+    private String enterpriseName;
+    private Enterprise.EnterpriseType type;
+    private boolean listFlag = false;
+
+    UpdateEnterpriseJFrame(EcoSystem system, Network network, String enterpriseName, Enterprise.EnterpriseType type, ManageEnterpriseJPanel panel) {
+
+        this.system = system;
+        this.selectedNetwork = network;
+        this.panel = panel;
+        this.enterpriseName = enterpriseName;
+        this.type = type;
         initComponents();
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        populateComboBox();
+        for (int j = 0; j < Enterprise.EnterpriseType.values().length; j++) {
+            if (Enterprise.EnterpriseType.values()[j].equals(type)) {
+                comboEnterpriseType.setSelectedIndex(j);
+            }
+        }
+        txtEnterpriseName.setText(enterpriseName);
+    }
+
+    void populateComboBox() {
+        comboEnterpriseType.removeAllItems();
+        for (Enterprise.EnterpriseType type : Enterprise.EnterpriseType.values()) {
+            comboEnterpriseType.addItem(type);
+            listFlag = true;
+        }
+
     }
 
     /**
@@ -27,53 +60,26 @@ public class UpdateEnterpriseJFrame extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        comboEnterpriseType = new rojerusan.RSComboMetro();
-        bttnSave = new rojerusan.RSMaterialButtonRectangle();
+        jPanel1 = new javax.swing.JPanel();
         bttnCancel = new rojerusan.RSMaterialButtonRectangle();
-        txtName = new rojerusan.RSMetroTextPlaceHolder();
+        bttnSave = new rojerusan.RSMaterialButtonRectangle();
+        jLabel4 = new javax.swing.JLabel();
+        txtEnterpriseName = new rojerusan.RSMetroTextPlaceHolder();
+        comboEnterpriseType = new rojerusan.RSComboMetro();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(232, 243, 255));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBackground(new java.awt.Color(15, 19, 52));
+        jPanel1.setBackground(new java.awt.Color(232, 243, 255));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("ENTERPRISE UPDATE");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8)
-                .addContainerGap(65, Short.MAX_VALUE))
-        );
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Enterprise Type");
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Name");
-
-        comboEnterpriseType.setBackground(new java.awt.Color(15, 19, 52));
-        comboEnterpriseType.setColorArrow(new java.awt.Color(15, 19, 52));
-        comboEnterpriseType.setColorBorde(new java.awt.Color(15, 19, 52));
-        comboEnterpriseType.setColorFondo(new java.awt.Color(15, 19, 52));
-        comboEnterpriseType.addActionListener(new java.awt.event.ActionListener() {
+        bttnCancel.setBackground(new java.awt.Color(15, 19, 52));
+        bttnCancel.setText("Cancel");
+        bttnCancel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboEnterpriseTypeActionPerformed(evt);
+                bttnCancelActionPerformed(evt);
             }
         });
 
@@ -86,87 +92,156 @@ public class UpdateEnterpriseJFrame extends javax.swing.JPanel {
             }
         });
 
-        bttnCancel.setBackground(new java.awt.Color(15, 19, 52));
-        bttnCancel.setText("Cancel");
-        bttnCancel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnCancel.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setText("Enterprise Type");
+
+        txtEnterpriseName.setForeground(new java.awt.Color(15, 19, 52));
+        txtEnterpriseName.setToolTipText("");
+        txtEnterpriseName.setBorderColor(new java.awt.Color(15, 19, 52));
+        txtEnterpriseName.setBotonColor(new java.awt.Color(15, 19, 52));
+
+        comboEnterpriseType.setBackground(new java.awt.Color(15, 19, 52));
+        comboEnterpriseType.setColorArrow(new java.awt.Color(15, 19, 52));
+        comboEnterpriseType.setColorBorde(new java.awt.Color(15, 19, 52));
+        comboEnterpriseType.setColorFondo(new java.awt.Color(15, 19, 52));
+        comboEnterpriseType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnCancelActionPerformed(evt);
+                comboEnterpriseTypeActionPerformed(evt);
             }
         });
 
-        txtName.setForeground(new java.awt.Color(15, 19, 52));
-        txtName.setToolTipText("");
-        txtName.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtName.setBotonColor(new java.awt.Color(15, 19, 52));
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("Name");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(comboEnterpriseType, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
+        jPanel2.setBackground(new java.awt.Color(15, 19, 52));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("UPDATE ENTERPRISE");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(204, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(189, 189, 189))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(comboEnterpriseType, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                            .addComponent(txtEnterpriseName, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
                         .addComponent(bttnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bttnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(comboEnterpriseType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtEnterpriseName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bttnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(82, 82, 82))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(comboEnterpriseType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bttnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 44, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bttnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnCancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_bttnCancelActionPerformed
+
+    private void bttnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnSaveActionPerformed
+        if (listFlag) {
+            String name = txtEnterpriseName.getText();
+            Enterprise.EnterpriseType enttype = (Enterprise.EnterpriseType) comboEnterpriseType.getSelectedItem();
+            //  Network newNetwork = (Network) networkJComboBox.getSelectedItem();
+            if (!name.equals("")) {
+                //   system.updateNetworkFromEnterprise(this.selectedNetwork,newNetwork,this.enterpriseName, type);
+                //   selectedNetwork.getEnterpriseDirectory().fetchNetwork(this.enterpriseName, type, system,newNetwork);
+                if (!selectedNetwork.getEnterpriseDirectory().IsDuplicateEnterprise(name)) {
+
+                    Enterprise enterprise = selectedNetwork.getEnterpriseDirectory().fetchEnterprise(this.enterpriseName, type);
+                    enterprise.setName(name);
+                    enterprise.setEnterpriseType(enttype);
+                    this.panel.populateTable();
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "This name already exist");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "The Enterprise cannot be empty");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "The Network or enterprise cannot be empty");
+        }
+    }//GEN-LAST:event_bttnSaveActionPerformed
 
     private void comboEnterpriseTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEnterpriseTypeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboEnterpriseTypeActionPerformed
 
-    private void bttnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnSaveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnSaveActionPerformed
-
-    private void bttnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnCancelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnCancelActionPerformed
-
+    /**
+     * @param args the command line arguments
+     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojerusan.RSMaterialButtonRectangle bttnCancel;
     private rojerusan.RSMaterialButtonRectangle bttnSave;
     private rojerusan.RSComboMetro comboEnterpriseType;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel3;
-    private rojerusan.RSMetroTextPlaceHolder txtName;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private rojerusan.RSMetroTextPlaceHolder txtEnterpriseName;
     // End of variables declaration//GEN-END:variables
 }

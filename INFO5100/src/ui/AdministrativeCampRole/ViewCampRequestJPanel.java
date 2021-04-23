@@ -6,6 +6,24 @@
 package ui.AdministrativeCampRole;
 
 import java.util.Date;
+import Business.EcoSystem;
+import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.Role.AdminRole;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import java.awt.Component;
+import static java.lang.String.format;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -13,11 +31,56 @@ import java.util.Date;
  */
 public class ViewCampRequestJPanel extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;
+    private EcoSystem business;
+    private UserAccount userAccount;
+    private WorkRequest request;
+    private Enterprise enterprise;
+    private Network network;
+
     /**
      * Creates new form ViewCampRequestJPanel
      */
-    public ViewCampRequestJPanel() {
+    public ViewCampRequestJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, WorkRequest request, Network network, Enterprise enterprise) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = account;
+        this.business = business;
+        this.request = request;
+        this.enterprise = enterprise;
+        this.network = network;
+        //System.out.println(business.getNetworkList());
+        txtCampID.setText(Integer.toString(request.getCampId()));
+        txtCity.setText(request.getCity());
+        txtName.setText(request.getVolunteerName());
+        txtNumberPeopleAffected.setText(request.getPeopleAffected());
+        txtAffectedChildren.setText(request.getPercentChild());
+        txtAffectedChildren.setText(request.getPercentElder());
+        txtState.setText(request.getState());
+        txtStreetAddress.setText(request.getStreet());
+        txtZipCode.setText(request.getZipcode());
+        if (request.getEventDate() != null) {
+            //      SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
+            //      String dateConvert = format.format(request.getEventDate());
+            healthcampDate.setDate(request.getEventDate());
+        }
+        populateEnterpriseComboBox(Enterprise.EnterpriseType.Hospital, network);
+
+        if (request.getStatus().equals("Completed")) {
+            bttnApprove.setEnabled(false);
+        }
+
+    }
+
+    private void populateEnterpriseComboBox(Enterprise.EnterpriseType type, Network network) {
+        cmboEnterprise.removeAllItems();
+
+        for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (type.getValue().equals(enterprise.getEnterpriseType().getValue())) {
+                cmboEnterprise.addItem(enterprise);
+            }
+
+        }
     }
 
     /**
@@ -54,6 +117,7 @@ public class ViewCampRequestJPanel extends javax.swing.JPanel {
         txtNumberPeopleAffected = new rojerusan.RSMetroTextPlaceHolder();
         txtAffectedChildren = new rojerusan.RSMetroTextPlaceHolder();
         txtAddectedElders = new rojerusan.RSMetroTextPlaceHolder();
+        healthcampDate = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(232, 243, 255));
 
@@ -67,17 +131,17 @@ public class ViewCampRequestJPanel extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(480, Short.MAX_VALUE))
+                .addGap(178, 178, 178))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(33, 33, 33)
                 .addComponent(jLabel8)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -87,13 +151,13 @@ public class ViewCampRequestJPanel extends javax.swing.JPanel {
         jLabel14.setText("ZipCode");
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel15.setText("No of People Affected");
+        jLabel15.setText("No. of People in Camp");
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel16.setText("Percentage of Affected Children");
+        jLabel16.setText("Percentage of Children");
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel17.setText("Percentage of Affected Elders");
+        jLabel17.setText("Percentage of Elders");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Name");
@@ -226,6 +290,8 @@ public class ViewCampRequestJPanel extends javax.swing.JPanel {
             }
         });
 
+        healthcampDate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -247,19 +313,20 @@ public class ViewCampRequestJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel4)
                     .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bttnApprove, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCampID, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtStreetAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNumberPeopleAffected, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAffectedChildren, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAddectedElders, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmboEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(bttnApprove, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                    .addComponent(txtCampID, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                    .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                    .addComponent(txtStreetAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                    .addComponent(txtCity, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                    .addComponent(txtState, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                    .addComponent(txtZipCode, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                    .addComponent(txtNumberPeopleAffected, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                    .addComponent(txtAffectedChildren, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                    .addComponent(txtAddectedElders, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                    .addComponent(cmboEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(healthcampDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(480, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,7 +369,9 @@ public class ViewCampRequestJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel17)
                     .addComponent(txtAddectedElders, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel18)
+                    .addComponent(healthcampDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -311,16 +380,98 @@ public class ViewCampRequestJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnApprove, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
-        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        HealthcampRequestJPanel health = (HealthcampRequestJPanel) component;
+        health.populateTable();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_bttnBackActionPerformed
 
     private void bttnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnApproveActionPerformed
-        // TODO add your handling code here:
+        int check = 0;
+        int checkdate = 0;
+        Enterprise enterprise = null;
+
+        if (healthcampDate.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Event Date cannot be empty!");
+        } else {
+            check = 1;
+            //System.out.println(business.getNetworkList());
+            // enterprise = new CampEnterprise(Integer.toString(request.getCampId()));
+            int campId1 = request.getCampId();
+            String city1 = request.getCity();
+
+            String noOfPeople1 = request.getPeopleAffected();
+            String percentChild1 = request.getPercentChild();
+            String percentElder1 = request.getPercentElder();
+            String state1 = request.getState();
+            String street1 = request.getStreet();
+            String zipCode1 = request.getZipcode();
+            String name1 = request.getCampId() + "_" + request.getZipcode();
+            String enter = enterpriseJComboBox.getSelectedItem().toString();
+
+//            Date eventDay = null;
+            Date sysDate = null;
+//            SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
+//            format.setLenient(false);
+
+            try {
+
+                //  eventDay = format.parse(eventDate.getDate());
+                sysDate = new Date();
+                long diff = sysDate.getTime() - healthcampDate.getDate().getTime();
+                long diff1 = healthcampDate.getDate().getTime() - sysDate.getTime();
+                long diff1Days = diff1 / (24 * 60 * 60 * 1000);
+                long years = diff1Days / 365;
+
+                if (diff > 0) {
+                    JOptionPane.showMessageDialog(null, "Cannot enter a previous date");
+                    checkdate = 1;
+                }
+
+                if (diff1Days >= 10 && check == 1 && checkdate == 0) {
+
+                    enterprise = network.getEnterpriseDirectory().createAndAddCampEnterprise(name1, street1, city1, state1, zipCode1, noOfPeople1, percentChild1, percentElder1, campId1, healthcampDate.getDate(), Enterprise.EnterpriseType.Camp, enter);
+                    Employee employee = enterprise.getEmployeeDirectory().createEmployee("admin");
+                    String username = "admin_" + name1;
+                    enterprise.getUserAccountDirectory().createUserAccount(username, "admin", employee, new AdminRole());
+                    enterprise.getOrganizationDirectory().createOrganization(Organization.OrganizationType.VolunteerCamp);
+
+                    JOptionPane.showMessageDialog(this, "Camp Request Approved. Volunteer can Enroll for the Health Camp now!");
+                    healthcampDate.setEnabled(false);
+                    cmboEnterprise.setEnabled(false);
+                    bttnApprove.setEnabled(false);
+                    request.setEventDate(healthcampDate.getDate());
+//                    campID.setText("");
+//                    fName.setText("");
+//                    city.setText("");
+//                    noOfPeople.setText("");
+//                    percentChild.setText("");
+//                    percentElder.setText("");
+//                    state.setText("");
+//                    street.setText("");
+//                    zipCode.setText("");
+//                    healthcampDate.setDate(null);
+
+                    request.setStatus("Completed");
+                    request.setHospital(cmboEnterprise.getSelectedItem().toString());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please enter a Date after 10 days");
+                }
+            } catch (NullPointerException ex) {
+                JOptionPane.showMessageDialog(null, "Please Enter Appropriate Date MM-dd-yyyy");
+
+            }
+            // enterpriseList.add(enterprise);
+        }
+
     }//GEN-LAST:event_bttnApproveActionPerformed
 
     private void txtCampIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCampIDActionPerformed
@@ -364,6 +515,7 @@ public class ViewCampRequestJPanel extends javax.swing.JPanel {
     private rojerusan.RSMaterialButtonRectangle bttnApprove;
     private rojerusan.RSMaterialButtonRectangle bttnBack;
     private rojerusan.RSComboMetro cmboEnterprise;
+    private com.toedter.calendar.JDateChooser healthcampDate;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

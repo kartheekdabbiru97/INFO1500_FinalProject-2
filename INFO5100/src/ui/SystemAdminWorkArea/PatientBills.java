@@ -5,6 +5,18 @@
  */
 package ui.SystemAdminWorkArea;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Enterprise.FundCharityEnterprise;
+import Business.Network.Network;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import java.util.logging.*;
+
 /**
  *
  * @author Shreya Vivek Bhosale
@@ -14,8 +26,50 @@ public class PatientBills extends javax.swing.JPanel {
     /**
      * Creates new form PatientBills
      */
-    public PatientBills() {
+    private JPanel userProcessContainer;
+    private EcoSystem ecosystem;
+    private static int fundsCollected = 0;
+    private final static Logger log = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
+    public PatientBills(JPanel userProcessContainer, EcoSystem ecosystem) {
+        this.userProcessContainer = userProcessContainer;
+        this.ecosystem = ecosystem;
         initComponents();
+        populateTable();
+    }
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
+
+        model.setRowCount(0);
+        for (UserAccount user : ecosystem.getUserAccountDirectory().getUserAccountList()) {
+            for (WorkRequest work : user.getWorkQueue().getWorkRequestList()) {
+                if ((work.getStatus().equals("Admin Pay")) || (work.getStatus().equals("Paid"))) {
+                    Object[] row = new Object[5];
+                    row[0] = work.getSender();
+                    row[1] = work.getStatus();
+                    row[2] = work;
+                    row[3] = work.getMessage();
+                    row[4] = work.getApproxPatientFee() == 0 ? 0 : work.getApproxPatientFee();
+                    model.addRow(row);
+                }
+            }
+
+        }
+        for (Network network : ecosystem.getNetworkList()) {
+            for (Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()) {
+
+                if (enter.getEnterpriseType().getValue().equals(Enterprise.EnterpriseType.Event.getValue())) {
+                    FundCharityEnterprise event = (FundCharityEnterprise) enter;
+                    int temp = event.getFundsCollected();
+                    System.out.println(temp);
+                    if (temp != fundsCollected) {
+                        fundsCollected = temp;
+                    }
+                    System.out.println(fundsCollected);
+                   }
+                }
+            }
     }
 
     /**
@@ -150,15 +204,38 @@ public class PatientBills extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
-        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_bttnBackActionPerformed
 
     private void bttnPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnPayActionPerformed
-        // TODO add your handling code here:
+        int selectedRow = workRequestJTable.getSelectedRow();
+
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row!");
+            return;
+        }
+        WorkRequest request = (WorkRequest) workRequestJTable.getValueAt(selectedRow, 2);
+        if (!(request.getStatus().equals("Paid"))) {
+            if ((fundsCollected - request.getApproxPatientFee()) >= 0) {
+                fundsCollected = fundsCollected - request.getApproxPatientFee();
+                request.setStatus("Paid");
+                JOptionPane.showMessageDialog(null, "Patient Bill Paid Successfully!" + "\n"
+                        + "Thank you for your contribution!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Funds are not enough!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Patient Bill Already Paid!");
+
+        }
+        populateTable();
+        log.info("Funds Paid, Patient treated!");
     }//GEN-LAST:event_bttnPayActionPerformed
 
     private void bttnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRefreshActionPerformed
-        // TODO add your handling code here:
+        populateTable();
     }//GEN-LAST:event_bttnRefreshActionPerformed
 
 
