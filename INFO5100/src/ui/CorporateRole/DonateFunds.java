@@ -70,21 +70,15 @@ public class DonateFunds extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         workRequestJTable1 = new javax.swing.JTable();
-        buttonBack = new javax.swing.JButton();
-        buttonRefresh = new javax.swing.JButton();
-        buttonPayFunds = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        bttnRefresh = new rojerusan.RSMaterialButtonRectangle();
+        bttnBack = new rojerusan.RSMaterialButtonRectangle();
+        bttnBack1 = new rojerusan.RSMaterialButtonRectangle();
 
-        setBackground(new java.awt.Color(232, 243, 255));
-
-        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("FUND DONATION");
-        jLabel1.setOpaque(true);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         workRequestJTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,21 +103,68 @@ public class DonateFunds extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        workRequestJTable1.setSelectionBackground(new java.awt.Color(235, 122, 102));
+        workRequestJTable1.setSelectionForeground(new java.awt.Color(51, 51, 51));
         jScrollPane2.setViewportView(workRequestJTable1);
 
-        buttonBack.setText("BACK");
-        buttonBack.addActionListener(new java.awt.event.ActionListener() {
+        jPanel2.setBackground(new java.awt.Color(235, 122, 102));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setText("FUND DONATION");
+
+        bttnRefresh.setBackground(new java.awt.Color(255, 255, 255));
+        bttnRefresh.setForeground(new java.awt.Color(51, 51, 51));
+        bttnRefresh.setText("Refresh");
+        bttnRefresh.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnRefresh.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bttnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonBackActionPerformed(evt);
+                bttnRefreshActionPerformed(evt);
             }
         });
 
-        buttonRefresh.setText("REFRESH");
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bttnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(111, 111, 111))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(bttnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
-        buttonPayFunds.setText("PAY FUNDS");
-        buttonPayFunds.addActionListener(new java.awt.event.ActionListener() {
+        bttnBack.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack.setForeground(new java.awt.Color(51, 51, 51));
+        bttnBack.setText("Back");
+        bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPayFundsActionPerformed(evt);
+                bttnBackActionPerformed(evt);
+            }
+        });
+
+        bttnBack1.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack1.setForeground(new java.awt.Color(51, 51, 51));
+        bttnBack1.setText("Pay Funds");
+        bttnBack1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnBack1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnBack1ActionPerformed(evt);
             }
         });
 
@@ -131,40 +172,43 @@ public class DonateFunds extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(buttonBack)
-                        .addGap(499, 499, 499)
-                        .addComponent(buttonPayFunds)
-                        .addGap(104, 104, 104))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(buttonRefresh)
-                        .addGap(109, 109, 109))))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bttnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(buttonRefresh)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonBack)
-                    .addComponent(buttonPayFunds))
-                .addGap(0, 55, Short.MAX_VALUE))
+                    .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 71, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonPayFundsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPayFundsActionPerformed
+    private void bttnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRefreshActionPerformed
+        populateTable();
+    }//GEN-LAST:event_bttnRefreshActionPerformed
+
+    private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
+        userProcessConatiner.remove(this);
+        CardLayout layout = (CardLayout) userProcessConatiner.getLayout();
+        layout.previous(userProcessConatiner);
+    }//GEN-LAST:event_bttnBackActionPerformed
+
+    private void bttnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBack1ActionPerformed
+        // TODO add your handling code here:
         logr.info("Pay funds action performed");
         int selectedRow = workRequestJTable1.getSelectedRow();
 
@@ -200,20 +244,15 @@ public class DonateFunds extends javax.swing.JPanel {
             }
         }
         logr.info("Funds paid for fundraiser event");
-    }//GEN-LAST:event_buttonPayFundsActionPerformed
-
-    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
-        userProcessConatiner.remove(this);
-        CardLayout layout = (CardLayout) userProcessConatiner.getLayout();
-        layout.previous(userProcessConatiner);
-    }//GEN-LAST:event_buttonBackActionPerformed
+    }//GEN-LAST:event_bttnBack1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonBack;
-    private javax.swing.JButton buttonPayFunds;
-    private javax.swing.JButton buttonRefresh;
-    private javax.swing.JLabel jLabel1;
+    private rojerusan.RSMaterialButtonRectangle bttnBack;
+    private rojerusan.RSMaterialButtonRectangle bttnBack1;
+    private rojerusan.RSMaterialButtonRectangle bttnRefresh;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable workRequestJTable1;
     // End of variables declaration//GEN-END:variables

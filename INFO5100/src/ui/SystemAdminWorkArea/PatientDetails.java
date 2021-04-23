@@ -100,12 +100,12 @@ public class PatientDetails extends javax.swing.JPanel {
         txtPriority = new rojerusan.RSMetroTextPlaceHolder();
         txtDiagnosisFee = new rojerusan.RSMetroTextPlaceHolder();
 
-        setBackground(new java.awt.Color(232, 243, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
+        jPanel1.setBackground(new java.awt.Color(235, 122, 102));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("PATIENT INFORMATION");
 
@@ -153,6 +153,9 @@ public class PatientDetails extends javax.swing.JPanel {
         patientSym.setEditable(false);
         patientSym.setColumns(20);
         patientSym.setRows(5);
+        patientSym.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
+        patientSym.setSelectedTextColor(new java.awt.Color(51, 51, 51));
+        patientSym.setSelectionColor(new java.awt.Color(235, 122, 102));
         jScrollPane1.setViewportView(patientSym);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -173,7 +176,8 @@ public class PatientDetails extends javax.swing.JPanel {
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel17.setText("Blood Pressure");
 
-        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
+        bttnBack.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack.setForeground(new java.awt.Color(51, 51, 51));
         bttnBack.setText("Back");
         bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -182,7 +186,8 @@ public class PatientDetails extends javax.swing.JPanel {
             }
         });
 
-        bttnConfirmRequest.setBackground(new java.awt.Color(15, 19, 52));
+        bttnConfirmRequest.setBackground(new java.awt.Color(235, 122, 102));
+        bttnConfirmRequest.setForeground(new java.awt.Color(51, 51, 51));
         bttnConfirmRequest.setText("CONFIRM TO REQUEST FUNDS");
         bttnConfirmRequest.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnConfirmRequest.addActionListener(new java.awt.event.ActionListener() {
@@ -191,70 +196,83 @@ public class PatientDetails extends javax.swing.JPanel {
             }
         });
 
-        txtFirstName.setForeground(new java.awt.Color(15, 19, 52));
+        txtFirstName.setForeground(new java.awt.Color(51, 51, 51));
         txtFirstName.setToolTipText("");
-        txtFirstName.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtFirstName.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtFirstName.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtFirstName.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtFirstName.setSelectedTextColor(new java.awt.Color(51, 51, 51));
 
-        txtAge.setForeground(new java.awt.Color(15, 19, 52));
+        txtAge.setForeground(new java.awt.Color(51, 51, 51));
         txtAge.setToolTipText("");
-        txtAge.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtAge.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtAge.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtAge.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtAge.setSelectedTextColor(new java.awt.Color(51, 51, 51));
 
-        txtHeight.setForeground(new java.awt.Color(15, 19, 52));
+        txtHeight.setForeground(new java.awt.Color(51, 51, 51));
         txtHeight.setToolTipText("");
-        txtHeight.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtHeight.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtHeight.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtHeight.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtHeight.setSelectedTextColor(new java.awt.Color(51, 51, 51));
 
-        txtBloodGroup.setForeground(new java.awt.Color(15, 19, 52));
+        txtBloodGroup.setForeground(new java.awt.Color(51, 51, 51));
         txtBloodGroup.setToolTipText("");
-        txtBloodGroup.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtBloodGroup.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtBloodGroup.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtBloodGroup.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtBloodGroup.setSelectedTextColor(new java.awt.Color(51, 51, 51));
 
-        txtGlucoseLevel.setForeground(new java.awt.Color(15, 19, 52));
+        txtGlucoseLevel.setForeground(new java.awt.Color(51, 51, 51));
         txtGlucoseLevel.setToolTipText("");
-        txtGlucoseLevel.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtGlucoseLevel.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtGlucoseLevel.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtGlucoseLevel.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtGlucoseLevel.setSelectedTextColor(new java.awt.Color(51, 51, 51));
 
-        txtPossibleDiagnosis.setForeground(new java.awt.Color(15, 19, 52));
+        txtPossibleDiagnosis.setForeground(new java.awt.Color(51, 51, 51));
         txtPossibleDiagnosis.setToolTipText("");
-        txtPossibleDiagnosis.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtPossibleDiagnosis.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtPossibleDiagnosis.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtPossibleDiagnosis.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtPossibleDiagnosis.setSelectedTextColor(new java.awt.Color(51, 51, 51));
 
-        txtLastName.setForeground(new java.awt.Color(15, 19, 52));
+        txtLastName.setForeground(new java.awt.Color(51, 51, 51));
         txtLastName.setToolTipText("");
-        txtLastName.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtLastName.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtLastName.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtLastName.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtLastName.setSelectedTextColor(new java.awt.Color(51, 51, 51));
 
-        txtGender.setForeground(new java.awt.Color(15, 19, 52));
+        txtGender.setForeground(new java.awt.Color(51, 51, 51));
         txtGender.setToolTipText("");
-        txtGender.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtGender.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtGender.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtGender.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtGender.setSelectedTextColor(new java.awt.Color(51, 51, 51));
 
-        txtWeight.setForeground(new java.awt.Color(15, 19, 52));
+        txtWeight.setForeground(new java.awt.Color(51, 51, 51));
         txtWeight.setToolTipText("");
-        txtWeight.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtWeight.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtWeight.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtWeight.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtWeight.setSelectedTextColor(new java.awt.Color(51, 51, 51));
 
-        txtBloodPressure.setForeground(new java.awt.Color(15, 19, 52));
+        txtBloodPressure.setForeground(new java.awt.Color(51, 51, 51));
         txtBloodPressure.setToolTipText("");
-        txtBloodPressure.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtBloodPressure.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtBloodPressure.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtBloodPressure.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtBloodPressure.setSelectedTextColor(new java.awt.Color(51, 51, 51));
 
-        txtBodyTemperature.setForeground(new java.awt.Color(15, 19, 52));
+        txtBodyTemperature.setForeground(new java.awt.Color(51, 51, 51));
         txtBodyTemperature.setToolTipText("");
-        txtBodyTemperature.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtBodyTemperature.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtBodyTemperature.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtBodyTemperature.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtBodyTemperature.setSelectedTextColor(new java.awt.Color(51, 51, 51));
 
-        txtPriority.setForeground(new java.awt.Color(15, 19, 52));
+        txtPriority.setForeground(new java.awt.Color(51, 51, 51));
         txtPriority.setToolTipText("");
-        txtPriority.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtPriority.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtPriority.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtPriority.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtPriority.setSelectedTextColor(new java.awt.Color(51, 51, 51));
 
-        txtDiagnosisFee.setForeground(new java.awt.Color(15, 19, 52));
+        txtDiagnosisFee.setForeground(new java.awt.Color(51, 51, 51));
         txtDiagnosisFee.setToolTipText("");
-        txtDiagnosisFee.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtDiagnosisFee.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtDiagnosisFee.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtDiagnosisFee.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtDiagnosisFee.setSelectedTextColor(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -314,61 +332,63 @@ public class PatientDetails extends javax.swing.JPanel {
                             .addComponent(txtBodyTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPriority, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txtDiagnosisFee, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addContainerGap(250, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel4)
+                        .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel13)
-                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel11)
-                    .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(jLabel17)
-                    .addComponent(txtBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16)
-                    .addComponent(txtGlucoseLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBodyTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtBodyTemperature, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel15)
+                        .addComponent(jLabel16)
+                        .addComponent(txtGlucoseLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel9)
-                    .addComponent(txtPossibleDiagnosis, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPriority, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPossibleDiagnosis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPriority, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtDiagnosisFee, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDiagnosisFee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnConfirmRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 199, Short.MAX_VALUE))
+                .addGap(151, 151, 151))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -130,6 +130,8 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        userJTable.setSelectionBackground(new java.awt.Color(235, 122, 102));
+        userJTable.setSelectionForeground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(userJTable);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N

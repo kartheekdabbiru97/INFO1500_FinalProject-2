@@ -89,12 +89,12 @@ public class PatientBills extends javax.swing.JPanel {
         bttnBack = new rojerusan.RSMaterialButtonRectangle();
         bttnPay = new rojerusan.RSMaterialButtonRectangle();
 
-        setBackground(new java.awt.Color(232, 243, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
+        jPanel1.setBackground(new java.awt.Color(235, 122, 102));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("PATIENT BILLS");
 
         bttnRefresh.setBackground(new java.awt.Color(255, 255, 255));
@@ -114,7 +114,7 @@ public class PatientBills extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(514, Short.MAX_VALUE))
+                .addContainerGap(503, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bttnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,10 +153,12 @@ public class PatientBills extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        workRequestJTable.setSelectionBackground(new java.awt.Color(15, 19, 52));
+        workRequestJTable.setSelectionBackground(new java.awt.Color(235, 122, 102));
+        workRequestJTable.setSelectionForeground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(workRequestJTable);
 
-        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
+        bttnBack.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack.setForeground(new java.awt.Color(51, 51, 51));
         bttnBack.setText("Back");
         bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -165,7 +167,8 @@ public class PatientBills extends javax.swing.JPanel {
             }
         });
 
-        bttnPay.setBackground(new java.awt.Color(15, 19, 52));
+        bttnPay.setBackground(new java.awt.Color(235, 122, 102));
+        bttnPay.setForeground(new java.awt.Color(51, 51, 51));
         bttnPay.setText("PAY");
         bttnPay.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnPay.addActionListener(new java.awt.event.ActionListener() {

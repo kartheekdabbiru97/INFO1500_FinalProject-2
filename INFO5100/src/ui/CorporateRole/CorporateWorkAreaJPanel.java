@@ -51,30 +51,54 @@ public class CorporateWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        buttonEnroll = new javax.swing.JButton();
-        buttonDonate = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        bttnManageOrganization = new rojerusan.RSMaterialButtonRectangle();
+        bttnManageOrganization1 = new rojerusan.RSMaterialButtonRectangle();
 
-        setBackground(new java.awt.Color(232, 243, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("CORPORATE WORK AREA - FUND ROLE");
-        jLabel1.setOpaque(true);
+        jPanel1.setBackground(new java.awt.Color(235, 122, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        buttonEnroll.setText("ENROLL FOR FUNDRAISER");
-        buttonEnroll.addActionListener(new java.awt.event.ActionListener() {
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel7.setText("CORPORATE WORK AREA - FUND");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addContainerGap(554, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+
+        bttnManageOrganization.setBackground(new java.awt.Color(235, 122, 102));
+        bttnManageOrganization.setForeground(new java.awt.Color(51, 51, 51));
+        bttnManageOrganization.setText("Enroll for Fundraiser");
+        bttnManageOrganization.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnManageOrganization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEnrollActionPerformed(evt);
+                bttnManageOrganizationActionPerformed(evt);
             }
         });
 
-        buttonDonate.setText("DONATE FOR THE EVENT");
-        buttonDonate.addActionListener(new java.awt.event.ActionListener() {
+        bttnManageOrganization1.setBackground(new java.awt.Color(235, 122, 102));
+        bttnManageOrganization1.setForeground(new java.awt.Color(51, 51, 51));
+        bttnManageOrganization1.setText("DONATE for the EVENT");
+        bttnManageOrganization1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnManageOrganization1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonDonateActionPerformed(evt);
+                bttnManageOrganization1ActionPerformed(evt);
             }
         });
 
@@ -82,34 +106,27 @@ public class CorporateWorkAreaJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(209, 209, 209)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonEnroll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonDonate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(310, 310, 310)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bttnManageOrganization1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(buttonEnroll)
-                .addGap(32, 32, 32)
-                .addComponent(buttonDonate)
-                .addGap(0, 184, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bttnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bttnManageOrganization1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(230, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDonateActionPerformed
-        DonateFunds payPanel = new DonateFunds(userProcessContainer, userAccount, network, eco);
-        userProcessContainer.add("DonateFunds", payPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_buttonDonateActionPerformed
-
-    private void buttonEnrollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEnrollActionPerformed
+    private void bttnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganizationActionPerformed
         log.info("Enroll for fund raiser action performed");
         System.out.println(network.getEnterpriseDirectory().getEnterpriseList());
         FundraiserEvents fundPanel = new FundraiserEvents(userProcessContainer, userAccount, network, eco);
@@ -117,12 +134,21 @@ public class CorporateWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
         log.info("FundraiserEvents");
-    }//GEN-LAST:event_buttonEnrollActionPerformed
+    }//GEN-LAST:event_bttnManageOrganizationActionPerformed
+
+    private void bttnManageOrganization1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganization1ActionPerformed
+        // TODO add your handling code here:
+        DonateFunds payPanel = new DonateFunds(userProcessContainer, userAccount, network, eco);
+        userProcessContainer.add("DonateFunds", payPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_bttnManageOrganization1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonDonate;
-    private javax.swing.JButton buttonEnroll;
-    private javax.swing.JLabel jLabel1;
+    private rojerusan.RSMaterialButtonRectangle bttnManageOrganization;
+    private rojerusan.RSMaterialButtonRectangle bttnManageOrganization1;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

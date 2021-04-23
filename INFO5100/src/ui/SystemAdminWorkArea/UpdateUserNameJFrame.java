@@ -111,12 +111,12 @@ public class UpdateUserNameJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(232, 243, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(15, 19, 52));
+        jPanel3.setBackground(new java.awt.Color(235, 122, 102));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("UPDATE USERNAME");
 
@@ -137,7 +137,8 @@ public class UpdateUserNameJFrame extends javax.swing.JFrame {
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
-        bttnCancel.setBackground(new java.awt.Color(15, 19, 52));
+        bttnCancel.setBackground(new java.awt.Color(235, 122, 102));
+        bttnCancel.setForeground(new java.awt.Color(51, 51, 51));
         bttnCancel.setText("Cancel");
         bttnCancel.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +147,8 @@ public class UpdateUserNameJFrame extends javax.swing.JFrame {
             }
         });
 
-        bttnSave.setBackground(new java.awt.Color(15, 19, 52));
+        bttnSave.setBackground(new java.awt.Color(235, 122, 102));
+        bttnSave.setForeground(new java.awt.Color(51, 51, 51));
         bttnSave.setText("Save");
         bttnSave.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -158,35 +160,39 @@ public class UpdateUserNameJFrame extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Enterprise Type");
 
-        txtUserName.setForeground(new java.awt.Color(15, 19, 52));
+        txtUserName.setForeground(new java.awt.Color(51, 51, 51));
         txtUserName.setToolTipText("");
-        txtUserName.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtUserName.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtUserName.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtUserName.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtUserName.setSelectedTextColor(new java.awt.Color(51, 51, 51));
 
-        comboNetwork.setBackground(new java.awt.Color(15, 19, 52));
-        comboNetwork.setColorArrow(new java.awt.Color(15, 19, 52));
-        comboNetwork.setColorBorde(new java.awt.Color(15, 19, 52));
-        comboNetwork.setColorFondo(new java.awt.Color(15, 19, 52));
+        comboNetwork.setBackground(new java.awt.Color(235, 122, 102));
+        comboNetwork.setForeground(new java.awt.Color(51, 51, 51));
+        comboNetwork.setColorArrow(new java.awt.Color(235, 122, 102));
+        comboNetwork.setColorBorde(new java.awt.Color(51, 51, 51));
+        comboNetwork.setColorFondo(new java.awt.Color(235, 122, 102));
         comboNetwork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboNetworkActionPerformed(evt);
             }
         });
 
-        comboEnterpriseType.setBackground(new java.awt.Color(15, 19, 52));
-        comboEnterpriseType.setColorArrow(new java.awt.Color(15, 19, 52));
-        comboEnterpriseType.setColorBorde(new java.awt.Color(15, 19, 52));
-        comboEnterpriseType.setColorFondo(new java.awt.Color(15, 19, 52));
+        comboEnterpriseType.setBackground(new java.awt.Color(235, 122, 102));
+        comboEnterpriseType.setForeground(new java.awt.Color(51, 51, 51));
+        comboEnterpriseType.setColorArrow(new java.awt.Color(235, 122, 102));
+        comboEnterpriseType.setColorBorde(new java.awt.Color(51, 51, 51));
+        comboEnterpriseType.setColorFondo(new java.awt.Color(235, 122, 102));
         comboEnterpriseType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboEnterpriseTypeActionPerformed(evt);
             }
         });
 
-        comboEnterprise.setBackground(new java.awt.Color(15, 19, 52));
-        comboEnterprise.setColorArrow(new java.awt.Color(15, 19, 52));
-        comboEnterprise.setColorBorde(new java.awt.Color(15, 19, 52));
-        comboEnterprise.setColorFondo(new java.awt.Color(15, 19, 52));
+        comboEnterprise.setBackground(new java.awt.Color(235, 122, 102));
+        comboEnterprise.setForeground(new java.awt.Color(51, 51, 51));
+        comboEnterprise.setColorArrow(new java.awt.Color(235, 122, 102));
+        comboEnterprise.setColorBorde(new java.awt.Color(51, 51, 51));
+        comboEnterprise.setColorFondo(new java.awt.Color(235, 122, 102));
         comboEnterprise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboEnterpriseActionPerformed(evt);

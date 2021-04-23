@@ -50,30 +50,54 @@ public class VolunteerEventHomePage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        buttonEnroll = new javax.swing.JButton();
-        buttonCheckStatus = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        bttnManageOrganization = new rojerusan.RSMaterialButtonRectangle();
+        bttnManageOrganization1 = new rojerusan.RSMaterialButtonRectangle();
 
         setBackground(new java.awt.Color(232, 243, 255));
 
-        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("VOLUNTEER EVENT ROLE HOME PAGE");
-        jLabel1.setOpaque(true);
+        jPanel2.setBackground(new java.awt.Color(235, 122, 102));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        buttonEnroll.setText("ENROLL FOR FUNDRAISERS");
-        buttonEnroll.addActionListener(new java.awt.event.ActionListener() {
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel14.setText("VOLUNTEER EVENT ROLE HOME PAGE");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addContainerGap(536, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+
+        bttnManageOrganization.setBackground(new java.awt.Color(235, 122, 102));
+        bttnManageOrganization.setForeground(new java.awt.Color(51, 51, 51));
+        bttnManageOrganization.setText("ENROLL FOR FUNDRAISERS");
+        bttnManageOrganization.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnManageOrganization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEnrollActionPerformed(evt);
+                bttnManageOrganizationActionPerformed(evt);
             }
         });
 
-        buttonCheckStatus.setText("CHECK ENROLLMENT STATUS");
-        buttonCheckStatus.addActionListener(new java.awt.event.ActionListener() {
+        bttnManageOrganization1.setBackground(new java.awt.Color(235, 122, 102));
+        bttnManageOrganization1.setForeground(new java.awt.Color(51, 51, 51));
+        bttnManageOrganization1.setText("CHECK ENROLLMENT STATUS");
+        bttnManageOrganization1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnManageOrganization1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCheckStatusActionPerformed(evt);
+                bttnManageOrganization1ActionPerformed(evt);
             }
         });
 
@@ -81,50 +105,47 @@ public class VolunteerEventHomePage extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(324, 324, 324)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonEnroll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonCheckStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(63, Short.MAX_VALUE))
+                    .addComponent(bttnManageOrganization1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(buttonEnroll, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(buttonCheckStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bttnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bttnManageOrganization1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(143, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonEnrollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEnrollActionPerformed
+    private void bttnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganizationActionPerformed
         System.out.println(network.getEnterpriseDirectory().getEnterpriseList());
         FundraiserEventVolunteer fundPanelVolunteer = new FundraiserEventVolunteer(userProcessContainer, userAccount, network, eco);
         userProcessContainer.add("FundraiserEventVolunteer", fundPanelVolunteer);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_buttonEnrollActionPerformed
+    }//GEN-LAST:event_bttnManageOrganizationActionPerformed
 
-    private void buttonCheckStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCheckStatusActionPerformed
+    private void bttnManageOrganization1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganization1ActionPerformed
+        // TODO add your handling code here:
         EnrollmentStatus empStatusPanel = new EnrollmentStatus(userProcessContainer, userAccount, network, eco);
         userProcessContainer.add("EnrollmentStatus", empStatusPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_buttonCheckStatusActionPerformed
+    }//GEN-LAST:event_bttnManageOrganization1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonCheckStatus;
-    private javax.swing.JButton buttonEnroll;
-    private javax.swing.JLabel jLabel1;
+    private rojerusan.RSMaterialButtonRectangle bttnManageOrganization;
+    private rojerusan.RSMaterialButtonRectangle bttnManageOrganization1;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

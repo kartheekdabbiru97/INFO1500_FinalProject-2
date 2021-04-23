@@ -56,41 +56,29 @@ public class RequestHealthCampJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        txtpercentElder = new javax.swing.JTextField();
-        txtstate = new javax.swing.JTextField();
-        txtpercentChild = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        txtcity = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        txtzipCode = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        txtnoOfPeople = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        txtstreet = new javax.swing.JTextField();
-        buttonBack = new javax.swing.JButton();
-        buttonRequestHealthCamp = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        txtstreet = new rojerusan.RSMetroTextPlaceHolder();
+        txtcity = new rojerusan.RSMetroTextPlaceHolder();
+        txtstate = new rojerusan.RSMetroTextPlaceHolder();
+        txtzipCode = new rojerusan.RSMetroTextPlaceHolder();
+        txtnoOfPeople = new rojerusan.RSMetroTextPlaceHolder();
+        txtpercentChild = new rojerusan.RSMetroTextPlaceHolder();
+        txtpercentElder = new rojerusan.RSMetroTextPlaceHolder();
+        bttnBack = new rojerusan.RSMaterialButtonRectangle();
+        bttnBack1 = new rojerusan.RSMaterialButtonRectangle();
 
-        setBackground(new java.awt.Color(232, 243, 255));
-
-        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("HEALTH CAMP REQUEST");
-        jLabel1.setOpaque(true);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel13.setText("State");
-
-        txtstate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtstateActionPerformed(evt);
-            }
-        });
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel15.setText("No. of People");
@@ -110,17 +98,124 @@ public class RequestHealthCampJPanel extends javax.swing.JPanel {
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel12.setText("City");
 
-        buttonBack.setText("BACK");
-        buttonBack.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setBackground(new java.awt.Color(235, 122, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("HEALTHCAMP REQUEST");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addContainerGap(705, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+
+        txtstreet.setForeground(new java.awt.Color(15, 19, 52));
+        txtstreet.setToolTipText("");
+        txtstreet.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtstreet.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtstreet.setPhColor(new java.awt.Color(235, 122, 102));
+        txtstreet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonBackActionPerformed(evt);
+                txtstreetActionPerformed(evt);
             }
         });
 
-        buttonRequestHealthCamp.setText("REQUEST HEALTH CAMP");
-        buttonRequestHealthCamp.addActionListener(new java.awt.event.ActionListener() {
+        txtcity.setForeground(new java.awt.Color(15, 19, 52));
+        txtcity.setToolTipText("");
+        txtcity.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtcity.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtcity.setPhColor(new java.awt.Color(235, 122, 102));
+        txtcity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRequestHealthCampActionPerformed(evt);
+                txtcityActionPerformed(evt);
+            }
+        });
+
+        txtstate.setForeground(new java.awt.Color(15, 19, 52));
+        txtstate.setToolTipText("");
+        txtstate.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtstate.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtstate.setPhColor(new java.awt.Color(235, 122, 102));
+        txtstate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtstateActionPerformed(evt);
+            }
+        });
+
+        txtzipCode.setForeground(new java.awt.Color(15, 19, 52));
+        txtzipCode.setToolTipText("");
+        txtzipCode.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtzipCode.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtzipCode.setPhColor(new java.awt.Color(235, 122, 102));
+        txtzipCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtzipCodeActionPerformed(evt);
+            }
+        });
+
+        txtnoOfPeople.setForeground(new java.awt.Color(15, 19, 52));
+        txtnoOfPeople.setToolTipText("");
+        txtnoOfPeople.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtnoOfPeople.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtnoOfPeople.setPhColor(new java.awt.Color(235, 122, 102));
+        txtnoOfPeople.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnoOfPeopleActionPerformed(evt);
+            }
+        });
+
+        txtpercentChild.setForeground(new java.awt.Color(15, 19, 52));
+        txtpercentChild.setToolTipText("");
+        txtpercentChild.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtpercentChild.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtpercentChild.setPhColor(new java.awt.Color(235, 122, 102));
+        txtpercentChild.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtpercentChildActionPerformed(evt);
+            }
+        });
+
+        txtpercentElder.setForeground(new java.awt.Color(15, 19, 52));
+        txtpercentElder.setToolTipText("");
+        txtpercentElder.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtpercentElder.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtpercentElder.setPhColor(new java.awt.Color(235, 122, 102));
+        txtpercentElder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtpercentElderActionPerformed(evt);
+            }
+        });
+
+        bttnBack.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack.setForeground(new java.awt.Color(51, 51, 51));
+        bttnBack.setText("Back");
+        bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnBackActionPerformed(evt);
+            }
+        });
+
+        bttnBack1.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack1.setForeground(new java.awt.Color(51, 51, 51));
+        bttnBack1.setText("Request Health Camp");
+        bttnBack1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnBack1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnBack1ActionPerformed(evt);
             }
         });
 
@@ -128,84 +223,114 @@ public class RequestHealthCampJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(106, 106, 106)
+                .addGap(305, 305, 305)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtpercentChild, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtnoOfPeople, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtzipCode, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtstate, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtcity, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtstreet, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtpercentElder, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(buttonBack)
-                        .addGap(84, 84, 84)
-                        .addComponent(buttonRequestHealthCamp)))
+                        .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bttnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel15)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtnoOfPeople, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel14)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtzipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel13)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtstate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel12)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtcity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel11)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtstreet, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel16)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtpercentChild, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel17)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtpercentElder, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(147, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(144, 144, 144))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txtstreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtstreet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(txtcity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtcity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(txtstate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtstate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(txtzipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtzipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(txtnoOfPeople, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtnoOfPeople, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(txtpercentChild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(txtpercentChild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(txtpercentElder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                    .addComponent(txtpercentElder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonRequestHealthCamp)
-                    .addComponent(buttonBack))
-                .addContainerGap(169, Short.MAX_VALUE))
+                    .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtstreetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstreetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtstreetActionPerformed
+
+    private void txtcityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcityActionPerformed
 
     private void txtstateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtstateActionPerformed
 
-    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
+    private void txtzipCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtzipCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtzipCodeActionPerformed
+
+    private void txtnoOfPeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnoOfPeopleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnoOfPeopleActionPerformed
+
+    private void txtpercentChildActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpercentChildActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtpercentChildActionPerformed
+
+    private void txtpercentElderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpercentElderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtpercentElderActionPerformed
+
+    private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
@@ -213,9 +338,10 @@ public class RequestHealthCampJPanel extends javax.swing.JPanel {
         vol.populateRequestTable();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-    }//GEN-LAST:event_buttonBackActionPerformed
+    }//GEN-LAST:event_bttnBackActionPerformed
 
-    private void buttonRequestHealthCampActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRequestHealthCampActionPerformed
+    private void bttnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBack1ActionPerformed
+        // TODO add your handling code here:
         if (txtstreet.getText().isEmpty() || txtcity.getText().isEmpty() || txtstate.getText().isEmpty() || txtzipCode.getText().isEmpty() || txtnoOfPeople.getText().isEmpty() || txtpercentChild.getText().isEmpty() || txtpercentElder.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Enrollment cannot be completed as one or more fields are empty!");
         } else {
@@ -267,13 +393,12 @@ public class RequestHealthCampJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Please enter number for people in health camp, percentage of children and elders present!");
             }
         }
-    }//GEN-LAST:event_buttonRequestHealthCampActionPerformed
+    }//GEN-LAST:event_bttnBack1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonBack;
-    private javax.swing.JButton buttonRequestHealthCamp;
-    private javax.swing.JLabel jLabel1;
+    private rojerusan.RSMaterialButtonRectangle bttnBack;
+    private rojerusan.RSMaterialButtonRectangle bttnBack1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -281,12 +406,14 @@ public class RequestHealthCampJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JTextField txtcity;
-    private javax.swing.JTextField txtnoOfPeople;
-    private javax.swing.JTextField txtpercentChild;
-    private javax.swing.JTextField txtpercentElder;
-    private javax.swing.JTextField txtstate;
-    private javax.swing.JTextField txtstreet;
-    private javax.swing.JTextField txtzipCode;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private rojerusan.RSMetroTextPlaceHolder txtcity;
+    private rojerusan.RSMetroTextPlaceHolder txtnoOfPeople;
+    private rojerusan.RSMetroTextPlaceHolder txtpercentChild;
+    private rojerusan.RSMetroTextPlaceHolder txtpercentElder;
+    private rojerusan.RSMetroTextPlaceHolder txtstate;
+    private rojerusan.RSMetroTextPlaceHolder txtstreet;
+    private rojerusan.RSMetroTextPlaceHolder txtzipCode;
     // End of variables declaration//GEN-END:variables
 }

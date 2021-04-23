@@ -47,28 +47,54 @@ public class DoctorHomePage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        buttonDoctorRequests = new javax.swing.JButton();
-        buttonRequestStatus = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        bttnManageOrganization = new rojerusan.RSMaterialButtonRectangle();
+        bttnManageOrganization1 = new rojerusan.RSMaterialButtonRectangle();
 
-        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("DOCTOR - HOME PAGE");
-        jLabel1.setOpaque(true);
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        buttonDoctorRequests.setText("DOCTOR REQUESTS");
-        buttonDoctorRequests.addActionListener(new java.awt.event.ActionListener() {
+        jPanel2.setBackground(new java.awt.Color(235, 122, 102));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel9.setText("DOCTOR HOMEPAGE");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9)
+                .addContainerGap(407, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9)
+                .addContainerGap(64, Short.MAX_VALUE))
+        );
+
+        bttnManageOrganization.setBackground(new java.awt.Color(235, 122, 102));
+        bttnManageOrganization.setForeground(new java.awt.Color(51, 51, 51));
+        bttnManageOrganization.setText("Doctor Requests");
+        bttnManageOrganization.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnManageOrganization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonDoctorRequestsActionPerformed(evt);
+                bttnManageOrganizationActionPerformed(evt);
             }
         });
 
-        buttonRequestStatus.setText("WORK REQUEST STATUS");
-        buttonRequestStatus.addActionListener(new java.awt.event.ActionListener() {
+        bttnManageOrganization1.setBackground(new java.awt.Color(235, 122, 102));
+        bttnManageOrganization1.setForeground(new java.awt.Color(51, 51, 51));
+        bttnManageOrganization1.setText("Work Request Status");
+        bttnManageOrganization1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnManageOrganization1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRequestStatusActionPerformed(evt);
+                bttnManageOrganization1ActionPerformed(evt);
             }
         });
 
@@ -76,44 +102,46 @@ public class DoctorHomePage extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(263, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonRequestStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                    .addComponent(buttonDoctorRequests, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(234, 234, 234))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bttnManageOrganization1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(178, 178, 178))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(buttonDoctorRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonRequestStatus)
-                .addContainerGap(251, Short.MAX_VALUE))
+                .addComponent(bttnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bttnManageOrganization1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(174, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonDoctorRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDoctorRequestsActionPerformed
+    private void bttnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganizationActionPerformed
         DoctorWorkAreaJPanel doctorWorkPanel = new DoctorWorkAreaJPanel(userProcessContainer, userAccount, (DoctorOrganization) organization, enterprise, business);
         userProcessContainer.add("DoctorWorkAreaJPanel", doctorWorkPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_buttonDoctorRequestsActionPerformed
+    }//GEN-LAST:event_bttnManageOrganizationActionPerformed
 
-    private void buttonRequestStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRequestStatusActionPerformed
+    private void bttnManageOrganization1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganization1ActionPerformed
+        // TODO add your handling code here:
         WorkStatusPanel workStatusPanel = new WorkStatusPanel(userProcessContainer, userAccount, (DoctorOrganization) organization, enterprise, business);
         userProcessContainer.add("WorkStatusPanel", workStatusPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_buttonRequestStatusActionPerformed
+    }//GEN-LAST:event_bttnManageOrganization1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonDoctorRequests;
-    private javax.swing.JButton buttonRequestStatus;
-    private javax.swing.JLabel jLabel1;
+    private rojerusan.RSMaterialButtonRectangle bttnManageOrganization;
+    private rojerusan.RSMaterialButtonRectangle bttnManageOrganization1;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -122,22 +122,22 @@ public class SendHospitalRequest extends javax.swing.JPanel {
         bttnAssignToHospital = new rojerusan.RSMaterialButtonRectangle();
         comboHospital = new rojerusan.RSComboMetro();
 
-        setBackground(new java.awt.Color(232, 243, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
+        jPanel1.setBackground(new java.awt.Color(235, 122, 102));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("HOSPITAL REQUEST MANAGEMENT");
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("FUNDS COLLECTED:");
 
-        fundcollected.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        fundcollected.setForeground(new java.awt.Color(255, 255, 255));
+        fundcollected.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        fundcollected.setForeground(new java.awt.Color(51, 51, 51));
         fundcollected.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -145,7 +145,7 @@ public class SendHospitalRequest extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(745, Short.MAX_VALUE)
+                .addContainerGap(731, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(fundcollected)
@@ -190,10 +190,12 @@ public class SendHospitalRequest extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        workRequestJTable.setSelectionBackground(new java.awt.Color(15, 19, 52));
+        workRequestJTable.setSelectionBackground(new java.awt.Color(235, 122, 102));
+        workRequestJTable.setSelectionForeground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(workRequestJTable);
 
-        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
+        bttnBack.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack.setForeground(new java.awt.Color(51, 51, 51));
         bttnBack.setText("Back");
         bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -202,7 +204,8 @@ public class SendHospitalRequest extends javax.swing.JPanel {
             }
         });
 
-        bttnAssignToHospital.setBackground(new java.awt.Color(15, 19, 52));
+        bttnAssignToHospital.setBackground(new java.awt.Color(235, 122, 102));
+        bttnAssignToHospital.setForeground(new java.awt.Color(51, 51, 51));
         bttnAssignToHospital.setText("ASSIGN TO HOSPITAL");
         bttnAssignToHospital.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnAssignToHospital.addActionListener(new java.awt.event.ActionListener() {
@@ -211,10 +214,11 @@ public class SendHospitalRequest extends javax.swing.JPanel {
             }
         });
 
-        comboHospital.setBackground(new java.awt.Color(15, 19, 52));
-        comboHospital.setColorArrow(new java.awt.Color(15, 19, 52));
-        comboHospital.setColorBorde(new java.awt.Color(15, 19, 52));
-        comboHospital.setColorFondo(new java.awt.Color(15, 19, 52));
+        comboHospital.setBackground(new java.awt.Color(235, 122, 102));
+        comboHospital.setForeground(new java.awt.Color(51, 51, 51));
+        comboHospital.setColorArrow(new java.awt.Color(235, 122, 102));
+        comboHospital.setColorBorde(new java.awt.Color(51, 51, 51));
+        comboHospital.setColorFondo(new java.awt.Color(235, 122, 102));
         comboHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboHospitalActionPerformed(evt);
@@ -251,7 +255,7 @@ public class SendHospitalRequest extends javax.swing.JPanel {
                     .addComponent(comboHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bttnAssignToHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

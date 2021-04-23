@@ -66,15 +66,16 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         bttnUpdate = new rojerusan.RSMaterialButtonRectangle();
         txtNetworkName = new rojerusan.RSMetroTextPlaceHolder();
 
-        setBackground(new java.awt.Color(232, 243, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Network Name:");
 
-        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
+        jPanel1.setBackground(new java.awt.Color(235, 122, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("WELCOME TO NETWORK");
 
@@ -118,10 +119,12 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        networkJTable.setSelectionBackground(new java.awt.Color(15, 19, 52));
+        networkJTable.setSelectionBackground(new java.awt.Color(235, 122, 102));
+        networkJTable.setSelectionForeground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(networkJTable);
 
-        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
+        bttnBack.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack.setForeground(new java.awt.Color(51, 51, 51));
         bttnBack.setText("Back");
         bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +133,8 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             }
         });
 
-        bttnSubmit.setBackground(new java.awt.Color(15, 19, 52));
+        bttnSubmit.setBackground(new java.awt.Color(235, 122, 102));
+        bttnSubmit.setForeground(new java.awt.Color(51, 51, 51));
         bttnSubmit.setText("Submit");
         bttnSubmit.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +143,8 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             }
         });
 
-        bttnDelete.setBackground(new java.awt.Color(15, 19, 52));
+        bttnDelete.setBackground(new java.awt.Color(235, 122, 102));
+        bttnDelete.setForeground(new java.awt.Color(51, 51, 51));
         bttnDelete.setText("Delete");
         bttnDelete.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +153,8 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             }
         });
 
-        bttnUpdate.setBackground(new java.awt.Color(15, 19, 52));
+        bttnUpdate.setBackground(new java.awt.Color(235, 122, 102));
+        bttnUpdate.setForeground(new java.awt.Color(51, 51, 51));
         bttnUpdate.setText("Update");
         bttnUpdate.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -157,38 +163,37 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtNetworkName.setForeground(new java.awt.Color(15, 19, 52));
+        txtNetworkName.setForeground(new java.awt.Color(51, 51, 51));
         txtNetworkName.setToolTipText("");
-        txtNetworkName.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtNetworkName.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtNetworkName.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtNetworkName.setBotonColor(new java.awt.Color(235, 122, 102));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(40, 40, 40)
-                        .addComponent(txtNetworkName, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(117, 117, 117)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(bttnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bttnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19)
-                .addComponent(bttnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(317, 317, 317))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(90, 90, 90)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(40, 40, 40)
+                                .addComponent(txtNetworkName, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(bttnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bttnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(19, 19, 19)
+                        .addComponent(bttnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(153, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +211,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                     .addComponent(bttnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

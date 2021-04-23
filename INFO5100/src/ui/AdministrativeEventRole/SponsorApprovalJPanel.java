@@ -229,9 +229,11 @@ public class SponsorApprovalJPanel extends javax.swing.JPanel {
         jLabel5.setText("EMPLOYEE MANAGEMENT - FUNDRAISER");
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        enterpriseLabel.setForeground(new java.awt.Color(51, 51, 51));
         enterpriseLabel.setText("ENTERPRISE NAME :");
 
         valueLabel.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        valueLabel.setForeground(new java.awt.Color(51, 51, 51));
         valueLabel.setText("<value>");
 
         bttnRefresh.setBackground(new java.awt.Color(255, 255, 255));
@@ -259,7 +261,7 @@ public class SponsorApprovalJPanel extends javax.swing.JPanel {
                         .addComponent(enterpriseLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 267, Short.MAX_VALUE)
                         .addComponent(bttnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
