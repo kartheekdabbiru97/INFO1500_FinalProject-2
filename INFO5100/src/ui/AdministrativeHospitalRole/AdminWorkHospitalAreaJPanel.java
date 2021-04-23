@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -26,13 +27,14 @@ public class AdminWorkHospitalAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AdminWorkAreaJPanel
      */
-        public AdminWorkHospitalAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount account,Network network,EcoSystem ecosystem) {
+    public AdminWorkHospitalAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount account, Network network, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         this.account = account;
         this.ecosystem = ecosystem;
         this.network = network;
+        valueLabel.setText(enterprise.getName());
     }
 
     /**
@@ -44,19 +46,113 @@ public class AdminWorkHospitalAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        enterpriseLabel = new javax.swing.JLabel();
+        valueLabel = new javax.swing.JLabel();
+        buttonManageOrganization = new javax.swing.JButton();
+        buttonManageEmployee = new javax.swing.JButton();
+        buttonManageUser = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(232, 243, 255));
+
+        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("HOSPITAL ADMINISTRATOR HOME");
+        jLabel1.setOpaque(true);
+
+        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setText("ENTERPRISE:");
+
+        valueLabel.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+
+        buttonManageOrganization.setText("MANAGE ORGANIZATION");
+        buttonManageOrganization.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonManageOrganizationActionPerformed(evt);
+            }
+        });
+
+        buttonManageEmployee.setText("MANAGE EMPLOYEE");
+        buttonManageEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonManageEmployeeActionPerformed(evt);
+            }
+        });
+
+        buttonManageUser.setText("MANAGE USER");
+        buttonManageUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonManageUserActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonManageOrganization, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonManageEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonManageUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(216, 216, 216))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(valueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(buttonManageOrganization)
+                .addGap(26, 26, 26)
+                .addComponent(buttonManageEmployee)
+                .addGap(18, 18, 18)
+                .addComponent(buttonManageUser)
+                .addGap(0, 144, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonManageEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageEmployeeActionPerformed
+        ManageEmployeeJPanel manageEmployeeJPanel = new ManageEmployeeJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("manageEmployeeJPanel", manageEmployeeJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_buttonManageEmployeeActionPerformed
+
+    private void buttonManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageOrganizationActionPerformed
+        ManageOrganizationJPanel manageOrganizationJPanel = new ManageOrganizationJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("manageOrganizationJPanel", manageOrganizationJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_buttonManageOrganizationActionPerformed
+
+    private void buttonManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageUserActionPerformed
+        ManageUserAccountJPanel manageUserAccountJPanel = new ManageUserAccountJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("ManageUserAccountJPanel", manageUserAccountJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_buttonManageUserActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonManageEmployee;
+    private javax.swing.JButton buttonManageOrganization;
+    private javax.swing.JButton buttonManageUser;
+    private javax.swing.JLabel enterpriseLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
 }

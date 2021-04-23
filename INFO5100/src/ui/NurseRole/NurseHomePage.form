@@ -24,7 +24,7 @@
           <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="163" max="32767" attributes="0"/>
-              <Component id="bttnEnrollment" min="-2" pref="344" max="-2" attributes="0"/>
+              <Component id="buttonEnroll" min="-2" pref="344" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -39,7 +39,7 @@
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
-                  <Component id="bttnHospitalWorkREQ" min="-2" pref="334" max="-2" attributes="0"/>
+                  <Component id="buttonHospitalWorkReq" min="-2" pref="334" max="-2" attributes="0"/>
                   <EmptySpace pref="189" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -56,13 +56,13 @@
                   <Component id="bttnBack" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="108" max="32767" attributes="0"/>
-              <Component id="bttnEnrollment" min="-2" pref="41" max="-2" attributes="0"/>
+              <Component id="buttonEnroll" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="177" max="32767" attributes="0"/>
-                  <Component id="bttnHospitalWorkREQ" min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="buttonHospitalWorkReq" min="-2" pref="41" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -132,7 +132,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnBackActionPerformed"/>
       </Events>
     </Component>
-    <Component class="rojerusan.RSMaterialButtonRectangle" name="bttnEnrollment">
+    <Component class="rojerusan.RSMaterialButtonRectangle" name="buttonEnroll">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="34" green="13" red="f" type="rgb"/>
@@ -143,10 +143,10 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnEnrollmentActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEnrollActionPerformed"/>
       </Events>
     </Component>
-    <Component class="rojerusan.RSMaterialButtonRectangle" name="bttnHospitalWorkREQ">
+    <Component class="rojerusan.RSMaterialButtonRectangle" name="buttonHospitalWorkReq">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="34" green="13" red="f" type="rgb"/>
@@ -157,7 +157,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttnHospitalWorkREQActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHospitalWorkReqActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

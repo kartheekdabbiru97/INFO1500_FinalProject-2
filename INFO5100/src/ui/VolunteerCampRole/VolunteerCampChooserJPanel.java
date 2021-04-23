@@ -8,8 +8,11 @@ package ui.VolunteerCampRole;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
+import Business.Organization.Organization;
 import Business.Organization.VolunteerCampOrganization;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -18,6 +21,9 @@ import javax.swing.JPanel;
  */
 public class VolunteerCampChooserJPanel extends javax.swing.JPanel {
 
+    /**
+     * Creates new form VolunteerCampChooserJPanel
+     */
     JPanel userProcessContainer;
     Enterprise enterprise;
     UserAccount account;
@@ -26,13 +32,43 @@ public class VolunteerCampChooserJPanel extends javax.swing.JPanel {
     Network network;
 
     public VolunteerCampChooserJPanel(JPanel userProcessContainer, UserAccount account, VolunteerCampOrganization organization, Network network, Enterprise enterprise, EcoSystem business) {
-        initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         this.account = account;
         this.ecosystem = business;
         this.organization = organization;
 
+        initComponents();
+        //populateEnterprisetypecomboBox();
+        populateNetworkComboBox();
+    }
+
+    private void populateNetworkComboBox() {
+        networkJComboBox.removeAllItems();
+
+        for (Network network : ecosystem.getNetworkList()) {
+            networkJComboBox.addItem(network);
+        }
+    }
+
+    private void populateEnterprisetypecomboBox(Network network) {
+        enterpriseTypeJComboBox.removeAllItems();
+        for (Enterprise.EnterpriseType type : Enterprise.EnterpriseType.values()) {
+            if (type.equals(Enterprise.EnterpriseType.Camp)) {
+                enterpriseTypeJComboBox.addItem(type);
+            }
+        }
+    }
+
+    private void populateEnterpriseComboBox(Enterprise.EnterpriseType type, Network network) {
+        enterpriseJComboBox.removeAllItems();
+
+        for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (type.getValue().equals(enterprise.getEnterpriseType().getValue())) {
+                enterpriseJComboBox.addItem(enterprise);
+            }
+
+        }
     }
 
     /**
@@ -44,19 +80,205 @@ public class VolunteerCampChooserJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        networkJComboBox = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
+        enterpriseTypeJComboBox = new javax.swing.JComboBox();
+        jLabel3 = new javax.swing.JLabel();
+        enterpriseJComboBox = new javax.swing.JComboBox();
+        buttonSubmit = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(232, 243, 255));
+
+        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("SELECT CAMP");
+        jLabel1.setOpaque(true);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("Network");
+
+        networkJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        networkJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                networkJComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setText("Enterprise Type");
+
+        enterpriseTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        enterpriseTypeJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterpriseTypeJComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Enterprise");
+
+        enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        enterpriseJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterpriseJComboBoxActionPerformed(evt);
+            }
+        });
+
+        buttonSubmit.setText("SUBMIT");
+        buttonSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSubmitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(125, 125, 125)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(networkJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enterpriseTypeJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enterpriseJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 133, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(153, 153, 153))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(buttonSubmit)
+                        .addGap(264, 264, 264))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(networkJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(enterpriseTypeJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enterpriseJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(33, 33, 33)
+                .addComponent(buttonSubmit)
+                .addContainerGap(197, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void networkJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkJComboBoxActionPerformed
+        Network network = (Network) networkJComboBox.getSelectedItem();
+        if (network != null) {
+            populateEnterprisetypecomboBox(network);
+        }
+    }//GEN-LAST:event_networkJComboBoxActionPerformed
+
+    private void enterpriseTypeJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseTypeJComboBoxActionPerformed
+        Network network = (Network) networkJComboBox.getSelectedItem();
+        Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) enterpriseTypeJComboBox.getSelectedItem();
+        if (type != null) {
+            populateEnterpriseComboBox(type, network);
+        }
+    }//GEN-LAST:event_enterpriseTypeJComboBoxActionPerformed
+
+    private void enterpriseJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseJComboBoxActionPerformed
+
+    }//GEN-LAST:event_enterpriseJComboBoxActionPerformed
+
+    private void buttonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSubmitActionPerformed
+        // TODO add your handling code here:
+        UserAccount userAccount = ecosystem.getUserAccountDirectory().authenticateUser(account.getUsername(), account.getPassword());
+        System.out.println(ecosystem.getUserAccountDirectory().getUserAccountList());
+        Enterprise e = (Enterprise) enterpriseJComboBox.getSelectedItem();
+
+        Enterprise inEnterprise = null;
+        Organization inOrganization = null;
+
+        if (userAccount == null) {
+            //Step 2: Go inside each network and check each enterprise
+            for (Network network : ecosystem.getNetworkList()) {
+                //Step 2.a: check against each enterprise
+                for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                    if (enterprise.equals(e)) {
+                        userAccount = enterprise.getUserAccountDirectory().authenticateUser(account.getUsername(), account.getPassword());
+                        if (userAccount == null) {
+                            //Step 3:check against each organization for each enterprise
+                            for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                                userAccount = organization.getUserAccountDirectory().authenticateUser(account.getUsername(), account.getPassword());
+                                if (userAccount != null) {
+                                    inEnterprise = enterprise;
+                                    //System.out.println(inEnterprise);
+                                    inOrganization = organization;
+                                    //System.out.println(inOrganization);
+                                    //break;
+                                }
+                            }
+
+                        } else {
+                            inEnterprise = enterprise;
+                            //System.out.println(inEnterprise);
+                            //break;
+                        }
+                        if (inOrganization != null) {
+                            //System.out.println(inOrganization);
+                            //break;
+                        }
+                    }
+                    if (inEnterprise != null) {
+                        //System.out.println(inEnterprise);
+                        //break;
+                    }
+                }
+            }
+        }
+
+        if (userAccount == null) {
+            JOptionPane.showMessageDialog(null, "User Account does not exist");
+            return;
+        } else {
+            VolunteerHomePage volunteerHome = new VolunteerHomePage(userProcessContainer, account, (VolunteerCampOrganization) organization, (Enterprise) enterpriseJComboBox.getSelectedItem(), ecosystem);
+            userProcessContainer.add("VolunteerHomePage", volunteerHome);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }
+
+        /*if(userAccount!=null){
+        VolunteerHomePage volunteerHome = new VolunteerHomePage(userProcessContainer, account, (VolunteerCampOrganization) organization, (Enterprise) enterpriseJComboBox.getSelectedItem(), ecosystem);
+        userProcessContainer.add("VolunteerHomePage", volunteerHome);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        }
+        else
+        JOptionPane.showMessageDialog(this, "User Account does not exist");*/
+    }//GEN-LAST:event_buttonSubmitActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonSubmit;
+    private javax.swing.JComboBox enterpriseJComboBox;
+    private javax.swing.JComboBox enterpriseTypeJComboBox;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JComboBox networkJComboBox;
     // End of variables declaration//GEN-END:variables
 }

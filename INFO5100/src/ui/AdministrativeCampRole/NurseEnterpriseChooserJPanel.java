@@ -10,7 +10,6 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.NurseOrganization;
 import Business.Organization.Organization;
-import Business.Organization.VolunteerCampOrganization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;

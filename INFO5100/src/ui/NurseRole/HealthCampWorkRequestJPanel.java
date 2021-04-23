@@ -5,17 +5,79 @@
  */
 package ui.NurseRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.NurseOrganization;
+import Business.Organization.Organization;
+import Business.Organization.VolunteerCampOrganization;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Shreya Vivek Bhosale
  */
 public class HealthCampWorkRequestJPanel extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;
+    private EcoSystem business;
+    private UserAccount userAccount;
+    private NurseOrganization nurseOrganization;
+    private Enterprise enter;
+
     /**
-     * Creates new form HealthCampWorkRequestJPanel
+     * Creates new form LabAssistantWorkAreaJPanel
      */
-    public HealthCampWorkRequestJPanel() {
+    public HealthCampWorkRequestJPanel(JPanel userProcessContainer, UserAccount account, NurseOrganization organization, EcoSystem business, Enterprise enter) {
         initComponents();
+
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = account;
+        this.business = business;
+        this.nurseOrganization = organization;
+        this.enter = enter;
+        populateTable();
+    }
+
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
+
+        model.setRowCount(0);
+//        for (UserAccount user : nurseOrganization.getUserAccountDirectory().getUserAccountList()) {
+//            System.out.print(user.getRole());
+//        }
+        for (Network net : business.getNetworkList()) {
+            for (Enterprise ent : net.getEnterpriseDirectory().getEnterpriseList()) {
+                for (Organization org : ent.getOrganizationDirectory().getOrganizationList()) {
+                    if (org instanceof VolunteerCampOrganization) {
+                        for (UserAccount user : org.getUserAccountDirectory().getUserAccountList()) {
+                            System.out.println(user.getRole().toString());
+                            for (WorkRequest req : user.getWorkQueue().getWorkRequestList()) {
+                                if ((req.getTypeOfRequest().equals("PatientTest")) && (req.getCampName().equals(enter.toString())) && (req.getStatus().equals("Nurse Waiting"))) {
+                                    System.out.println(req);
+                                    Object[] row = new Object[6];
+                                    System.out.println(req);
+                                    row[0] = req.getPatientFirstname();
+                                    row[1] = req.getPatientLastname();
+                                    row[2] = req.getPgender();
+                                    row[3] = req.getPage();
+                                    row[4] = req;
+                                    row[5] = req.getStatus();
+                                    model.addRow(row);
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+        }
     }
 
     /**
@@ -27,19 +89,138 @@ public class HealthCampWorkRequestJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        workRequestJTable = new javax.swing.JTable();
+        buttonRefresh = new javax.swing.JButton();
+        buttonPatientRegistration = new javax.swing.JButton();
+        buttonBack = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(232, 243, 255));
+
+        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("PATIENT REGISTRATION");
+        jLabel1.setOpaque(true);
+
+        workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Patient Name", "Patient ID", "Gender", "Age", "Request", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(workRequestJTable);
+
+        buttonRefresh.setText("REFRESH");
+
+        buttonPatientRegistration.setText("PATIENT REGISTRATION");
+        buttonPatientRegistration.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPatientRegistrationActionPerformed(evt);
+            }
+        });
+
+        buttonBack.setText("BACK");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(69, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(buttonRefresh)
+                .addGap(97, 97, 97))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(buttonBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonPatientRegistration)
+                .addGap(103, 103, 103))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(buttonRefresh)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonPatientRegistration)
+                    .addComponent(buttonBack))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_buttonBackActionPerformed
+
+    private void buttonPatientRegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPatientRegistrationActionPerformed
+        int selectedRow = workRequestJTable.getSelectedRow();
+
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row!");
+            return;
+        }
+        WorkRequest request = (WorkRequest) workRequestJTable.getValueAt(selectedRow, 4);
+        System.out.println(request.getStatus());
+
+        if (request.getStatus().equals("Nurse Waiting")) {
+            userAccount.getWorkQueue().getWorkRequestList().add(request);
+            PatientNurseRequestJPanel patientNurseRequestJpanel = new PatientNurseRequestJPanel(userProcessContainer, userAccount, (NurseOrganization) nurseOrganization, business, enter, request);
+            userProcessContainer.add("PatientNurseRequestJpanel", patientNurseRequestJpanel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        } else {
+            JOptionPane.showMessageDialog(null, "The Patient is already taken");
+        }
+    }//GEN-LAST:event_buttonPatientRegistrationActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonBack;
+    private javax.swing.JButton buttonPatientRegistration;
+    private javax.swing.JButton buttonRefresh;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
 }

@@ -27,13 +27,14 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AdminWorkAreaJPanel
      */
-        public AdminWorkCampAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount account,Network network,EcoSystem ecosystem) {
+    public AdminWorkCampAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount account, Network network, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         this.account = account;
         this.ecosystem = ecosystem;
         this.network = network;
+        valueLabel1.setText(enterprise.getName());
     }
 
     /**
@@ -49,6 +50,11 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         enterpriseLabel1 = new javax.swing.JLabel();
         valueLabel1 = new javax.swing.JLabel();
+        buttonManageOrganizations = new javax.swing.JButton();
+        buttonManageEmployee = new javax.swing.JButton();
+        buttonManageUser = new javax.swing.JButton();
+        buttonVolunteerApproval = new javax.swing.JButton();
+        buttonHealthCamp = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(232, 243, 255));
 
@@ -92,17 +98,71 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        buttonManageOrganizations.setText("MANAGE ORGANIZATION");
+        buttonManageOrganizations.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonManageOrganizationsActionPerformed(evt);
+            }
+        });
+
+        buttonManageEmployee.setText("MANAGE EMPLOYEE");
+        buttonManageEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonManageEmployeeActionPerformed(evt);
+            }
+        });
+
+        buttonManageUser.setText("MANAGE USER");
+        buttonManageUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonManageUserActionPerformed(evt);
+            }
+        });
+
+        buttonVolunteerApproval.setText("VOLUNTEER APPROVAL");
+        buttonVolunteerApproval.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonVolunteerApprovalActionPerformed(evt);
+            }
+        });
+
+        buttonHealthCamp.setText("HEALTH CAMP REQUEST");
+        buttonHealthCamp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonHealthCampActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(243, 243, 243)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonManageOrganizations, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonManageEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonManageUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonVolunteerApproval, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonHealthCamp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(403, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(buttonManageOrganizations, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonManageEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonVolunteerApproval, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonHealthCamp, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(113, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -126,7 +186,47 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_bttnHealthCampRequestActionPerformed
 
+    private void buttonVolunteerApprovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVolunteerApprovalActionPerformed
+        VolunteerCampApprovalJPanel volunteerApprovalJPanel = new VolunteerCampApprovalJPanel(userProcessContainer, enterprise, account);
+        userProcessContainer.add("VolunteerApprovalJPanel", volunteerApprovalJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_buttonVolunteerApprovalActionPerformed
+
+    private void buttonManageEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageEmployeeActionPerformed
+        ManageEmployeeJPanel manageEmployeeJPanel = new ManageEmployeeJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("manageEmployeeJPanel", manageEmployeeJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_buttonManageEmployeeActionPerformed
+
+    private void buttonManageOrganizationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageOrganizationsActionPerformed
+        ManageOrganizationJPanel manageOrganizationJPanel = new ManageOrganizationJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("manageOrganizationJPanel", manageOrganizationJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_buttonManageOrganizationsActionPerformed
+
+    private void buttonManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageUserActionPerformed
+        ManageUserAccountJPanel manageUserAccountJPanel = new ManageUserAccountJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("ManageUserAccountJPanel", manageUserAccountJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_buttonManageUserActionPerformed
+
+    private void buttonHealthCampActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHealthCampActionPerformed
+        HealthcampRequestJPanel HealthcampRequestJPanel = new HealthcampRequestJPanel(userProcessContainer, account, ecosystem, network, enterprise);
+        userProcessContainer.add("HealthcampRequestJPanel", HealthcampRequestJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_buttonHealthCampActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonHealthCamp;
+    private javax.swing.JButton buttonManageEmployee;
+    private javax.swing.JButton buttonManageOrganizations;
+    private javax.swing.JButton buttonManageUser;
+    private javax.swing.JButton buttonVolunteerApproval;
     private javax.swing.JLabel enterpriseLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

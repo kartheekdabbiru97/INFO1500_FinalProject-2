@@ -290,6 +290,8 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         }
         if (check == 0) {
             String name = txtName.getText();
+            
+            if (!network.getEnterpriseDirectory().IsDuplicateEnterprise(name)) {
 
             Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type);
 
@@ -297,6 +299,10 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             txtName.setText("");
             JOptionPane.showMessageDialog(null, "Congrats! You have now created " + comboEnterpriseType.getSelectedItem() + " enterprise.");
             log.info("New Enterprise Created");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "This name already exist");
+            }
         }
     }//GEN-LAST:event_bttnSubmitActionPerformed
 

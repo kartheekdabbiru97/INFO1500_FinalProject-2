@@ -5,17 +5,55 @@
  */
 package ui.VolunteerCampRole;
 
+import Business.Enterprise.Enterprise;
+import Business.Organization.VolunteerCampOrganization;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Shreya Vivek Bhosale
  */
 public class VolunteerCampRequestJPanel extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;
+    private VolunteerCampOrganization organization;
+    private Enterprise enterprise;
+    private UserAccount userAccount;
+
     /**
-     * Creates new form VolunteerCampRequestJPanel
+     * Creates new form DoctorWorkAreaJPanel
      */
-    public VolunteerCampRequestJPanel() {
+    public VolunteerCampRequestJPanel(JPanel userProcessContainer, UserAccount account, VolunteerCampOrganization organization, Enterprise enterprise) {
         initComponents();
+
+        this.userProcessContainer = userProcessContainer;
+        this.organization = organization;
+        this.enterprise = enterprise;
+        this.userAccount = account;
+        valueLabel.setText(enterprise.getName());
+        populateRequestTable();
+    }
+
+    public void populateRequestTable() {
+        DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
+
+        model.setRowCount(0);
+
+        for (WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()) {
+            if (request.toString().equals("HealthCamp")) {
+                Object[] row = new Object[4];
+                row[0] = request.getCampId();
+                row[1] = request.getCity();
+                row[2] = request.getPeopleAffected();
+                row[3] = request.getStatus();
+
+                model.addRow(row);
+            }
+        }
     }
 
     /**
@@ -27,19 +65,143 @@ public class VolunteerCampRequestJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        workRequestJTable = new javax.swing.JTable();
+        buttonBack = new javax.swing.JButton();
+        buttonRefresh = new javax.swing.JButton();
+        buttonRequest = new javax.swing.JButton();
+        valueLabel = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(232, 243, 255));
+
+        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("CAMP REQUEST");
+        jLabel1.setOpaque(true);
+
+        workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Camp ID", "City", "No. of Affected People", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(workRequestJTable);
+
+        buttonBack.setText("BACK");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackActionPerformed(evt);
+            }
+        });
+
+        buttonRefresh.setText("REFRESH");
+        buttonRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRefreshActionPerformed(evt);
+            }
+        });
+
+        buttonRequest.setText("REQUEST HELP");
+        buttonRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRequestActionPerformed(evt);
+            }
+        });
+
+        valueLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(69, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(347, 347, 347)
+                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(181, 181, 181)
+                        .addComponent(buttonRefresh))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(263, 263, 263)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(buttonBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonRequest)
+                .addGap(89, 89, 89))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(buttonRefresh))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonRequest)
+                    .addComponent(buttonBack))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRequestActionPerformed
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.add("RequestHealthCampJPanel", new RequestHealthCampJPanel(userProcessContainer, userAccount, enterprise));
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_buttonRequestActionPerformed
+
+    private void buttonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshActionPerformed
+        populateRequestTable();
+    }//GEN-LAST:event_buttonRefreshActionPerformed
+
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_buttonBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonBack;
+    private javax.swing.JButton buttonRefresh;
+    private javax.swing.JButton buttonRequest;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel valueLabel;
+    private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
 }

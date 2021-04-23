@@ -4,7 +4,6 @@
  */
 package ui;
 
-import AppPackage.AnimationClass;
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
 import Business.Enterprise.Enterprise;
@@ -13,16 +12,13 @@ import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import ui.GeneralRole.SponsorRegistrationPanel;
-import ui.VolunteerCampRole.VolunteerRegistrationPanel;
 import java.util.logging.*;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import ui.SponsorRole.SponsorRegistrationPanel;
+import ui.VolunteerCampRole.VolunteerRegistrationPanel;
 
 /**
  *
@@ -39,21 +35,12 @@ public class MainJFrame extends javax.swing.JFrame {
 
     public MainJFrame() {
         initComponents();
-        system = dB4OUtil.retrieveSystem();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        system = dB4OUtil.retrieveSystem();
         System.out.println(this.getHeight());
         System.out.println(this.getWidth());
-        
-    }
 
-//    public void scaleImage() {
-//        ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("finalLogin.png")));
-//        Image img = myimage.getImage();
-//        Image imgScaleImage = img.getScaledInstance(jLabel5.getWidth(), jLabel5.getHeight(), Image.SCALE_SMOOTH);
-//        ImageIcon scaledImageIcon = new ImageIcon(imgScaleImage);
-//        jLabel5.setIcon(scaledImageIcon);
-//
-//    }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -313,13 +300,21 @@ public class MainJFrame extends javax.swing.JFrame {
         if (userAccount == null) {
             jLabel1.setForeground(Color.RED);
             jLabel2.setForeground(Color.RED);
-            JOptionPane.showMessageDialog(null, "Invalid Credentials!");
+            JOptionPane.showMessageDialog(null, "Invalid Credentials! Please re-enter!");
             return;
         } else {
             CardLayout layout = (CardLayout) container.getLayout();
+            //System.out.println(userAccount.getRole());
+            //System.out.println(userAccount.getRole().getEcoSystem());
+            //System.out.println(inEnterprise);
+            //System.out.println(inOrganization);
             container.add("workArea", userAccount.getRole().createWorkArea(container, userAccount, inOrganization, inEnterprise, inNetwork, system));
             layout.next(container);
         }
+//      
+//        log.info("Current Enterprise\t" +inEnterprise);
+//        log.info("Current Organization\t" +inOrganization);
+//        log.info("Current Network\t" +inNetwork);
 
         buttonLogin.setEnabled(false);
         buttonLogout.setEnabled(true);
@@ -331,7 +326,7 @@ public class MainJFrame extends javax.swing.JFrame {
         buttonLogout.setEnabled(false);
         userNameJTextField.setEnabled(true);
         passwordField.setEnabled(true);
-        buttonLogout.setEnabled(true);
+        buttonLogin.setEnabled(true);
 
         userNameJTextField.setText("");
         passwordField.setText("");
@@ -346,68 +341,68 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonLogoutActionPerformed
 
     private void buttonJoinUsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJoinUsActionPerformed
-//        // TODO add your handling code here:
-//        logr.info("Entering the volunteer RegistrationScreen");
-//        if ((!userNameJTextField.getText().isEmpty()) && (!buttonLogin.isEnabled())) {
-//            int selectionButton = JOptionPane.YES_NO_OPTION;
-//            int selectionResult = JOptionPane.showConfirmDialog(null, "The current user session" + userNameJTextField.getText() + " will be terminated, Do you want to proceed?",
-//                    "Warning", selectionButton);
-//            if (selectionResult == JOptionPane.YES_OPTION) {
-//                VolunteerRegistrationPanel vp = new VolunteerRegistrationPanel(container, system);
-//                CardLayout layout = (CardLayout) container.getLayout();
-//                container.add("VolunteerRegistration", vp);
-//                layout.next(container);
-//
-//                buttonLogin.setEnabled(false);
-//                buttonLogout.setEnabled(true);
-//                userNameJTextField.setEnabled(false);
-//                passwordField.setEnabled(false);
-//                userNameJTextField.setText("");
-//                passwordField.setText("");
-//            }
-//        } else {
-//            VolunteerRegistrationPanel vp = new VolunteerRegistrationPanel(container, system);
-//            CardLayout layout = (CardLayout) container.getLayout();
-//            container.add("VolunteerRegistration", vp);
-//            layout.next(container);
-//
-//            buttonLogin.setEnabled(false);
-//            buttonLogout.setEnabled(true);
-//            userNameJTextField.setEnabled(false);
-//            passwordField.setEnabled(false);
-//        }
+        logr.info("Entering the volunteer RegistrationScreen");
+        if ((!userNameJTextField.getText().isEmpty()) && (!buttonLogin.isEnabled())) {
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "The current user session" + userNameJTextField.getText() + " will be terminated, Do you want to proceed?",
+                    "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                VolunteerRegistrationPanel vp = new VolunteerRegistrationPanel(container, system);
+                CardLayout layout = (CardLayout) container.getLayout();
+                container.add("VolunteerRegistration", vp);
+                layout.next(container);
+
+                buttonLogin.setEnabled(false);
+                buttonLogout.setEnabled(true);
+                userNameJTextField.setEnabled(false);
+                passwordField.setEnabled(false);
+                userNameJTextField.setText("");
+                passwordField.setText("");
+            }
+        } else {
+            VolunteerRegistrationPanel vp = new VolunteerRegistrationPanel(container, system);
+            CardLayout layout = (CardLayout) container.getLayout();
+            container.add("VolunteerRegistration", vp);
+            layout.next(container);
+
+            buttonLogin.setEnabled(false);
+            buttonLogout.setEnabled(true);
+            userNameJTextField.setEnabled(false);
+            passwordField.setEnabled(false);
+        }
     }//GEN-LAST:event_buttonJoinUsActionPerformed
 
     private void buttonSponsorRegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSponsorRegistrationActionPerformed
-//        logr.info("Entering the Sponsor RegistrationScreen");
-//        if ((!userNameJTextField.getText().isEmpty()) && (!buttonLogin.isEnabled())) {
-//            int selectionButton = JOptionPane.YES_NO_OPTION;
-//            int selectionResult = JOptionPane.showConfirmDialog(null, "The current user session" + userNameJTextField.getText() + " will be terminated, Do you want to proceed?",
-//                    "Warning", selectionButton);
-//            if (selectionResult == JOptionPane.YES_OPTION) {
-//                SponsorRegistrationPanel sp = new SponsorRegistrationPanel(container, system);
-//                CardLayout layout = (CardLayout) container.getLayout();
-//                container.add("SponsorRegistration", sp);
-//                layout.next(container);
-//
-//                buttonLogin.setEnabled(false);
-//                buttonLogout.setEnabled(true);
-//                userNameJTextField.setEnabled(false);
-//                passwordField.setEnabled(false);
-//                userNameJTextField.setText("");
-//                passwordField.setText("");
-//            }
-//        } else {
-//            SponsorRegistrationPanel sp = new SponsorRegistrationPanel(container, system);
-//            CardLayout layout = (CardLayout) container.getLayout();
-//            container.add("SponsorRegistration", sp);
-//            layout.next(container);
-//
-//            buttonLogin.setEnabled(false);
-//            buttonLogout.setEnabled(true);
-//            userNameJTextField.setEnabled(false);
-//            passwordField.setEnabled(false);
-//        }
+        // TODO add your handling code here:
+        logr.info("Entering the Sponsor RegistrationScreen");
+        if ((!userNameJTextField.getText().isEmpty()) && (!buttonLogin.isEnabled())) {
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "The current user session" + userNameJTextField.getText() + " will be terminated, Do you want to proceed?",
+                    "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                SponsorRegistrationPanel sp = new SponsorRegistrationPanel(container, system);
+                CardLayout layout = (CardLayout) container.getLayout();
+                container.add("SponsorRegistration", sp);
+                layout.next(container);
+
+                buttonLogin.setEnabled(false);
+                buttonLogout.setEnabled(true);
+                userNameJTextField.setEnabled(false);
+                passwordField.setEnabled(false);
+                userNameJTextField.setText("");
+                passwordField.setText("");
+            }
+        } else {
+            SponsorRegistrationPanel sp = new SponsorRegistrationPanel(container, system);
+            CardLayout layout = (CardLayout) container.getLayout();
+            container.add("SponsorRegistration", sp);
+            layout.next(container);
+
+            buttonLogin.setEnabled(false);
+            buttonLogout.setEnabled(true);
+            userNameJTextField.setEnabled(false);
+            passwordField.setEnabled(false);
+        }
     }//GEN-LAST:event_buttonSponsorRegistrationActionPerformed
 
     /**
@@ -438,19 +433,7 @@ public class MainJFrame extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

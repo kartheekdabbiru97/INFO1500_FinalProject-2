@@ -5,6 +5,17 @@
  */
 package ui.ReceptionistRole;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Organization.ReceptionistOrganization;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.PayRequest;
+import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Shreya Vivek Bhosale
@@ -12,10 +23,45 @@ package ui.ReceptionistRole;
 public class PatientSubmission extends javax.swing.JPanel {
 
     /**
-     * Creates new form PatientSubmission
+     * Creates new form PatientSubmissions
      */
-    public PatientSubmission() {
+    private JPanel userProcessContainer;
+    private ReceptionistOrganization organization;
+    private Enterprise enterprise;
+    private UserAccount userAccount;
+    private EcoSystem eco;
+
+    public PatientSubmission(JPanel userProcessContainer, UserAccount account, ReceptionistOrganization organization, Enterprise enterprise, EcoSystem eco) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.organization = organization;
+        this.enterprise = enterprise;
+        this.userAccount = account;
+        this.eco = eco;
+        populateTable();
+    }
+
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
+        model.setRowCount(0);
+        for (UserAccount user : organization.getUserAccountDirectory().getUserAccountList()) {
+            System.out.println(user.getWorkQueue().getWorkRequestList());
+            for (WorkRequest req : user.getWorkQueue().getWorkRequestList()) {
+                System.out.println(req.getStatus());
+                if ((req.getStatus().equals("Bill Generated")) || (req.getStatus().equals("Hospital Treatment Completed"))) {
+                    System.out.println(req);
+                    Object[] row = new Object[6];
+                    row[0] = req.getPatientFirstname();
+                    row[1] = req.getPatientLastname();
+                    row[2] = req;
+                    row[3] = req.getReceiver();
+                    row[4] = req.getHospitalFee();
+                    row[5] = req.getApproxPatientFee();
+                    model.addRow(row);
+                }
+            }
+        }
+
     }
 
     /**
@@ -27,19 +73,155 @@ public class PatientSubmission extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        workRequestJTable = new javax.swing.JTable();
+        buttonBack = new javax.swing.JButton();
+        buttonGenerateBill = new javax.swing.JButton();
+        buttonRefresh = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(232, 243, 255));
+
+        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("PATIENT BILL GENERATION");
+        jLabel1.setOpaque(true);
+
+        workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "First Name", "Last Name", "Request Type", "Status", "Hospital Fee", "Funded Amount"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(workRequestJTable);
+
+        buttonBack.setText("BACK");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackActionPerformed(evt);
+            }
+        });
+
+        buttonGenerateBill.setText("GENERATE BILL");
+        buttonGenerateBill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGenerateBillActionPerformed(evt);
+            }
+        });
+
+        buttonRefresh.setText("REFRESH");
+        buttonRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRefreshActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(buttonBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonGenerateBill)
+                .addGap(87, 87, 87))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(buttonRefresh)
+                        .addGap(106, 106, 106))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(199, 199, 199)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(buttonRefresh)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonBack)
+                    .addComponent(buttonGenerateBill))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshActionPerformed
+        populateTable();
+    }//GEN-LAST:event_buttonRefreshActionPerformed
+
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_buttonBackActionPerformed
+
+    private void buttonGenerateBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGenerateBillActionPerformed
+        int money = 0;
+        for (UserAccount user : organization.getUserAccountDirectory().getUserAccountList()) {
+            for (WorkRequest work : user.getWorkQueue().getWorkRequestList()) {
+                if (work.getStatus().equals("Bill Generated")) {
+                    money += work.getHospitalFee();
+                    work.setStatus("Hospital Treatment Completed");
+                    JOptionPane.showMessageDialog(null, "Hospital Treatment Completed!");
+                }
+            }
+        }
+        if (money == 0) {
+            JOptionPane.showMessageDialog(null, "Already In Process. Sent to System Admin for processing payment!");
+        } else {
+            PayRequest request = new PayRequest();
+            request.setSender(userAccount);
+            request.setAddress(enterprise.getName());
+            request.setStatus("Admin Pay");
+            request.setMessage("Pay Bills");
+            request.setTypeOfRequest("HospitalFee");
+            request.setApproxPatientFee(money);
+            JOptionPane.showMessageDialog(null, "Bill Generated and Sent to System Admin for processing payment!");
+            for (UserAccount sys : eco.getUserAccountDirectory().getUserAccountList()) {
+                sys.getWorkQueue().getWorkRequestList().add(request);
+            }
+
+        }
+    }//GEN-LAST:event_buttonGenerateBillActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonBack;
+    private javax.swing.JButton buttonGenerateBill;
+    private javax.swing.JButton buttonRefresh;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
 }
