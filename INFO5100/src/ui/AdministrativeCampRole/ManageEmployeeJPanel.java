@@ -90,7 +90,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         bttnDeleteEmployee = new rojerusan.RSMaterialButtonRectangle();
         txtEmployeeName = new rojerusan.RSMetroTextPlaceHolder();
 
-        setBackground(new java.awt.Color(232, 243, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Organization Name:");
@@ -118,7 +118,8 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        organizationJTable.setSelectionBackground(new java.awt.Color(15, 19, 52));
+        organizationJTable.setSelectionBackground(new java.awt.Color(235, 122, 102));
+        organizationJTable.setSelectionForeground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(organizationJTable);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -127,11 +128,12 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Employee Name:");
 
-        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
+        jPanel1.setBackground(new java.awt.Color(235, 122, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("HEALTH CAMP REQUEST PANEL");
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel8.setText("MANAGE EMPLOYEE");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -140,7 +142,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(640, Short.MAX_VALUE))
+                .addContainerGap(636, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,22 +152,25 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
                 .addContainerGap(65, Short.MAX_VALUE))
         );
 
-        cmboOrganization.setBackground(new java.awt.Color(15, 19, 52));
-        cmboOrganization.setColorArrow(new java.awt.Color(15, 19, 52));
-        cmboOrganization.setColorBorde(new java.awt.Color(15, 19, 52));
-        cmboOrganization.setColorFondo(new java.awt.Color(15, 19, 52));
+        cmboOrganization.setBackground(new java.awt.Color(235, 122, 102));
+        cmboOrganization.setForeground(new java.awt.Color(51, 51, 51));
+        cmboOrganization.setColorArrow(new java.awt.Color(235, 122, 102));
+        cmboOrganization.setColorBorde(new java.awt.Color(51, 51, 51));
+        cmboOrganization.setColorFondo(new java.awt.Color(235, 122, 102));
 
-        cmboOrganizationEmployee.setBackground(new java.awt.Color(15, 19, 52));
-        cmboOrganizationEmployee.setColorArrow(new java.awt.Color(15, 19, 52));
-        cmboOrganizationEmployee.setColorBorde(new java.awt.Color(15, 19, 52));
-        cmboOrganizationEmployee.setColorFondo(new java.awt.Color(15, 19, 52));
+        cmboOrganizationEmployee.setBackground(new java.awt.Color(235, 122, 102));
+        cmboOrganizationEmployee.setForeground(new java.awt.Color(51, 51, 51));
+        cmboOrganizationEmployee.setColorArrow(new java.awt.Color(235, 122, 102));
+        cmboOrganizationEmployee.setColorBorde(new java.awt.Color(51, 51, 51));
+        cmboOrganizationEmployee.setColorFondo(new java.awt.Color(235, 122, 102));
         cmboOrganizationEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmboOrganizationEmployeeActionPerformed(evt);
             }
         });
 
-        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
+        bttnBack.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack.setForeground(new java.awt.Color(51, 51, 51));
         bttnBack.setText("Back");
         bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -174,7 +179,8 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
             }
         });
 
-        bttnCreateEmployee.setBackground(new java.awt.Color(15, 19, 52));
+        bttnCreateEmployee.setBackground(new java.awt.Color(235, 122, 102));
+        bttnCreateEmployee.setForeground(new java.awt.Color(51, 51, 51));
         bttnCreateEmployee.setText("Create Employee");
         bttnCreateEmployee.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnCreateEmployee.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +189,8 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
             }
         });
 
-        bttnDeleteEmployee.setBackground(new java.awt.Color(15, 19, 52));
+        bttnDeleteEmployee.setBackground(new java.awt.Color(235, 122, 102));
+        bttnDeleteEmployee.setForeground(new java.awt.Color(51, 51, 51));
         bttnDeleteEmployee.setText("Delete Employee");
         bttnDeleteEmployee.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnDeleteEmployee.addActionListener(new java.awt.event.ActionListener() {
@@ -194,8 +201,8 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
 
         txtEmployeeName.setForeground(new java.awt.Color(15, 19, 52));
         txtEmployeeName.setToolTipText("");
-        txtEmployeeName.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtEmployeeName.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtEmployeeName.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtEmployeeName.setBotonColor(new java.awt.Color(235, 122, 102));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -250,7 +257,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
                     .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnCreateEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnDeleteEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

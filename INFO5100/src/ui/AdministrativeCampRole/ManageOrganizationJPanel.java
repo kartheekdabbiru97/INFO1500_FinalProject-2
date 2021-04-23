@@ -95,7 +95,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         bttnDeleteOrganization = new rojerusan.RSMaterialButtonRectangle();
         cmboOrganizationType = new rojerusan.RSComboMetro();
 
-        setBackground(new java.awt.Color(232, 243, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -120,16 +120,18 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        organizationJTable.setSelectionBackground(new java.awt.Color(15, 19, 52));
+        organizationJTable.setSelectionBackground(new java.awt.Color(235, 122, 102));
+        organizationJTable.setSelectionForeground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(organizationJTable);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Organization Type ");
 
-        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
+        jPanel1.setBackground(new java.awt.Color(235, 122, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("ORGANIZATION MANAGEMENT - CAMP");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -149,7 +151,8 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                 .addContainerGap(65, Short.MAX_VALUE))
         );
 
-        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
+        bttnBack.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack.setForeground(new java.awt.Color(51, 51, 51));
         bttnBack.setText("Back");
         bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +161,8 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             }
         });
 
-        bttnAddOrganization.setBackground(new java.awt.Color(15, 19, 52));
+        bttnAddOrganization.setBackground(new java.awt.Color(235, 122, 102));
+        bttnAddOrganization.setForeground(new java.awt.Color(51, 51, 51));
         bttnAddOrganization.setText("Add Organization");
         bttnAddOrganization.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnAddOrganization.addActionListener(new java.awt.event.ActionListener() {
@@ -167,7 +171,8 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             }
         });
 
-        bttnDeleteOrganization.setBackground(new java.awt.Color(15, 19, 52));
+        bttnDeleteOrganization.setBackground(new java.awt.Color(235, 122, 102));
+        bttnDeleteOrganization.setForeground(new java.awt.Color(51, 51, 51));
         bttnDeleteOrganization.setText("Delete Organization");
         bttnDeleteOrganization.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnDeleteOrganization.addActionListener(new java.awt.event.ActionListener() {
@@ -176,10 +181,10 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             }
         });
 
-        cmboOrganizationType.setBackground(new java.awt.Color(15, 19, 52));
-        cmboOrganizationType.setColorArrow(new java.awt.Color(15, 19, 52));
-        cmboOrganizationType.setColorBorde(new java.awt.Color(15, 19, 52));
-        cmboOrganizationType.setColorFondo(new java.awt.Color(15, 19, 52));
+        cmboOrganizationType.setBackground(new java.awt.Color(235, 122, 102));
+        cmboOrganizationType.setColorArrow(new java.awt.Color(235, 122, 102));
+        cmboOrganizationType.setColorBorde(new java.awt.Color(51, 51, 51));
+        cmboOrganizationType.setColorFondo(new java.awt.Color(235, 122, 102));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -217,7 +222,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                     .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnAddOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnDeleteOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
