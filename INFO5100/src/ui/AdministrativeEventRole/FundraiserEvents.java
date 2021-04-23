@@ -5,6 +5,20 @@
  */
 package ui.AdministrativeEventRole;
 
+import Business.Enterprise.Enterprise;
+import Business.Enterprise.FundCharityEnterprise;
+import Business.Network.Network;
+import java.awt.CardLayout;
+import java.awt.Color;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+
 /**
  *
  * @author Shreya Vivek Bhosale
@@ -14,8 +28,41 @@ public class FundraiserEvents extends javax.swing.JPanel {
     /**
      * Creates new form FundraiserEvents
      */
-    public FundraiserEvents() {
+    private JPanel userProcessContainer;
+    private Enterprise enterprise;
+    private Network network;
+
+    public FundraiserEvents(JPanel userProcessContainer, Enterprise enterprise, Network network) {
+        this.userProcessContainer = userProcessContainer;
+        this.enterprise = enterprise;
+        this.network = network;
         initComponents();
+        populateTable();
+    }
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
+        model.setRowCount(0);
+        int count = 0;
+        for (Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (enter.getEnterpriseType().equals(Enterprise.EnterpriseType.Event)) {
+                if (count != 0) {
+                    FundCharityEnterprise event = (FundCharityEnterprise) enter;
+                    Object[] row = new Object[7];
+                    row[0] = event;
+                    row[1] = event.getStreet();
+                    row[2] = event.getCity();
+                    row[3] = event.getState();
+                    row[4] = event.getZipcode();
+                    row[5] = event.getBudgetCount();
+                    row[6] = event.getFundsCollected();
+                    model.addRow(row);
+                } else {
+                    count++;
+                }
+            }
+        }
+
     }
 
     /**
@@ -27,37 +74,13 @@ public class FundraiserEvents extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         workRequestJTable = new javax.swing.JTable();
-        bttnBack = new rojerusan.RSMaterialButtonRectangle();
-        bttnGenerateBarChart = new rojerusan.RSMaterialButtonRectangle();
+        jLabel1 = new javax.swing.JLabel();
+        buttonBack = new javax.swing.JButton();
+        buttonCharts = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(232, 243, 255));
-
-        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("FUNDRAISER EVENT");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(573, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7)
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -82,24 +105,26 @@ public class FundraiserEvents extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        workRequestJTable.setSelectionBackground(new java.awt.Color(15, 19, 52));
         jScrollPane1.setViewportView(workRequestJTable);
 
-        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
-        bttnBack.setText("Back");
-        bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnBack.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("FUNDRAISER EVENTS");
+        jLabel1.setOpaque(true);
+
+        buttonBack.setText("BACK");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnBackActionPerformed(evt);
+                buttonBackActionPerformed(evt);
             }
         });
 
-        bttnGenerateBarChart.setBackground(new java.awt.Color(15, 19, 52));
-        bttnGenerateBarChart.setText("Generate Bar Chart");
-        bttnGenerateBarChart.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnGenerateBarChart.addActionListener(new java.awt.event.ActionListener() {
+        buttonCharts.setText("GENERATE CHARTS");
+        buttonCharts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnGenerateBarChartActionPerformed(evt);
+                buttonChartsActionPerformed(evt);
             }
         });
 
@@ -107,45 +132,67 @@ public class FundraiserEvents extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 977, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bttnGenerateBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addGap(56, 56, 56)
+                .addComponent(buttonBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonCharts)
+                .addGap(88, 88, 88))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(86, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnGenerateBarChart, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 207, Short.MAX_VALUE))
+                    .addComponent(buttonBack)
+                    .addComponent(buttonCharts))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnBackActionPerformed
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_buttonBackActionPerformed
 
-    private void bttnGenerateBarChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnGenerateBarChartActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnGenerateBarChartActionPerformed
+    private void buttonChartsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChartsActionPerformed
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        // dataset.setValue(80, "M", "M");
+        for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+
+            //System.out.println(e.getName() + "---" + e.getEnterpriseType().equals(Enterprise.EnterpriseType.Camp));
+            if (e.getEnterpriseType().equals(Enterprise.EnterpriseType.Event)) {
+                FundCharityEnterprise ep = (FundCharityEnterprise) e;
+                // System.out.println(ep.getFundsCollected());
+                //System.out.println();
+                if (ep.getFundsCollected() != 0) {
+                    dataset.setValue(ep.getFundsCollected(), "Funds Collected", ep.getName());
+                }
+            }
+        }
+
+        JFreeChart chart = ChartFactory.createBarChart("Funds Collected Per Camp", "Event Camp Name", "Total Funds", dataset, PlotOrientation.VERTICAL, false, true, false);
+        CategoryPlot p = chart.getCategoryPlot();
+        p.setRangeGridlinePaint(Color.BLACK);
+        ChartFrame frame = new ChartFrame("Plot for Most Affected People in Different Areas", chart);
+        frame.setVisible(true);
+        frame.setSize(450, 350);
+    }//GEN-LAST:event_buttonChartsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rojerusan.RSMaterialButtonRectangle bttnBack;
-    private rojerusan.RSMaterialButtonRectangle bttnGenerateBarChart;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton buttonBack;
+    private javax.swing.JButton buttonCharts;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables

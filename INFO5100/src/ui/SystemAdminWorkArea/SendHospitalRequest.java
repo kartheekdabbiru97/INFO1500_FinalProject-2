@@ -5,6 +5,20 @@
  */
 package ui.SystemAdminWorkArea;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Enterprise.FundCharityEnterprise;
+import Business.WorkQueue.WorkRequest;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
+import java.util.logging.*;
+
 /**
  *
  * @author Shreya Vivek Bhosale
@@ -14,8 +28,79 @@ public class SendHospitalRequest extends javax.swing.JPanel {
     /**
      * Creates new form SendHospitalRequest
      */
-    public SendHospitalRequest() {
+    private JPanel userProcessContainer;
+    private EcoSystem eco;
+    private static int funds = 0;
+    int count = 0;
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
+    public SendHospitalRequest(JPanel container, EcoSystem eco) {
         initComponents();
+        this.userProcessContainer = container;
+        this.eco = eco;
+        initComponents();
+        populateTable();
+        populateJComboBox();
+    }
+
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
+
+        model.setRowCount(0);
+        System.out.println("Welcome!");
+        for (Network net : eco.getNetworkList()) {
+            for (Enterprise enter : net.getEnterpriseDirectory().getEnterpriseList()) {
+                if (enter.getEnterpriseType().equals(Enterprise.EnterpriseType.Event)) {
+                    System.out.println(enter.getEnterpriseType());
+                    for (UserAccount user : enter.getUserAccountDirectory().getUserAccountList()) {
+                        System.out.println("+++++++++++++++++=" + user.getRole().toString());
+                        System.out.println("++++++*******" + user.getUsername());
+
+                        if (user.getUsername().equals("mafund")) {
+                            count++;
+                            for (WorkRequest req : user.getWorkQueue().getWorkRequestList()) {
+                                System.out.println("Request:" + req);
+                                System.out.println("Request Type:" + req.getTypeOfRequest());
+                                if (req.getTypeOfRequest().equals("Hospital Patient") || (req.getTypeOfRequest().equals("Fund Patient"))) {
+                                    Object[] row = new Object[8];
+                                    row[0] = req.getPatientFirstname();
+                                    row[1] = req.getPatientLastname();
+                                    row[2] = req.getPpriority();
+                                    row[3] = req.getPage();
+                                    row[4] = req;
+                                    row[5] = req.getStatus();
+                                    row[6] = req.getPdiagnosis();
+                                    row[7] = req.getApproxPatientFee();
+                                    model.addRow(row);
+                                }
+                            }
+                        }
+                    }
+                    if (count == 1) {
+                        FundCharityEnterprise event = (FundCharityEnterprise) enter;
+                        int temp = event.getFundsCollected();
+                        System.out.println(temp);
+                        if (temp != funds) {
+                            funds = temp;
+                        }
+                        System.out.println(funds);
+                        fundcollected.setText(Integer.toString(funds));
+                    }
+                }
+            }
+        }
+    }
+
+    public void populateJComboBox() {
+        comboHospital.removeAllItems();
+        for (Network network : eco.getNetworkList()) {
+            for (Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()) {
+                if (enter.getEnterpriseType().equals(Enterprise.EnterpriseType.Hospital)) {
+                    System.out.print(enter.getName());
+                    comboHospital.addItem(enter);
+                }
+            }
+        }
     }
 
     /**
@@ -34,7 +119,7 @@ public class SendHospitalRequest extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         workRequestJTable = new javax.swing.JTable();
         bttnBack = new rojerusan.RSMaterialButtonRectangle();
-        bttnConfirmRequest = new rojerusan.RSMaterialButtonRectangle();
+        bttnAssignToHospital = new rojerusan.RSMaterialButtonRectangle();
         comboHospital = new rojerusan.RSComboMetro();
 
         setBackground(new java.awt.Color(232, 243, 255));
@@ -43,14 +128,15 @@ public class SendHospitalRequest extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("HOSPITAL REQUEST MANAGEMENT");
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("FUNDS COLLECTED:");
 
-        fundcollected.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        fundcollected.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         fundcollected.setForeground(new java.awt.Color(255, 255, 255));
         fundcollected.setText("jLabel2");
 
@@ -58,23 +144,23 @@ public class SendHospitalRequest extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(463, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(745, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(fundcollected)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(35, Short.MAX_VALUE)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(fundcollected))
@@ -116,12 +202,12 @@ public class SendHospitalRequest extends javax.swing.JPanel {
             }
         });
 
-        bttnConfirmRequest.setBackground(new java.awt.Color(15, 19, 52));
-        bttnConfirmRequest.setText("ASSIGN TO HOSPITAL");
-        bttnConfirmRequest.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnConfirmRequest.addActionListener(new java.awt.event.ActionListener() {
+        bttnAssignToHospital.setBackground(new java.awt.Color(15, 19, 52));
+        bttnAssignToHospital.setText("ASSIGN TO HOSPITAL");
+        bttnAssignToHospital.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnAssignToHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnConfirmRequestActionPerformed(evt);
+                bttnAssignToHospitalActionPerformed(evt);
             }
         });
 
@@ -150,7 +236,7 @@ public class SendHospitalRequest extends javax.swing.JPanel {
                         .addComponent(comboHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(bttnConfirmRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bttnAssignToHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -164,18 +250,70 @@ public class SendHospitalRequest extends javax.swing.JPanel {
                     .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bttnConfirmRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addComponent(bttnAssignToHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(67, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
         // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_bttnBackActionPerformed
 
-    private void bttnConfirmRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnConfirmRequestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnConfirmRequestActionPerformed
+    private void bttnAssignToHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnAssignToHospitalActionPerformed
+        Enterprise enter = (Enterprise) comboHospital.getSelectedItem();
+        int selectedRow = workRequestJTable.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please make a selection");
+            return;
+        }
+        WorkRequest request = (WorkRequest) workRequestJTable.getValueAt(selectedRow, 4);
+        if ((funds - request.getApproxPatientFee()) >= 0) {
+            System.out.println(request.getStatus());
+            if (request.getStatus().equals("Hospital Sent")) {
+                JOptionPane.showMessageDialog(null, "Patient Already Added");
+            } else if (request.getStatus().equals("Funding Process is going on")) {
+                for (UserAccount user : enter.getUserAccountDirectory().getUserAccountList()) {
+                    if (user.getUsername().equals("mahospital")) {
+                        // System.out.println(user);
+                        //System.out.println(request.getStatus());
+                        //System.out.println(user.getWorkQueue().getWorkRequestList());
+                        request.setStatus("Hospital Sent");
+                        request.setTypeOfRequest("Hospital Patient");
+                        user.getWorkQueue().getWorkRequestList().add(request);
+                        //System.out.println(request.getStatus());
+                        JOptionPane.showMessageDialog(null, "Details Sent to Hospital! ");
+                        populateTable();
+                    }
+                }
+                for (Organization organ : enter.getOrganizationDirectory().getOrganizationList()) {
+                    for (UserAccount user : organ.getUserAccountDirectory().getUserAccountList()) {
+                        if (user.getRole().toString().equals("ReceptionistRole")) {
+                            System.out.println(user.getWorkQueue().getWorkRequestList());
+                            System.out.println(request.getStatus());
+                            user.getWorkQueue().getWorkRequestList().add(request);
+                            System.out.println(request.getStatus());
+                            JOptionPane.showMessageDialog(null, "Patient Successfully Added To Receptionist");
+                            populateTable();
+                            logr.info("Patient has been assigned to hospital, check with receptionist");
+                        }
+                    }
+                }
+            } else if (request.getStatus().equals("Treatment Completed")) {
+                JOptionPane.showMessageDialog(null, "Treatment is already completed");
+            } else if (request.getStatus().equals("Assigned To Doctor")) {
+                JOptionPane.showMessageDialog(null, "Patient has been assigned to Doctor already");
+            } else if (request.getStatus().equals("Pending")) {
+                JOptionPane.showMessageDialog(null, "Pending from doctor");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Insufficient Funds");
+        }
+    }//GEN-LAST:event_bttnAssignToHospitalActionPerformed
 
     private void comboHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboHospitalActionPerformed
         // TODO add your handling code here:
@@ -183,8 +321,8 @@ public class SendHospitalRequest extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojerusan.RSMaterialButtonRectangle bttnAssignToHospital;
     private rojerusan.RSMaterialButtonRectangle bttnBack;
-    private rojerusan.RSMaterialButtonRectangle bttnConfirmRequest;
     private rojerusan.RSComboMetro comboHospital;
     private javax.swing.JLabel fundcollected;
     private javax.swing.JLabel jLabel1;

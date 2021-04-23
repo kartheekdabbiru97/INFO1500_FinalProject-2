@@ -9,8 +9,13 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.NurseOrganization;
+import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import ui.NurseRole.NurseHomePage;
+import ui.NurseRole.VolunteerNurseHomePage;
 
 /**
  *
@@ -35,6 +40,7 @@ public class NurseEnterpriseChooserJPanel extends javax.swing.JPanel {
         this.account = account;
         this.ecosystem = business;
         this.organization = organization;
+        populateNetworkComboBox();
     }
 
     /**
@@ -62,6 +68,7 @@ public class NurseEnterpriseChooserJPanel extends javax.swing.JPanel {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("NURSE ENTERPRISE");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -69,16 +76,16 @@ public class NurseEnterpriseChooserJPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(262, 262, 262)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(34, 34, 34)
                 .addComponent(jLabel7)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -94,11 +101,21 @@ public class NurseEnterpriseChooserJPanel extends javax.swing.JPanel {
         cmboNetwork.setColorArrow(new java.awt.Color(15, 19, 52));
         cmboNetwork.setColorBorde(new java.awt.Color(15, 19, 52));
         cmboNetwork.setColorFondo(new java.awt.Color(15, 19, 52));
+        cmboNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmboNetworkActionPerformed(evt);
+            }
+        });
 
         cmboEnterpriseType.setBackground(new java.awt.Color(15, 19, 52));
         cmboEnterpriseType.setColorArrow(new java.awt.Color(15, 19, 52));
         cmboEnterpriseType.setColorBorde(new java.awt.Color(15, 19, 52));
         cmboEnterpriseType.setColorFondo(new java.awt.Color(15, 19, 52));
+        cmboEnterpriseType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmboEnterpriseTypeActionPerformed(evt);
+            }
+        });
 
         cmboEnterprise.setBackground(new java.awt.Color(15, 19, 52));
         cmboEnterprise.setColorArrow(new java.awt.Color(15, 19, 52));
@@ -156,10 +173,133 @@ public class NurseEnterpriseChooserJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
-        // TODO add your handling code here:
+        //UserAccount userAccount = ecosystem.getUserAccountDirectory().authenticateUser(account.getUsername(), account.getPassword());
+        ecosystem.getUserAccountDirectory().authenticateUser(account.getUsername(), account.getPassword());
+        // System.out.println(ecosystem.getUserAccountDirectory().getUserAccountList());
+        // System.out.println(account.getUsername());
+        // System.out.println(account.getPassword());
+        Enterprise e = (Enterprise) cmboEnterprise.getSelectedItem();
+
+        Enterprise inEnterprise = null;
+        Organization inOrganization = null;
+
+        if (account == null) {
+            //Step 2: Go inside each network and check each enterprise
+            for (Network network : ecosystem.getNetworkList()) {
+                //Step 2.a: check against each enterprise
+                for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                    if (enterprise.equals(e)) {
+                        account = enterprise.getUserAccountDirectory().authenticateUser(account.getUsername(), account.getPassword());
+                        //System.out.println(userAccount);
+                        if (account == null) {
+                            //Step 3:check against each organization for each enterprise
+                            for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                                //System.out.println(Organization.OrganizationType.Nurse.equals(organization));
+                                //System.out.println(Organization.OrganizationType.Nurse.getValue());
+                                //System.out.println(organization.toString());
+                                //System.out.println(Organization.OrganizationType.Nurse.getValue().equals(organization.toString()));
+                                if (Organization.OrganizationType.Nurse.getValue().equals(organization.toString()) || Organization.OrganizationType.VolunteerCamp.getValue().equals(organization.toString())) {
+                                    account = organization.getUserAccountDirectory().authenticateUser(account.getUsername(), account.getPassword());
+                                    //System.out.println(organization);
+                                    //System.out.println(userAccount);
+                                    if (account != null) {
+                                        inEnterprise = enterprise;
+                                        //System.out.println(inEnterprise);
+                                        inOrganization = organization;
+                                        //System.out.println(organization);
+                                        //System.out.println(inOrganization);
+                                        //break;
+                                    }
+                                }
+                            }
+                        } else {
+                            inEnterprise = enterprise;
+                            //System.out.println(inEnterprise);
+                            //break;
+                        }
+
+                        if (inOrganization != null) {
+                            //System.out.println(inOrganization);
+                            //break;
+                        }
+                    }
+                    if (inEnterprise != null) {
+                        //System.out.println(inEnterprise);
+                        //break;
+                    }
+                }
+            }
+        }
+
+        if (account == null) {
+            JOptionPane.showMessageDialog(null, "User Account does not exist");
+            return;
+        } else {
+            if (cmboEnterpriseType.getSelectedItem().equals(enterprise.getEnterpriseType().Hospital)) {
+                NurseHomePage nurseHome = new NurseHomePage(userProcessContainer, account, (NurseOrganization) organization, (Enterprise) cmboEnterprise.getSelectedItem(), network, ecosystem);
+                userProcessContainer.add("NurseHomePage", nurseHome);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            } else if (cmboEnterpriseType.getSelectedItem().equals(enterprise.getEnterpriseType().Camp)) {
+                VolunteerNurseHomePage volunteerNurseHome = new VolunteerNurseHomePage(userProcessContainer, account, organization, (Enterprise) cmboEnterprise.getSelectedItem(), ecosystem);
+                userProcessContainer.add("VolunteerNurseHomePage", volunteerNurseHome);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
+            }
+        }
+
+        /*if(userAccount!=null){
+            VolunteerHomePage volunteerHome = new VolunteerHomePage(userProcessContainer, account, (VolunteerCampOrganization) organization, (Enterprise) enterpriseJComboBox.getSelectedItem(), ecosystem);
+            userProcessContainer.add("VolunteerHomePage", volunteerHome);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }
+        else
+        JOptionPane.showMessageDialog(this, "User Account does not exist");*/
     }//GEN-LAST:event_bttnBackActionPerformed
 
+    private void cmboEnterpriseTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmboEnterpriseTypeActionPerformed
+        Network network = (Network) cmboNetwork.getSelectedItem();
+        Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) cmboEnterpriseType.getSelectedItem();
+        if (type != null) {
+            populateEnterpriseComboBox(type, network);
+        }
+    }//GEN-LAST:event_cmboEnterpriseTypeActionPerformed
 
+    private void cmboNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmboNetworkActionPerformed
+        Network network = (Network) cmboNetwork.getSelectedItem();
+        if (network != null) {
+            populateEnterprisetypecomboBox(network);
+        }
+    }//GEN-LAST:event_cmboNetworkActionPerformed
+
+    private void populateNetworkComboBox() {
+        cmboNetwork.removeAllItems();
+
+        for (Network network : ecosystem.getNetworkList()) {
+            cmboNetwork.addItem(network);
+        }
+    }
+
+    private void populateEnterprisetypecomboBox(Network network) {
+        cmboEnterpriseType.removeAllItems();
+        for (Enterprise.EnterpriseType type : Enterprise.EnterpriseType.values()) {
+            if (!type.equals(Enterprise.EnterpriseType.Event)) {
+                cmboEnterpriseType.addItem(type);
+            }
+        }
+    }
+
+    private void populateEnterpriseComboBox(Enterprise.EnterpriseType type, Network network) {
+        cmboEnterprise.removeAllItems();
+
+        for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (type.getValue().equals(enterprise.getEnterpriseType().getValue())) {
+                cmboEnterprise.addItem(enterprise);
+            }
+
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojerusan.RSMaterialButtonRectangle bttnBack;
     private rojerusan.RSComboMetro cmboEnterprise;

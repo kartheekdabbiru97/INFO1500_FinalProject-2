@@ -5,6 +5,16 @@
  */
 package ui.AdministrativeCampRole;
 
+import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
+import Business.Role.Role;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Shreya Vivek Bhosale
@@ -14,8 +24,57 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageUserAccountJPanel
      */
-    public ManageUserAccountJPanel() {
+    private JPanel container;
+    private Enterprise enterprise;
+
+    public ManageUserAccountJPanel(JPanel container, Enterprise enterprise) {
         initComponents();
+        this.enterprise = enterprise;
+        this.container = container;
+        popOrganizationComboBox();
+        // employeeJComboBox.removeAllItems();
+        popData();
+    }
+
+    public void popOrganizationComboBox() {
+        cmboOrganization.removeAllItems();
+
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            cmboOrganization.addItem(organization);
+        }
+
+    }
+
+    public void populateEmployeeComboBox(Organization organization) {
+        cmboEmployee.removeAllItems();
+
+        for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
+            cmboEmployee.addItem(employee);
+        }
+    }
+
+    private void populateRoleComboBox(Organization organization) {
+        cmboRole.removeAllItems();
+        for (Role role : organization.getSupportedRole()) {
+            cmboRole.addItem(role);
+        }
+    }
+
+    public void popData() {
+
+        DefaultTableModel model = (DefaultTableModel) userJTable.getModel();
+
+        model.setRowCount(0);
+
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            for (UserAccount ua : organization.getUserAccountDirectory().getUserAccountList()) {
+                Object row[] = new Object[3];
+                row[0] = ua;
+                row[1] = ua.getRole();
+                row[2] = organization;
+                ((DefaultTableModel) userJTable.getModel()).addRow(row);
+            }
+        }
     }
 
     /**
@@ -45,7 +104,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         bttnCreateUser = new rojerusan.RSMaterialButtonRectangle();
         bttnDeleteUser = new rojerusan.RSMaterialButtonRectangle();
         txtUserName = new rojerusan.RSMetroTextPlaceHolder();
-        rSPasswordTextPlaceHolder1 = new rojerusan.RSPasswordTextPlaceHolder();
+        txtPassword = new rojerusan.RSPasswordTextPlaceHolder();
 
         userJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -117,6 +176,11 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         cmboOrganization.setColorArrow(new java.awt.Color(15, 19, 52));
         cmboOrganization.setColorBorde(new java.awt.Color(15, 19, 52));
         cmboOrganization.setColorFondo(new java.awt.Color(15, 19, 52));
+        cmboOrganization.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmboOrganizationActionPerformed(evt);
+            }
+        });
 
         userJTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -186,13 +250,12 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         txtUserName.setBorderColor(new java.awt.Color(15, 19, 52));
         txtUserName.setBotonColor(new java.awt.Color(15, 19, 52));
 
-        rSPasswordTextPlaceHolder1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(15, 19, 52), 2), null));
-        rSPasswordTextPlaceHolder1.setForeground(new java.awt.Color(15, 19, 52));
-        rSPasswordTextPlaceHolder1.setToolTipText("");
-        rSPasswordTextPlaceHolder1.setCaretColor(new java.awt.Color(15, 19, 52));
-        rSPasswordTextPlaceHolder1.setPhColor(new java.awt.Color(15, 19, 52));
-        rSPasswordTextPlaceHolder1.setSelectedTextColor(new java.awt.Color(255, 255, 255));
-        rSPasswordTextPlaceHolder1.setSelectionColor(new java.awt.Color(15, 19, 52));
+        txtPassword.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(15, 19, 52), 2), null));
+        txtPassword.setForeground(new java.awt.Color(15, 19, 52));
+        txtPassword.setToolTipText("");
+        txtPassword.setCaretColor(new java.awt.Color(15, 19, 52));
+        txtPassword.setPhColor(new java.awt.Color(15, 19, 52));
+        txtPassword.setSelectionColor(new java.awt.Color(15, 19, 52));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -222,7 +285,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                                     .addComponent(cmboRole, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtUserName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                                     .addComponent(cmboOrganization, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(rSPasswordTextPlaceHolder1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(3, 3, 3)
                         .addComponent(bttnDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -251,7 +314,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                     .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rSPasswordTextPlaceHolder1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -263,17 +326,60 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
-        // TODO add your handling code here:
+        container.remove(this);
+        CardLayout layout = (CardLayout) container.getLayout();
+        layout.previous(container);
     }//GEN-LAST:event_bttnBackActionPerformed
 
     private void bttnCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnCreateUserActionPerformed
-        // TODO add your handling code here:
-            
+        int check = 0;
+        if (txtUserName.getText().isEmpty() || txtPassword.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter all the fields!");
+            check = 1;
+        }
+        if (check == 0) {
+            String userName = txtUserName.getText();
+            String password = txtPassword.getText();
+            Organization organization = (Organization) cmboOrganization.getSelectedItem();
+            Employee employee = (Employee) cmboEmployee.getSelectedItem();
+            Role role = (Role) cmboRole.getSelectedItem();
+
+            organization.getUserAccountDirectory().createUserAccount(userName, password, employee, role);
+
+            popData();
+            txtUserName.setText("");
+            txtPassword.setText("");
+            JOptionPane.showMessageDialog(null, "New User " + userName + " has been created successfully");
+        }
+
     }//GEN-LAST:event_bttnCreateUserActionPerformed
 
     private void bttnDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnDeleteUserActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) userJTable.getModel();
+        int selectedRow = userJTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                Organization organization = (Organization) userJTable.getValueAt(selectedRow, 2);
+
+                UserAccount useraccount = (UserAccount) userJTable.getValueAt(selectedRow, 0);
+                organization.getUserAccountDirectory().removeUserAccount(useraccount);
+                popData();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row");
+
+        }
     }//GEN-LAST:event_bttnDeleteUserActionPerformed
+
+    private void cmboOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmboOrganizationActionPerformed
+        Organization organization = (Organization) cmboOrganization.getSelectedItem();
+        if (organization != null) {
+            populateEmployeeComboBox(organization);
+            populateRoleComboBox(organization);
+        }
+    }//GEN-LAST:event_cmboOrganizationActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -292,7 +398,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private rojerusan.RSPasswordTextPlaceHolder rSPasswordTextPlaceHolder1;
+    private rojerusan.RSPasswordTextPlaceHolder txtPassword;
     private rojerusan.RSMetroTextPlaceHolder txtUserName;
     private javax.swing.JTable userJTable;
     private javax.swing.JTable userJTable1;

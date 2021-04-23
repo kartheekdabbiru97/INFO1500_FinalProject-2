@@ -27,13 +27,14 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AdminWorkAreaJPanel
      */
-        public AdminWorkCampAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount account,Network network,EcoSystem ecosystem) {
+    public AdminWorkCampAreaJPanel(JPanel userProcessContainer, Enterprise enterprise, UserAccount account, Network network, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         this.account = account;
         this.ecosystem = ecosystem;
         this.network = network;
+        valueLabel1.setText(enterprise.getName());
     }
 
     /**
@@ -49,12 +50,11 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         enterpriseLabel1 = new javax.swing.JLabel();
         valueLabel1 = new javax.swing.JLabel();
-        bttnManageOrganizationCopy = new rojerusan.RSMaterialButtonRectangle();
-        bttnManageEmployeeCopy = new rojerusan.RSMaterialButtonRectangle();
-        bttnManageUserCopy = new rojerusan.RSMaterialButtonRectangle();
-        bttnVolunteerApprovalCopy = new rojerusan.RSMaterialButtonRectangle();
-        bttnHealthCampRequestCopy = new rojerusan.RSMaterialButtonRectangle();
-
+        buttonManageOrganizations = new javax.swing.JButton();
+        buttonManageEmployee = new javax.swing.JButton();
+        buttonManageUser = new javax.swing.JButton();
+        buttonVolunteerApproval = new javax.swing.JButton();
+        buttonHealthCamp = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(232, 243, 255));
 
@@ -62,7 +62,7 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("HEALTHCAMP ADMINISTRATOR HOME");
+        jLabel2.setText("HEALTH CAMP ADMINISTRATOR HOME");
 
         enterpriseLabel1.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         enterpriseLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -84,7 +84,7 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
                         .addComponent(enterpriseLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(valueLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(244, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,48 +98,38 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        bttnManageOrganizationCopy.setBackground(new java.awt.Color(15, 19, 52));
-        bttnManageOrganizationCopy.setText("manage organization");
-        bttnManageOrganizationCopy.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnManageOrganizationCopy.addActionListener(new java.awt.event.ActionListener() {
+        buttonManageOrganizations.setText("MANAGE ORGANIZATION");
+        buttonManageOrganizations.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnManageOrganizationCopyActionPerformed(evt);
+                buttonManageOrganizationsActionPerformed(evt);
             }
         });
 
-        bttnManageEmployeeCopy.setBackground(new java.awt.Color(15, 19, 52));
-        bttnManageEmployeeCopy.setText("Manage Employee");
-        bttnManageEmployeeCopy.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnManageEmployeeCopy.addActionListener(new java.awt.event.ActionListener() {
+        buttonManageEmployee.setText("MANAGE EMPLOYEE");
+        buttonManageEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnManageEmployeeCopyActionPerformed(evt);
+                buttonManageEmployeeActionPerformed(evt);
             }
         });
 
-        bttnManageUserCopy.setBackground(new java.awt.Color(15, 19, 52));
-        bttnManageUserCopy.setText("Manage User");
-        bttnManageUserCopy.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnManageUserCopy.addActionListener(new java.awt.event.ActionListener() {
+        buttonManageUser.setText("MANAGE USER");
+        buttonManageUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnManageUserCopyActionPerformed(evt);
+                buttonManageUserActionPerformed(evt);
             }
         });
 
-        bttnVolunteerApprovalCopy.setBackground(new java.awt.Color(15, 19, 52));
-        bttnVolunteerApprovalCopy.setText("Volunteer Approval");
-        bttnVolunteerApprovalCopy.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnVolunteerApprovalCopy.addActionListener(new java.awt.event.ActionListener() {
+        buttonVolunteerApproval.setText("VOLUNTEER APPROVAL");
+        buttonVolunteerApproval.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnVolunteerApprovalCopyActionPerformed(evt);
+                buttonVolunteerApprovalActionPerformed(evt);
             }
         });
 
-        bttnHealthCampRequestCopy.setBackground(new java.awt.Color(15, 19, 52));
-        bttnHealthCampRequestCopy.setText("Health Camp Request");
-        bttnHealthCampRequestCopy.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnHealthCampRequestCopy.addActionListener(new java.awt.event.ActionListener() {
+        buttonHealthCamp.setText("HEALTH CAMP REQUEST");
+        buttonHealthCamp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnHealthCampRequestCopyActionPerformed(evt);
+                buttonHealthCampActionPerformed(evt);
             }
         });
 
@@ -149,13 +139,13 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bttnVolunteerApprovalCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnManageUserCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnManageEmployeeCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnManageOrganizationCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnHealthCampRequestCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(243, 243, 243)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonManageOrganizations, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonManageEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonManageUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonVolunteerApproval, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonHealthCamp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -163,74 +153,80 @@ public class AdminWorkCampAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(bttnManageOrganizationCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnManageEmployeeCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnManageUserCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnVolunteerApprovalCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnHealthCampRequestCopy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
-
+                .addComponent(buttonManageOrganizations, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonManageEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonVolunteerApproval, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonHealthCamp, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(113, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bttnManageOrganizationCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganizationCopyActionPerformed
+    private void bttnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganizationActionPerformed
         // TODO add your handling code here:
-        //Donot Write here, can't delete this
-    }//GEN-LAST:event_bttnManageOrganizationCopyActionPerformed
+    }//GEN-LAST:event_bttnManageOrganizationActionPerformed
 
-    private void bttnManageUserCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageUserCopyActionPerformed
+    private void bttnManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageUserActionPerformed
         // TODO add your handling code here:
-        //Donot Write here, can't delete this
-    }//GEN-LAST:event_bttnManageUserCopyActionPerformed
+    }//GEN-LAST:event_bttnManageUserActionPerformed
 
     private void bttnManageEmployee1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageEmployee1ActionPerformed
         // TODO add your handling code here:
-        //Donot Write here, can't delete this
-
     }//GEN-LAST:event_bttnManageEmployee1ActionPerformed
 
-    private void bttnVolunteerApprovalCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnVolunteerApprovalCopyActionPerformed
+    private void bttnVolunteerApprovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnVolunteerApprovalActionPerformed
         // TODO add your handling code here:
-        //Donot Write here, can't delete this
-    }//GEN-LAST:event_bttnVolunteerApprovalCopyActionPerformed
+    }//GEN-LAST:event_bttnVolunteerApprovalActionPerformed
 
-    private void bttnHealthCampRequestCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnHealthCampRequestCopyActionPerformed
+    private void bttnHealthCampRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnHealthCampRequestActionPerformed
         // TODO add your handling code here:
-        //Donot Write here, can't delete this
-    }//GEN-LAST:event_bttnHealthCampRequestCopyActionPerformed
+    }//GEN-LAST:event_bttnHealthCampRequestActionPerformed
 
-    private void bttnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageNetworkActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnManageNetworkActionPerformed
+    private void buttonVolunteerApprovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVolunteerApprovalActionPerformed
+        VolunteerCampApprovalJPanel volunteerApprovalJPanel = new VolunteerCampApprovalJPanel(userProcessContainer, enterprise, account);
+        userProcessContainer.add("VolunteerApprovalJPanel", volunteerApprovalJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_buttonVolunteerApprovalActionPerformed
 
-    private void bttnManageEmployeeCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageEmployeeCopyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnManageEmployeeCopyActionPerformed
+    private void buttonManageEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageEmployeeActionPerformed
+        ManageEmployeeJPanel manageEmployeeJPanel = new ManageEmployeeJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("manageEmployeeJPanel", manageEmployeeJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_buttonManageEmployeeActionPerformed
 
-    private void bttnManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageEnterpriseAdminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnManageEnterpriseAdminActionPerformed
+    private void buttonManageOrganizationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageOrganizationsActionPerformed
+        ManageOrganizationJPanel manageOrganizationJPanel = new ManageOrganizationJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("manageOrganizationJPanel", manageOrganizationJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_buttonManageOrganizationsActionPerformed
 
-    private void bttnVolunteerApprovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnPatientFundRequestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnPatientFundRequestActionPerformed
+    private void buttonManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonManageUserActionPerformed
+        ManageUserAccountJPanel manageUserAccountJPanel = new ManageUserAccountJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("ManageUserAccountJPanel", manageUserAccountJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_buttonManageUserActionPerformed
 
-
-    private void bttnHealthCampRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnPayPatientBillsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnPayPatientBillsActionPerformed
+    private void buttonHealthCampActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHealthCampActionPerformed
+        HealthcampRequestJPanel HealthcampRequestJPanel = new HealthcampRequestJPanel(userProcessContainer, account, ecosystem, network, enterprise);
+        userProcessContainer.add("HealthcampRequestJPanel", HealthcampRequestJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_buttonHealthCampActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rojerusan.RSMaterialButtonRectangle bttnHealthCampRequestCopy;
-    private rojerusan.RSMaterialButtonRectangle bttnManageEmployeeCopy;
-    private rojerusan.RSMaterialButtonRectangle bttnManageOrganizationCopy;
-    private rojerusan.RSMaterialButtonRectangle bttnManageUserCopy;
-    private rojerusan.RSMaterialButtonRectangle bttnVolunteerApprovalCopy;
-
+    private javax.swing.JButton buttonHealthCamp;
+    private javax.swing.JButton buttonManageEmployee;
+    private javax.swing.JButton buttonManageOrganizations;
+    private javax.swing.JButton buttonManageUser;
+    private javax.swing.JButton buttonVolunteerApproval;
     private javax.swing.JLabel enterpriseLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

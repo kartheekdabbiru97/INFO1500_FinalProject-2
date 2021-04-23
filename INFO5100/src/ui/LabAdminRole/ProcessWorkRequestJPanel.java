@@ -4,26 +4,34 @@
  */
 package ui.LabAdminRole;
 
-import Business.WorkQueue.LabTestWorkRequest;
+import Business.Enterprise.Enterprise;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
  *
- * @author raunak
+ * @author Shreya Vivek Bhosale
  */
 public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
-    LabTestWorkRequest request;
+    WorkRequest request;
+    UserAccount account;
+    Enterprise enterprise;
+
     /**
      * Creates new form ProcessWorkRequestJPanel
      */
-    public ProcessWorkRequestJPanel(JPanel userProcessContainer, LabTestWorkRequest request) {
+    public ProcessWorkRequestJPanel(JPanel userProcessContainer, WorkRequest request, UserAccount account, Enterprise enterprise) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.request = request;
+        this.account = account;
+        this.enterprise = enterprise;
     }
 
     /**
@@ -35,24 +43,35 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        submitJButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         resultJTextField = new javax.swing.JTextField();
-        backJButton = new javax.swing.JButton();
+        buttonBack = new javax.swing.JButton();
+        buttonSubmit = new javax.swing.JButton();
 
-        submitJButton.setText("Submit Result");
-        submitJButton.addActionListener(new java.awt.event.ActionListener() {
+        setBackground(new java.awt.Color(232, 243, 255));
+
+        jLabel2.setBackground(new java.awt.Color(15, 19, 52));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("LAB ADMIN RESULT ");
+        jLabel2.setOpaque(true);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Result");
+
+        buttonBack.setText("BACK");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitJButtonActionPerformed(evt);
+                buttonBackActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Result");
-
-        backJButton.setText("Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
+        buttonSubmit.setText("SUBMIT");
+        buttonSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
+                buttonSubmitActionPerformed(evt);
             }
         });
 
@@ -61,37 +80,40 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(backJButton)
-                    .addComponent(jLabel1))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(resultJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(135, 135, 135)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
-                        .addComponent(submitJButton)
-                        .addGap(63, 63, 63))))
+                        .addGap(195, 195, 195)
+                        .addComponent(jLabel1)
+                        .addGap(39, 39, 39)
+                        .addComponent(resultJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(175, 175, 175)
+                        .addComponent(buttonBack)
+                        .addGap(84, 84, 84)
+                        .addComponent(buttonSubmit)))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(resultJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(submitJButton)
-                    .addComponent(backJButton))
-                .addContainerGap(169, Short.MAX_VALUE))
+                    .addComponent(buttonBack)
+                    .addComponent(buttonSubmit))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
@@ -99,17 +121,49 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         dwjp.populateTable();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
+    }//GEN-LAST:event_buttonBackActionPerformed
 
-    private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
-        request.setTestResult(resultJTextField.getText());
-        request.setStatus("Completed");
-    }//GEN-LAST:event_submitJButtonActionPerformed
+    private void buttonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSubmitActionPerformed
+        try {
+            if (resultJTextField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please Enter the Test Results!");
+                return;
+            }
+            String message = JOptionPane.showInputDialog(null, "Please Enter the Amount for the Test?", "Test", JOptionPane.INFORMATION_MESSAGE);
+            if (message.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Please Enter The Appropriate Message");
+                return;
+            }
+            int money = Integer.parseInt(message);
+            System.out.println(money);
+            request.setHospitalFee(money);
+            System.out.println(request.getHospitalFee());
+            System.out.println(request.getStatus());
+            request.setStatus("Treatment/Test Completed");
+            request.setLabMessage(resultJTextField.getText());
+            JOptionPane.showMessageDialog(null, "Test completed!");
+            userProcessContainer.remove(this);
+            Component[] componentArray = userProcessContainer.getComponents();
+            Component component = componentArray[componentArray.length - 1];
+            LabAssistantWorkAreaJPanel dwjp = (LabAssistantWorkAreaJPanel) component;
+            dwjp.populateTable();
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.previous(userProcessContainer);
+            JOptionPane.showMessageDialog(null, "Results sent to doctor!");
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, "Please Enter The Appropriate Amount");
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Please Enter The Appropriate Amount in digits!");
+
+        }
+    }//GEN-LAST:event_buttonSubmitActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backJButton;
+    private javax.swing.JButton buttonBack;
+    private javax.swing.JButton buttonSubmit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField resultJTextField;
-    private javax.swing.JButton submitJButton;
     // End of variables declaration//GEN-END:variables
 }

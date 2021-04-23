@@ -12,15 +12,17 @@ import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import java.util.logging.*;
 
 /**
  *
- * @author raunak
+ * @author Shreya Vivek Bhosale
  */
 public class ManageEnterpriseJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private EcoSystem system;
+    private final static Logger log = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     /**
      * Creates new form ManageEnterpriseJPanel
@@ -29,12 +31,11 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
-
         populateTable();
         populateComboBox();
     }
 
-    private void populateTable() {
+    void populateTable() {
         DefaultTableModel model = (DefaultTableModel) enterpriseJTable.getModel();
 
         model.setRowCount(0);
@@ -42,8 +43,8 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                 Object[] row = new Object[3];
                 row[0] = enterprise.getName();
-                row[1] = network.getName();
-                row[2] = enterprise.getEnterpriseType().getValue();
+                row[1] = network;
+                row[2] = enterprise.getEnterpriseType();
 
                 model.addRow(row);
             }
@@ -51,7 +52,16 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     }
 
     private void populateComboBox() {
-        
+        comboNetwork.removeAllItems();
+        comboEnterpriseType.removeAllItems();
+
+        for (Network network : system.getNetworkList()) {
+            comboNetwork.addItem(network);
+        }
+
+        for (Enterprise.EnterpriseType type : Enterprise.EnterpriseType.values()) {
+            comboEnterpriseType.addItem(type);
+        }
 
     }
 
@@ -72,7 +82,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         comboNetwork = new rojerusan.RSComboMetro();
-        comboEnterprise = new rojerusan.RSComboMetro();
+        comboEnterpriseType = new rojerusan.RSComboMetro();
         bttnBack = new rojerusan.RSMaterialButtonRectangle();
         bttnSubmit = new rojerusan.RSMaterialButtonRectangle();
         bttnDelete = new rojerusan.RSMaterialButtonRectangle();
@@ -116,6 +126,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("WELCOME TO ENTERPRISE");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -123,16 +134,16 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(137, 137, 137)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addComponent(jLabel8)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         comboNetwork.setBackground(new java.awt.Color(15, 19, 52));
@@ -145,10 +156,10 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             }
         });
 
-        comboEnterprise.setBackground(new java.awt.Color(15, 19, 52));
-        comboEnterprise.setColorArrow(new java.awt.Color(15, 19, 52));
-        comboEnterprise.setColorBorde(new java.awt.Color(15, 19, 52));
-        comboEnterprise.setColorFondo(new java.awt.Color(15, 19, 52));
+        comboEnterpriseType.setBackground(new java.awt.Color(15, 19, 52));
+        comboEnterpriseType.setColorArrow(new java.awt.Color(15, 19, 52));
+        comboEnterpriseType.setColorBorde(new java.awt.Color(15, 19, 52));
+        comboEnterpriseType.setColorFondo(new java.awt.Color(15, 19, 52));
 
         bttnBack.setBackground(new java.awt.Color(15, 19, 52));
         bttnBack.setText("Back");
@@ -197,32 +208,31 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bttnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bttnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bttnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bttnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bttnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bttnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(comboNetwork, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                                    .addComponent(comboEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))))))
-                .addContainerGap(219, Short.MAX_VALUE))
+                            .addComponent(comboEnterpriseType, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,14 +240,14 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(comboNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(comboEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboEnterpriseType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -248,7 +258,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                     .addComponent(bttnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -257,19 +267,82 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_comboNetworkActionPerformed
 
     private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
-        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_bttnBackActionPerformed
 
     private void bttnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnSubmitActionPerformed
-        // TODO add your handling code here:
+        log.info("Submit Button aaction Performed");
+        Network network = (Network) comboNetwork.getSelectedItem();
+        Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) comboEnterpriseType.getSelectedItem();
+
+        if (network == null || type == null) {
+            JOptionPane.showMessageDialog(null, "Invalid Input, Please check.");
+            return;
+        }
+        int check = 0;
+        if (txtName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Please enter a Network name");
+            check = 1;
+        }
+        if (check == 0) {
+            String name = txtName.getText();
+            
+            if (!network.getEnterpriseDirectory().IsDuplicateEnterprise(name)) {
+
+            Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type);
+
+            populateTable();
+            txtName.setText("");
+            JOptionPane.showMessageDialog(null, "Congrats! You have now created " + comboEnterpriseType.getSelectedItem() + " enterprise.");
+            log.info("New Enterprise Created");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "This name already exist");
+            }
+        }
     }//GEN-LAST:event_bttnSubmitActionPerformed
 
     private void bttnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnDeleteActionPerformed
-        // TODO add your handling code here:
+        log.info("delete Button action Performed");
+        DefaultTableModel model = (DefaultTableModel) enterpriseJTable.getModel();
+        int selectedRow = enterpriseJTable.getSelectedRow();
+        if (selectedRow > 0) {
+            int selectionButton = JOptionPane.YES_NO_OPTION;
+            int selectionResult = JOptionPane.showConfirmDialog(null, "Are you sure to delete?", "Warning", selectionButton);
+            if (selectionResult == JOptionPane.YES_OPTION) {
+                String enterpriseName = (String) enterpriseJTable.getValueAt(selectedRow, 0);
+                Network network = (Network) enterpriseJTable.getValueAt(selectedRow, 1);
+                Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) enterpriseJTable.getValueAt(selectedRow, 2);
+                Enterprise enterprise = network.getEnterpriseDirectory().removeEnterprise(enterpriseName, type);
+                populateTable();
+                log.info("Enterprise deleted");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row");
+
+        }
     }//GEN-LAST:event_bttnDeleteActionPerformed
 
     private void bttnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnUpdateActionPerformed
-        // TODO add your handling code here:
+        log.info("Update Button aaction Performed");
+        DefaultTableModel model = (DefaultTableModel) enterpriseJTable.getModel();
+        int selectedRow = enterpriseJTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            String enterpriseName = (String) enterpriseJTable.getValueAt(selectedRow, 0);
+            Network network = (Network) enterpriseJTable.getValueAt(selectedRow, 1);
+            Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) enterpriseJTable.getValueAt(selectedRow, 2);
+            UpdateEnterpriseJFrame f = new UpdateEnterpriseJFrame(system, network, enterpriseName, type, this);
+            f.setLocationRelativeTo(null);
+            f.setVisible(true);
+            log.info("UpdateNetworkJFrame");
+            log.info("Enterprise has been updated");
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row");
+        }
     }//GEN-LAST:event_bttnUpdateActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -277,7 +350,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
     private rojerusan.RSMaterialButtonRectangle bttnDelete;
     private rojerusan.RSMaterialButtonRectangle bttnSubmit;
     private rojerusan.RSMaterialButtonRectangle bttnUpdate;
-    private rojerusan.RSComboMetro comboEnterprise;
+    private rojerusan.RSComboMetro comboEnterpriseType;
     private rojerusan.RSComboMetro comboNetwork;
     private javax.swing.JTable enterpriseJTable;
     private javax.swing.JLabel jLabel1;

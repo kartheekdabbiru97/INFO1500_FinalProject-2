@@ -5,17 +5,61 @@
  */
 package ui.CorporateRole;
 
+import Business.EcoSystem;
+import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
+import Business.Enterprise.FundCharityEnterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import java.util.logging.*;
+
 /**
  *
  * @author Shreya Vivek Bhosale
  */
 public class FundraiserEvents extends javax.swing.JPanel {
 
-    /**
-     * Creates new form FundraiserEvents
-     */
-    public FundraiserEvents() {
+    private JPanel userProcessContainer;
+    private UserAccount userAccount;
+    private Network network;
+    private EcoSystem business;
+    private final static Logger logr = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
+    public FundraiserEvents(JPanel userProcessContainer, UserAccount user, Network network, EcoSystem eco) {
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = user;
+        this.network = network;
+        this.business = eco;
         initComponents();
+        populateTable();
+    }
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
+        model.setRowCount(0);
+        int count = 0;
+        for (Enterprise enter : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (enter.getEnterpriseType().equals(Enterprise.EnterpriseType.Event)) {
+                if (count != 0) {
+                    FundCharityEnterprise camp = (FundCharityEnterprise) enter;
+                    Object[] row = new Object[5];
+                    row[0] = camp;
+                    row[1] = camp.getStreet();
+                    row[2] = camp.getCity();
+                    row[3] = camp.getState();
+                    row[4] = camp.getZipcode();
+                    model.addRow(row);
+                } else {
+                    count++;
+                }
+            }
+        }
+
     }
 
     /**
@@ -27,54 +71,21 @@ public class FundraiserEvents extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        bttnRefresh = new rojerusan.RSMaterialButtonRectangle();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         workRequestJTable = new javax.swing.JTable();
-        bttnBack = new rojerusan.RSMaterialButtonRectangle();
-        bttnJoinEvent = new rojerusan.RSMaterialButtonRectangle();
+        buttonBack = new javax.swing.JButton();
+        buttonJoinEvent = new javax.swing.JButton();
+        buttonRefresh = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(232, 243, 255));
 
-        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("JOIN FUNDRAISING EVENT");
-
-        bttnRefresh.setBackground(new java.awt.Color(255, 255, 255));
-        bttnRefresh.setForeground(new java.awt.Color(15, 19, 52));
-        bttnRefresh.setText("Refresh");
-        bttnRefresh.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnRefresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnRefreshActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(417, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bttnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(bttnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("JOIN FUNDRAISING EVENT");
+        jLabel1.setOpaque(true);
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,24 +110,26 @@ public class FundraiserEvents extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        workRequestJTable.setSelectionBackground(new java.awt.Color(15, 19, 52));
         jScrollPane1.setViewportView(workRequestJTable);
 
-        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
-        bttnBack.setText("Back");
-        bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnBack.addActionListener(new java.awt.event.ActionListener() {
+        buttonBack.setText("BACK");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnBackActionPerformed(evt);
+                buttonBackActionPerformed(evt);
             }
         });
 
-        bttnJoinEvent.setBackground(new java.awt.Color(15, 19, 52));
-        bttnJoinEvent.setText("Join Event");
-        bttnJoinEvent.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnJoinEvent.addActionListener(new java.awt.event.ActionListener() {
+        buttonJoinEvent.setText("JOIN EVENT");
+        buttonJoinEvent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnJoinEventActionPerformed(evt);
+                buttonJoinEventActionPerformed(evt);
+            }
+        });
+
+        buttonRefresh.setText("REFRESH");
+        buttonRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRefreshActionPerformed(evt);
             }
         });
 
@@ -124,50 +137,125 @@ public class FundraiserEvents extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bttnJoinEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addGap(52, 52, 52)
+                .addComponent(buttonBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonJoinEvent)
+                .addGap(78, 78, 78))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonRefresh)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(buttonRefresh)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnJoinEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 165, Short.MAX_VALUE))
+                    .addComponent(buttonBack)
+                    .addComponent(buttonJoinEvent))
+                .addGap(0, 43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bttnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRefreshActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnRefreshActionPerformed
+    private void buttonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshActionPerformed
+        populateTable();
+    }//GEN-LAST:event_buttonRefreshActionPerformed
 
-    private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnBackActionPerformed
+    private void buttonJoinEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonJoinEventActionPerformed
+        int selectedRow = workRequestJTable.getSelectedRow();
 
-    private void bttnJoinEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnJoinEventActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnJoinEventActionPerformed
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please make a selection");
+            return;
+        }
+        Enterprise e = (Enterprise) workRequestJTable.getValueAt(selectedRow, 0);
+        Employee employee = null;
+
+        UserAccount user = business.getUserAccountDirectory().authenticateUser(userAccount.getUsername(), userAccount.getPassword());
+
+        Enterprise inEnterprise = null;
+        Organization inOrganization = null;
+
+        if (user == null) {
+            //Step 2: Go inside each network and check each enterprise
+            for (Network network : business.getNetworkList()) {
+                //Step 2.a: check against each enterprise
+                for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                    if (enterprise.equals(e)) {
+                        user = enterprise.getUserAccountDirectory().authenticateUser(userAccount.getUsername(), userAccount.getPassword());
+                        if (user == null) {
+                            //Step 3:check against each organization for each enterprise
+                            for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                                user = organization.getUserAccountDirectory().authenticateUser(userAccount.getUsername(), userAccount.getPassword());
+                                if (user != null) {
+                                    inEnterprise = enterprise;
+                                    //System.out.println(inEnterprise);
+                                    inOrganization = organization;
+                                    //System.out.println(inOrganization);
+                                    //break;
+                                }
+                            }
+
+                        } else {
+                            inEnterprise = enterprise;
+                            //System.out.println(inEnterprise);
+                            //break;
+                        }
+                        if (inOrganization != null) {
+                            //System.out.println(inOrganization);
+                            //break;
+                        }
+                    }
+                    if (inEnterprise != null) {
+                        //System.out.println(inEnterprise);
+                        //break;
+                    }
+                }
+            }
+        }
+
+        if (user == null) {
+            //JOptionPane.showMessageDialog(null, "User Account does not exist");
+            for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                org.getEmployeeDirectory().createEmployee(userAccount.getEmployee().getName());
+                for (Employee emp : org.getEmployeeDirectory().getEmployeeList()) {
+                    if (userAccount.getEmployee().getName() == emp.getName()) {
+                        employee = emp;
+                        org.getUserAccountDirectory().createUserAccount(userAccount.getUsername(), userAccount.getPassword(), employee, userAccount.getRole());
+                    }
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Enrolled for the event. Donation pools are now open!");
+            return;
+        } else {
+            JOptionPane.showMessageDialog(null, "Enrollment Already Done. Donation pools are now open!");
+        }
+
+        logr.info("Volunteer joined fund Raiser event");
+    }//GEN-LAST:event_buttonJoinEventActionPerformed
+
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_buttonBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rojerusan.RSMaterialButtonRectangle bttnBack;
-    private rojerusan.RSMaterialButtonRectangle bttnJoinEvent;
-    private rojerusan.RSMaterialButtonRectangle bttnRefresh;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton buttonBack;
+    private javax.swing.JButton buttonJoinEvent;
+    private javax.swing.JButton buttonRefresh;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
