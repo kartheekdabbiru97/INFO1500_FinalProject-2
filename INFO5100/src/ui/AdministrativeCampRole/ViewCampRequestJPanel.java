@@ -5,7 +5,6 @@
  */
 package ui.AdministrativeCampRole;
 
-import java.util.Date;
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
@@ -16,12 +15,7 @@ import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.awt.Component;
-import static java.lang.String.format;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -415,7 +409,7 @@ public class ViewCampRequestJPanel extends javax.swing.JPanel {
             String street1 = request.getStreet();
             String zipCode1 = request.getZipcode();
             String name1 = request.getCampId() + "_" + request.getZipcode();
-            String enter = enterpriseJComboBox.getSelectedItem().toString();
+            String enter = cmboEnterprise.getSelectedItem().toString();
 
 //            Date eventDay = null;
             Date sysDate = null;

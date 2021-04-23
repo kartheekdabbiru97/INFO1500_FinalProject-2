@@ -31,12 +31,15 @@ public class CreateFundEvent extends javax.swing.JPanel {
     /**
      * Creates new form CreateFundEvent
      */
+    /**
+     * Creates new form CreateFundEvent
+     */
     private JPanel userProcessContainer;
     private WorkRequest request;
     private UserAccount user;
     private Enterprise enter;
     private Network network;
- //   private static final Pattern ZIP_PATTERN = Pattern.compile("/^(\\d{5}(-\\d{4})?|([a-z][a-z]?\\d\\d?|[a-z{2}\\d[a-z]) ?\\d[a-z][a-z])$/i;");
+    //   private static final Pattern ZIP_PATTERN = Pattern.compile("/^(\\d{5}(-\\d{4})?|([a-z][a-z]?\\d\\d?|[a-z{2}\\d[a-z]) ?\\d[a-z][a-z])$/i;");
 
     public CreateFundEvent(JPanel userProcessContainer, WorkRequest request, UserAccount user, Enterprise enter, Network network) {
         this.userProcessContainer = userProcessContainer;
@@ -130,7 +133,7 @@ public class CreateFundEvent extends javax.swing.JPanel {
         jLabel5.setText("Date");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Fund To Be Collected(Approx)");
+        jLabel4.setText("Fund To Be Collected");
 
         eventApproxFund.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,7 +173,7 @@ public class CreateFundEvent extends javax.swing.JPanel {
                         .addComponent(backJButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(processJButton)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -222,7 +225,6 @@ public class CreateFundEvent extends javax.swing.JPanel {
     }//GEN-LAST:event_stateActionPerformed
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
-
         int check = 0;
         int checkdate = 0;
         if (eventDate.getDate() == null || zipCode.getText().isEmpty() || state.getText().isEmpty() || city.getText().isEmpty() || street.getText().isEmpty() || eventName.getText().isEmpty() || eventApproxFund.getText().isEmpty()) {
@@ -252,11 +254,11 @@ public class CreateFundEvent extends javax.swing.JPanel {
 
                 if (diff1Days >= 4 && check == 1 && checkdate == 0) {
                     request.setStatus("Funding Process is going on");
-                    int zipcodeVal= validateZipCode(zipCode.getText());
-                     if (zipcodeVal == 0) {
-                            JOptionPane.showMessageDialog(null, "Please enter a valid 5 digit zip code");
-                            return;
-                     }
+                    int zipcodeVal = validateZipCode(zipCode.getText());
+                    if (zipcodeVal == 0) {
+                        JOptionPane.showMessageDialog(null, "Please enter a valid 5 digit zip code");
+                        return;
+                    }
                     enterprise = network.getEnterpriseDirectory().createAndAddEventEnterprise(eventName.getText(), street.getText(), city.getText(), state.getText(), zipCode.getText(), eventDay, Enterprise.EnterpriseType.Event, Integer.parseInt(eventApproxFund.getText()));
                     Employee empl = enterprise.getEmployeeDirectory().createEmployee("admin");
                     String username = "admin_" + eventName.getText();
@@ -296,22 +298,20 @@ public class CreateFundEvent extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_eventApproxFundActionPerformed
     private int validateZipCode(String validate) {
-    //    Matcher match = ZIP_PATTERN.matcher(validate);
-    try{
-    int zipcodeVal = Integer.parseInt(validate);
-        if (validate.length() >= 6) {
+        //    Matcher match = ZIP_PATTERN.matcher(validate);
+        try {
+            int zipcodeVal = Integer.parseInt(validate);
+            if (validate.length() >= 6) {
+                return 0;
+            }
+            return 1;
+        } catch (NumberFormatException e) {
             return 0;
         }
-        return 1;
-    }catch(NumberFormatException e){
-        return 0;
-    }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
-    private rojerusan.RSMaterialButtonRectangle bttnBack;
-    private rojerusan.RSMaterialButtonRectangle bttnBack1;
     private javax.swing.JTextField city;
     private javax.swing.JTextField eventApproxFund;
     private com.toedter.calendar.JDateChooser eventDate;

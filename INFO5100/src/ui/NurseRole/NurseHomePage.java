@@ -53,8 +53,8 @@ public class NurseHomePage extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         labelvalue = new javax.swing.JLabel();
         bttnBack = new rojerusan.RSMaterialButtonRectangle();
-        bttnEnrollment = new rojerusan.RSMaterialButtonRectangle();
-        bttnHospitalWorkREQ = new rojerusan.RSMaterialButtonRectangle();
+        buttonEnroll = new rojerusan.RSMaterialButtonRectangle();
+        buttonHospitalWorkReq = new rojerusan.RSMaterialButtonRectangle();
 
         setBackground(new java.awt.Color(232, 243, 255));
 
@@ -88,21 +88,21 @@ public class NurseHomePage extends javax.swing.JPanel {
             }
         });
 
-        bttnEnrollment.setBackground(new java.awt.Color(15, 19, 52));
-        bttnEnrollment.setText("ENROLLMENT FOR HEALTH CAMP");
-        bttnEnrollment.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnEnrollment.addActionListener(new java.awt.event.ActionListener() {
+        buttonEnroll.setBackground(new java.awt.Color(15, 19, 52));
+        buttonEnroll.setText("ENROLLMENT FOR HEALTH CAMP");
+        buttonEnroll.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        buttonEnroll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnEnrollmentActionPerformed(evt);
+                buttonEnrollActionPerformed(evt);
             }
         });
 
-        bttnHospitalWorkREQ.setBackground(new java.awt.Color(15, 19, 52));
-        bttnHospitalWorkREQ.setText("HOSPITAL WORK REQUEST");
-        bttnHospitalWorkREQ.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnHospitalWorkREQ.addActionListener(new java.awt.event.ActionListener() {
+        buttonHospitalWorkReq.setBackground(new java.awt.Color(15, 19, 52));
+        buttonHospitalWorkReq.setText("HOSPITAL WORK REQUEST");
+        buttonHospitalWorkReq.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        buttonHospitalWorkReq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnHospitalWorkREQActionPerformed(evt);
+                buttonHospitalWorkReqActionPerformed(evt);
             }
         });
 
@@ -113,7 +113,7 @@ public class NurseHomePage extends javax.swing.JPanel {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(163, Short.MAX_VALUE)
-                .addComponent(bttnEnrollment, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonEnroll, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(189, 189, 189))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -126,7 +126,7 @@ public class NurseHomePage extends javax.swing.JPanel {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(173, 173, 173)
-                    .addComponent(bttnHospitalWorkREQ, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonHospitalWorkReq, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(189, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -139,12 +139,12 @@ public class NurseHomePage extends javax.swing.JPanel {
                     .addComponent(labelvalue)
                     .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                .addComponent(bttnEnrollment, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonEnroll, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(84, 84, 84))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(177, Short.MAX_VALUE)
-                    .addComponent(bttnHospitalWorkREQ, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonHospitalWorkReq, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(148, 148, 148)))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -155,25 +155,25 @@ public class NurseHomePage extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_bttnBackActionPerformed
 
-    private void bttnEnrollmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnEnrollmentActionPerformed
+    private void buttonEnrollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEnrollActionPerformed
         NurseEnrollHealthCamp enroll = new NurseEnrollHealthCamp(userProcessContainer, userAccount, business, enterprise);
         userProcessContainer.add("EnrollHealthCamp", enroll);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_bttnEnrollmentActionPerformed
+    }//GEN-LAST:event_buttonEnrollActionPerformed
 
-    private void bttnHospitalWorkREQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnHospitalWorkREQActionPerformed
+    private void buttonHospitalWorkReqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHospitalWorkReqActionPerformed
         NurseWorkAreaJPanel nurseWorkArea = new NurseWorkAreaJPanel(userProcessContainer, userAccount, (NurseOrganization) organization, enterprise, business);
         userProcessContainer.add("NurseWorkAreaJPanel", nurseWorkArea);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_bttnHospitalWorkREQActionPerformed
+    }//GEN-LAST:event_buttonHospitalWorkReqActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojerusan.RSMaterialButtonRectangle bttnBack;
-    private rojerusan.RSMaterialButtonRectangle bttnEnrollment;
-    private rojerusan.RSMaterialButtonRectangle bttnHospitalWorkREQ;
+    private rojerusan.RSMaterialButtonRectangle buttonEnroll;
+    private rojerusan.RSMaterialButtonRectangle buttonHospitalWorkReq;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel labelvalue;
