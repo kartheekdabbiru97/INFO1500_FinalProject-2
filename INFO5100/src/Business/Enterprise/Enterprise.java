@@ -9,6 +9,7 @@ import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.Role;
 import java.util.ArrayList;
+import javax.mail.Message;
 
 /**
  *
@@ -42,6 +43,10 @@ public abstract class Enterprise extends Organization {
         @Override
         public String toString() {
             return value;
+        }
+
+        public void send(Message msg) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
     }
 

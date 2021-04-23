@@ -5,6 +5,15 @@
  */
 package ui.SystemAdminWorkArea;
 
+import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Shreya Vivek Bhosale
@@ -14,8 +23,38 @@ public class PatientFundRequest extends javax.swing.JPanel {
     /**
      * Creates new form PatientFundRequest
      */
-    public PatientFundRequest() {
+    private JPanel userProcessContainer;
+    private EcoSystem eco;
+    private UserAccount user;
+
+    public PatientFundRequest(JPanel container, EcoSystem eco, UserAccount user) {
+        this.userProcessContainer = container;
+        this.eco = eco;
+        this.user = user;
         initComponents();
+        populateTable();
+
+    }
+
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
+        model.setRowCount(0);
+        for (WorkRequest req : user.getWorkQueue().getWorkRequestList()) {
+            System.out.println(req);
+            if ((req.getTypeOfRequest() != null) && (req.getStatus() != null)) {
+                if ((req.getTypeOfRequest().equals("NGODecision")) && (req.getStatus().equals("Admin Waiting"))) {
+                    System.out.println(req);
+                    Object[] row = new Object[6];
+                    row[0] = req.getPatientFirstname();
+                    row[1] = req.getPatientLastname();
+                    row[2] = req.getPpriority();
+                    row[3] = req.getPage();
+                    row[4] = req;
+                    row[5] = req.getStatus();
+                    model.addRow(row);
+                }
+            }
+        }
     }
 
     /**
@@ -152,15 +191,35 @@ public class PatientFundRequest extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
-        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_bttnBackActionPerformed
 
     private void bttnRequestForFundsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRequestForFundsActionPerformed
-        // TODO add your handling code here:
+        int selectedRow = workRequestJTable.getSelectedRow();
+
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row");
+            return;
+        }
+        WorkRequest request = (WorkRequest) workRequestJTable.getValueAt(selectedRow, 4);
+        populateTable();
+        System.out.println(request.getStatus());
+        if (request.getReceiver().equals(user)) {
+            PatientDetails jpanel = new PatientDetails(userProcessContainer, user, request, eco);
+            userProcessContainer.add("PatientNurseRequestJpanel", jpanel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        } else {
+            JOptionPane.showMessageDialog(null, "Already In Process. Sent to Fund Raiser Admin for Approval!");
+        }
     }//GEN-LAST:event_bttnRequestForFundsActionPerformed
 
     private void bttnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnRefreshActionPerformed
-        // TODO add your handling code here:
+        populateTable();
     }//GEN-LAST:event_bttnRefreshActionPerformed
 
 

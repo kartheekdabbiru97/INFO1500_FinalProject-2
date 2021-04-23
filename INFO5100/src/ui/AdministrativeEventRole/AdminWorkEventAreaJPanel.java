@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -33,6 +34,7 @@ public class AdminWorkEventAreaJPanel extends javax.swing.JPanel {
         this.account = account;
         this.ecosystem = ecosystem;
         this.network = network;
+        labelValue.setText(enterprise.getName());
     }
 
     /**
@@ -44,207 +46,162 @@ public class AdminWorkEventAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        enterpriseLabel = new javax.swing.JLabel();
-        valueLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        bttnSponsorApproval = new rojerusan.RSMaterialButtonRectangle();
         bttnManageOrganization = new rojerusan.RSMaterialButtonRectangle();
-        bttnManageEmployee = new rojerusan.RSMaterialButtonRectangle();
+        manageEmployee = new rojerusan.RSMaterialButtonRectangle();
         bttnManageUser = new rojerusan.RSMaterialButtonRectangle();
         bttnFundRequest = new rojerusan.RSMaterialButtonRectangle();
-        bttnFundraiserEvent = new rojerusan.RSMaterialButtonRectangle();
+        bttnFundRaiserEvent = new rojerusan.RSMaterialButtonRectangle();
         bttnVolunteerApproval = new rojerusan.RSMaterialButtonRectangle();
-        bttnSponsorApproval = new rojerusan.RSMaterialButtonRectangle();
+        labelValue = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(232, 243, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("FUND RAISER ADMINISTRATOR HOME");
-
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
-        enterpriseLabel.setForeground(new java.awt.Color(255, 255, 255));
-        enterpriseLabel.setText("ENTERPRISE:");
-
-        valueLabel.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
-        valueLabel.setForeground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-
-        bttnManageOrganization.setBackground(new java.awt.Color(15, 19, 52));
-        bttnManageOrganization.setText("manage organization");
-        bttnManageOrganization.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnManageOrganization.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnManageOrganizationActionPerformed(evt);
-            }
-        });
-
-        bttnManageEmployee.setBackground(new java.awt.Color(15, 19, 52));
-        bttnManageEmployee.setText("Manage Employee");
-        bttnManageEmployee.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnManageEmployee.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnManageEmployeeActionPerformed(evt);
-            }
-        });
-
-        bttnManageUser.setBackground(new java.awt.Color(15, 19, 52));
-        bttnManageUser.setText("Manage User");
-        bttnManageUser.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnManageUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnManageUserActionPerformed(evt);
-            }
-        });
-
-        bttnFundRequest.setBackground(new java.awt.Color(15, 19, 52));
-        bttnFundRequest.setText("Fund Request");
-        bttnFundRequest.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnFundRequest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnFundRequestActionPerformed(evt);
-            }
-        });
-
-        bttnFundraiserEvent.setBackground(new java.awt.Color(15, 19, 52));
-        bttnFundraiserEvent.setText("Fundraiser Event");
-        bttnFundraiserEvent.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnFundraiserEvent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnFundraiserEventActionPerformed(evt);
-            }
-        });
-
-        bttnVolunteerApproval.setBackground(new java.awt.Color(15, 19, 52));
-        bttnVolunteerApproval.setText("Volunteer Approval");
-        bttnVolunteerApproval.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        bttnVolunteerApproval.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttnVolunteerApprovalActionPerformed(evt);
-            }
-        });
+        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("FUNDRAISER ADMINISTRATOR HOME");
+        jLabel1.setOpaque(true);
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 90));
 
         bttnSponsorApproval.setBackground(new java.awt.Color(15, 19, 52));
-        bttnSponsorApproval.setText("Sopnsor Approval");
+        bttnSponsorApproval.setText("SPONSOR APPROVAL");
         bttnSponsorApproval.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnSponsorApproval.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttnSponsorApprovalActionPerformed(evt);
             }
         });
+        add(bttnSponsorApproval, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 580, 300, 70));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(236, 236, 236)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bttnFundRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bttnManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bttnManageEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bttnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(329, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bttnSponsorApproval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bttnFundraiserEvent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bttnVolunteerApproval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(bttnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnManageEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnFundRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnFundraiserEvent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnVolunteerApproval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnSponsorApproval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 33, Short.MAX_VALUE))
-        );
+        bttnManageOrganization.setBackground(new java.awt.Color(15, 19, 52));
+        bttnManageOrganization.setText("MANAGE ORGANIZATION");
+        bttnManageOrganization.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnManageOrganization.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnManageOrganizationActionPerformed(evt);
+            }
+        });
+        add(bttnManageOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 300, 70));
+
+        manageEmployee.setBackground(new java.awt.Color(15, 19, 52));
+        manageEmployee.setText("MANAGE EMPLOYEE");
+        manageEmployee.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        manageEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageEmployeeActionPerformed(evt);
+            }
+        });
+        add(manageEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 300, 70));
+
+        bttnManageUser.setBackground(new java.awt.Color(15, 19, 52));
+        bttnManageUser.setText("MANAGE USER");
+        bttnManageUser.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnManageUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnManageUserActionPerformed(evt);
+            }
+        });
+        add(bttnManageUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 300, 70));
+
+        bttnFundRequest.setBackground(new java.awt.Color(15, 19, 52));
+        bttnFundRequest.setText("FUND REQUEST");
+        bttnFundRequest.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnFundRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnFundRequestActionPerformed(evt);
+            }
+        });
+        add(bttnFundRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 300, 70));
+
+        bttnFundRaiserEvent.setBackground(new java.awt.Color(15, 19, 52));
+        bttnFundRaiserEvent.setText("FUNDRAISER EVENT");
+        bttnFundRaiserEvent.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnFundRaiserEvent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnFundRaiserEventActionPerformed(evt);
+            }
+        });
+        add(bttnFundRaiserEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 300, 70));
+
+        bttnVolunteerApproval.setBackground(new java.awt.Color(15, 19, 52));
+        bttnVolunteerApproval.setText("VOUNTEER APPROVAL");
+        bttnVolunteerApproval.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnVolunteerApproval.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnVolunteerApprovalActionPerformed(evt);
+            }
+        });
+        add(bttnVolunteerApproval, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, 300, 70));
+
+        labelValue.setBackground(new java.awt.Color(15, 19, 52));
+        labelValue.setForeground(new java.awt.Color(255, 255, 255));
+        labelValue.setOpaque(true);
+        add(labelValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 150, 30));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bttnSponsorApprovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnSponsorApprovalActionPerformed
+        SponsorApprovalJPanel sponsorApprovalJPanel = new SponsorApprovalJPanel(userProcessContainer, enterprise, account);
+        userProcessContainer.add("SponsorApprovalJPanel", sponsorApprovalJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_bttnSponsorApprovalActionPerformed
+
     private void bttnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganizationActionPerformed
-        // TODO add your handling code here:
-        //Donot Write here, can't delete this
+        ManageOrganizationJPanel manageOrganizationJPanel = new ManageOrganizationJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("manageOrganizationJPanel", manageOrganizationJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_bttnManageOrganizationActionPerformed
 
-    private void bttnManageEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageEmployeeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnManageEmployeeActionPerformed
+    private void manageEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeActionPerformed
+        ManageEmployeeJPanel manageEmployeeJPanel = new ManageEmployeeJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("manageEmployeeJPanel", manageEmployeeJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_manageEmployeeActionPerformed
 
     private void bttnManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageUserActionPerformed
-        // TODO add your handling code here:
+        ManageUserAccountJPanel manageUserAccountJPanel = new ManageUserAccountJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("ManageUserAccountJPanel", manageUserAccountJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_bttnManageUserActionPerformed
 
     private void bttnFundRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnFundRequestActionPerformed
-        // TODO add your handling code here:
+        FundRequests mPanel = new FundRequests(userProcessContainer, enterprise, account, network, ecosystem);
+        userProcessContainer.add("FundRequests", mPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_bttnFundRequestActionPerformed
 
-    private void bttnFundraiserEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnFundraiserEventActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnFundraiserEventActionPerformed
+    private void bttnFundRaiserEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnFundRaiserEventActionPerformed
+        FundraiserEvents jPanel = new FundraiserEvents(userProcessContainer, enterprise, network);
+        userProcessContainer.add("ManageUserAccountJPanel", jPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_bttnFundRaiserEventActionPerformed
 
     private void bttnVolunteerApprovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnVolunteerApprovalActionPerformed
-        // TODO add your handling code here:
+        VolunteerEventApprovalJPanel volunteerApprovalJPanel = new VolunteerEventApprovalJPanel(userProcessContainer, enterprise, account);
+        userProcessContainer.add("VolunteerApprovalJPanel", volunteerApprovalJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_bttnVolunteerApprovalActionPerformed
-
-    private void bttnSponsorApprovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnSponsorApprovalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bttnSponsorApprovalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private rojerusan.RSMaterialButtonRectangle bttnFundRaiserEvent;
     private rojerusan.RSMaterialButtonRectangle bttnFundRequest;
-    private rojerusan.RSMaterialButtonRectangle bttnFundraiserEvent;
-    private rojerusan.RSMaterialButtonRectangle bttnManageEmployee;
     private rojerusan.RSMaterialButtonRectangle bttnManageOrganization;
     private rojerusan.RSMaterialButtonRectangle bttnManageUser;
     private rojerusan.RSMaterialButtonRectangle bttnSponsorApproval;
     private rojerusan.RSMaterialButtonRectangle bttnVolunteerApproval;
-    private javax.swing.JLabel enterpriseLabel;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel valueLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel labelValue;
+    private rojerusan.RSMaterialButtonRectangle manageEmployee;
     // End of variables declaration//GEN-END:variables
 }
