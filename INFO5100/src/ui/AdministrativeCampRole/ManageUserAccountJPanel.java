@@ -62,7 +62,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
     public void popData() {
 
-        DefaultTableModel model = (DefaultTableModel) userJTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) userJTable1.getModel();
 
         model.setRowCount(0);
 
@@ -72,7 +72,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 row[0] = ua;
                 row[1] = ua.getRole();
                 row[2] = organization;
-                ((DefaultTableModel) userJTable.getModel()).addRow(row);
+                ((DefaultTableModel) userJTable1.getModel()).addRow(row);
             }
         }
     }
@@ -132,12 +132,13 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         userJTable.setSelectionBackground(new java.awt.Color(15, 19, 52));
         jScrollPane1.setViewportView(userJTable);
 
-        setBackground(new java.awt.Color(232, 243, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
+        jPanel1.setBackground(new java.awt.Color(235, 122, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("USER MANAGEMENT - CAMP");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -147,7 +148,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(511, Short.MAX_VALUE))
+                .addContainerGap(507, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,10 +173,10 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Organization");
 
-        cmboOrganization.setBackground(new java.awt.Color(15, 19, 52));
-        cmboOrganization.setColorArrow(new java.awt.Color(15, 19, 52));
-        cmboOrganization.setColorBorde(new java.awt.Color(15, 19, 52));
-        cmboOrganization.setColorFondo(new java.awt.Color(15, 19, 52));
+        cmboOrganization.setBackground(new java.awt.Color(235, 122, 102));
+        cmboOrganization.setColorArrow(new java.awt.Color(235, 122, 102));
+        cmboOrganization.setColorBorde(new java.awt.Color(51, 51, 51));
+        cmboOrganization.setColorFondo(new java.awt.Color(235, 122, 102));
         cmboOrganization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmboOrganizationActionPerformed(evt);
@@ -205,20 +206,21 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        userJTable1.setSelectionBackground(new java.awt.Color(15, 19, 52));
+        userJTable1.setSelectionBackground(new java.awt.Color(235, 122, 102));
         jScrollPane2.setViewportView(userJTable1);
 
-        cmboEmployee.setBackground(new java.awt.Color(15, 19, 52));
-        cmboEmployee.setColorArrow(new java.awt.Color(15, 19, 52));
-        cmboEmployee.setColorBorde(new java.awt.Color(15, 19, 52));
-        cmboEmployee.setColorFondo(new java.awt.Color(15, 19, 52));
+        cmboEmployee.setBackground(new java.awt.Color(235, 122, 102));
+        cmboEmployee.setColorArrow(new java.awt.Color(235, 122, 102));
+        cmboEmployee.setColorBorde(new java.awt.Color(51, 51, 51));
+        cmboEmployee.setColorFondo(new java.awt.Color(235, 122, 102));
 
-        cmboRole.setBackground(new java.awt.Color(15, 19, 52));
-        cmboRole.setColorArrow(new java.awt.Color(15, 19, 52));
-        cmboRole.setColorBorde(new java.awt.Color(15, 19, 52));
-        cmboRole.setColorFondo(new java.awt.Color(15, 19, 52));
+        cmboRole.setBackground(new java.awt.Color(235, 122, 102));
+        cmboRole.setColorArrow(new java.awt.Color(235, 122, 102));
+        cmboRole.setColorBorde(new java.awt.Color(51, 51, 51));
+        cmboRole.setColorFondo(new java.awt.Color(235, 122, 102));
 
-        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
+        bttnBack.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack.setForeground(new java.awt.Color(51, 51, 51));
         bttnBack.setText("Back");
         bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -227,7 +229,8 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        bttnCreateUser.setBackground(new java.awt.Color(15, 19, 52));
+        bttnCreateUser.setBackground(new java.awt.Color(235, 122, 102));
+        bttnCreateUser.setForeground(new java.awt.Color(51, 51, 51));
         bttnCreateUser.setText("Create");
         bttnCreateUser.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnCreateUser.addActionListener(new java.awt.event.ActionListener() {
@@ -236,7 +239,8 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        bttnDeleteUser.setBackground(new java.awt.Color(15, 19, 52));
+        bttnDeleteUser.setBackground(new java.awt.Color(235, 122, 102));
+        bttnDeleteUser.setForeground(new java.awt.Color(51, 51, 51));
         bttnDeleteUser.setText("Delete");
         bttnDeleteUser.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnDeleteUser.addActionListener(new java.awt.event.ActionListener() {
@@ -247,15 +251,16 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
         txtUserName.setForeground(new java.awt.Color(15, 19, 52));
         txtUserName.setToolTipText("");
-        txtUserName.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtUserName.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtUserName.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtUserName.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtUserName.setPhColor(new java.awt.Color(235, 122, 102));
 
-        txtPassword.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(15, 19, 52), 2), null));
+        txtPassword.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2), null));
         txtPassword.setForeground(new java.awt.Color(15, 19, 52));
         txtPassword.setToolTipText("");
-        txtPassword.setCaretColor(new java.awt.Color(15, 19, 52));
+        txtPassword.setCaretColor(new java.awt.Color(235, 122, 102));
         txtPassword.setPhColor(new java.awt.Color(15, 19, 52));
-        txtPassword.setSelectionColor(new java.awt.Color(15, 19, 52));
+        txtPassword.setSelectionColor(new java.awt.Color(235, 122, 102));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -321,7 +326,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                     .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnCreateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

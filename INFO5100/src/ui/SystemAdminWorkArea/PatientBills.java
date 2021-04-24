@@ -8,14 +8,22 @@ package ui.SystemAdminWorkArea;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.FundCharityEnterprise;
+import Business.Enterprise.HealthCampEnterprise;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import java.util.logging.*;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -88,13 +96,14 @@ public class PatientBills extends javax.swing.JPanel {
         workRequestJTable = new javax.swing.JTable();
         bttnBack = new rojerusan.RSMaterialButtonRectangle();
         bttnPay = new rojerusan.RSMaterialButtonRectangle();
+        bttnPay1 = new rojerusan.RSMaterialButtonRectangle();
 
-        setBackground(new java.awt.Color(232, 243, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
+        jPanel1.setBackground(new java.awt.Color(235, 122, 102));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("PATIENT BILLS");
 
         bttnRefresh.setBackground(new java.awt.Color(255, 255, 255));
@@ -114,7 +123,7 @@ public class PatientBills extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(514, Short.MAX_VALUE))
+                .addContainerGap(503, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bttnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,10 +162,12 @@ public class PatientBills extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        workRequestJTable.setSelectionBackground(new java.awt.Color(15, 19, 52));
+        workRequestJTable.setSelectionBackground(new java.awt.Color(235, 122, 102));
+        workRequestJTable.setSelectionForeground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(workRequestJTable);
 
-        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
+        bttnBack.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack.setForeground(new java.awt.Color(51, 51, 51));
         bttnBack.setText("Back");
         bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -165,12 +176,23 @@ public class PatientBills extends javax.swing.JPanel {
             }
         });
 
-        bttnPay.setBackground(new java.awt.Color(15, 19, 52));
+        bttnPay.setBackground(new java.awt.Color(235, 122, 102));
+        bttnPay.setForeground(new java.awt.Color(51, 51, 51));
         bttnPay.setText("PAY");
         bttnPay.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnPay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttnPayActionPerformed(evt);
+            }
+        });
+
+        bttnPay1.setBackground(new java.awt.Color(235, 122, 102));
+        bttnPay1.setForeground(new java.awt.Color(51, 51, 51));
+        bttnPay1.setText("GENERATE GRAPHS");
+        bttnPay1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnPay1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnPay1ActionPerformed(evt);
             }
         });
 
@@ -186,7 +208,10 @@ public class PatientBills extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bttnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bttnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(bttnPay1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -199,7 +224,9 @@ public class PatientBills extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bttnPay1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(228, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -238,10 +265,38 @@ public class PatientBills extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_bttnRefreshActionPerformed
 
+    private void bttnPay1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnPay1ActionPerformed
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        // dataset.setValue(80, "M", "M");
+        for (Network network : ecosystem.getNetworkList()) {
+            for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+
+                //System.out.println(e.getName()+ "---" +e.getEnterpriseType().equals(Enterprise.EnterpriseType.Camp));
+                if (e.getEnterpriseType().equals(Enterprise.EnterpriseType.Event)) {
+                    FundCharityEnterprise f= (FundCharityEnterprise) e;
+                    System.out.println(f.getName());
+                    System.out.println(f.getFundsCollected());
+                    if (f.getFundsCollected()!=0) {
+                        dataset.setValue(f.getFundsCollected(), "Funds Collected", f.getName());
+                    }
+                }
+
+            }
+        }
+
+        JFreeChart chart = ChartFactory.createBarChart("Total Funds Collected", "FundRaiser Name", "Funds", dataset, PlotOrientation.VERTICAL, false, true, false);
+        CategoryPlot p = chart.getCategoryPlot();
+        p.setRangeGridlinePaint(Color.BLACK);
+        ChartFrame frame = new ChartFrame("Plot for funds collected in different events", chart);
+        frame.setVisible(true);
+        frame.setSize(500, 500);
+    }//GEN-LAST:event_bttnPay1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojerusan.RSMaterialButtonRectangle bttnBack;
     private rojerusan.RSMaterialButtonRectangle bttnPay;
+    private rojerusan.RSMaterialButtonRectangle bttnPay1;
     private rojerusan.RSMaterialButtonRectangle bttnRefresh;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;

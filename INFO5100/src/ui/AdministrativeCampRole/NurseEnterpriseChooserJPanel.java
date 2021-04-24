@@ -52,8 +52,6 @@ public class NurseEnterpriseChooserJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -61,32 +59,10 @@ public class NurseEnterpriseChooserJPanel extends javax.swing.JPanel {
         cmboEnterpriseType = new rojerusan.RSComboMetro();
         cmboEnterprise = new rojerusan.RSComboMetro();
         bttnBack = new rojerusan.RSMaterialButtonRectangle();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(232, 243, 255));
-
-        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("NURSE ENTERPRISE");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(262, 262, 262)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel7)
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Network");
@@ -97,32 +73,37 @@ public class NurseEnterpriseChooserJPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Enterprise");
 
-        cmboNetwork.setBackground(new java.awt.Color(15, 19, 52));
-        cmboNetwork.setColorArrow(new java.awt.Color(15, 19, 52));
-        cmboNetwork.setColorBorde(new java.awt.Color(15, 19, 52));
-        cmboNetwork.setColorFondo(new java.awt.Color(15, 19, 52));
+        cmboNetwork.setBackground(new java.awt.Color(235, 122, 102));
+        cmboNetwork.setForeground(new java.awt.Color(51, 51, 51));
+        cmboNetwork.setColorArrow(new java.awt.Color(235, 122, 102));
+        cmboNetwork.setColorBorde(new java.awt.Color(51, 51, 51));
+        cmboNetwork.setColorFondo(new java.awt.Color(235, 122, 102));
         cmboNetwork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmboNetworkActionPerformed(evt);
             }
         });
 
-        cmboEnterpriseType.setBackground(new java.awt.Color(15, 19, 52));
-        cmboEnterpriseType.setColorArrow(new java.awt.Color(15, 19, 52));
-        cmboEnterpriseType.setColorBorde(new java.awt.Color(15, 19, 52));
-        cmboEnterpriseType.setColorFondo(new java.awt.Color(15, 19, 52));
+        cmboEnterpriseType.setBackground(new java.awt.Color(235, 122, 102));
+        cmboEnterpriseType.setForeground(new java.awt.Color(51, 51, 51));
+        cmboEnterpriseType.setColorArrow(new java.awt.Color(235, 122, 102));
+        cmboEnterpriseType.setColorBorde(new java.awt.Color(51, 51, 51));
+        cmboEnterpriseType.setColorFondo(new java.awt.Color(235, 122, 102));
         cmboEnterpriseType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmboEnterpriseTypeActionPerformed(evt);
             }
         });
 
-        cmboEnterprise.setBackground(new java.awt.Color(15, 19, 52));
-        cmboEnterprise.setColorArrow(new java.awt.Color(15, 19, 52));
-        cmboEnterprise.setColorBorde(new java.awt.Color(15, 19, 52));
-        cmboEnterprise.setColorFondo(new java.awt.Color(15, 19, 52));
+        cmboEnterprise.setBackground(new java.awt.Color(235, 122, 102));
+        cmboEnterprise.setForeground(new java.awt.Color(51, 51, 51));
+        cmboEnterprise.setColorArrow(new java.awt.Color(235, 122, 102));
+        cmboEnterprise.setColorBorde(new java.awt.Color(51, 51, 51));
+        cmboEnterprise.setColorFondo(new java.awt.Color(235, 122, 102));
 
-        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
+        bttnBack.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
+        bttnBack.setForeground(new java.awt.Color(51, 51, 51));
         bttnBack.setText("Submit");
         bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -131,11 +112,34 @@ public class NurseEnterpriseChooserJPanel extends javax.swing.JPanel {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(235, 122, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel7.setText("NURSE ENTERPRISE");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(568, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addContainerGap(75, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(246, 246, 246)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -149,12 +153,13 @@ public class NurseEnterpriseChooserJPanel extends javax.swing.JPanel {
                     .addComponent(cmboEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                     .addComponent(cmboNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                 .addGap(0, 443, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cmboNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))

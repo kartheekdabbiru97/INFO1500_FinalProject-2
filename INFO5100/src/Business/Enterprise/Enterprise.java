@@ -28,7 +28,7 @@ public abstract class Enterprise extends Organization {
         Hospital("Hospital"),
         Camp("Health Camp"),
         Event("Fund Raiser"),
-        Transport("Logistics");
+        Transport("Laboratory");
 
         private String value;
 
