@@ -183,7 +183,7 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
             System.out.println("Sent message.");
         } catch (MessagingException mex) {
             mex.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Invalid email id");
+            JOptionPane.showMessageDialog(null, "Invalid Phone Number");
         }
     }
 
@@ -196,7 +196,6 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -207,29 +206,24 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        txtUserName = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JPasswordField();
-        txtdob = new com.toedter.calendar.JDateChooser();
-        txtSSN = new javax.swing.JTextField();
-        txtPassport = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAddress = new javax.swing.JTextArea();
-        txtnumber = new javax.swing.JTextField();
-        txtemail = new javax.swing.JTextField();
-        roleCombo = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        comboProvider = new javax.swing.JComboBox<>();
-        buttonSubmit = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        txtName = new rojerusan.RSMetroTextPlaceHolder();
+        txtUserName = new rojerusan.RSMetroTextPlaceHolder();
+        txtPassword = new rojerusan.RSMetroTextPlaceHolder();
+        txtdob = new com.toedter.calendar.JDateChooser();
+        txtSSN = new rojerusan.RSMetroTextPlaceHolder();
+        txtPassport = new rojerusan.RSMetroTextPlaceHolder();
+        txtemail = new rojerusan.RSMetroTextPlaceHolder();
+        txtnumber = new rojerusan.RSMetroTextPlaceHolder();
+        comboProvider = new rojerusan.RSComboMetro();
+        roleCombo = new rojerusan.RSComboMetro();
+        bttnBack = new rojerusan.RSMaterialButtonRectangle();
 
-        setBackground(new java.awt.Color(232, 243, 255));
-
-        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("VOLUNTEER REGISTRATION");
-        jLabel1.setOpaque(true);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Name");
@@ -261,57 +255,149 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Role");
 
+        txtAddress.setColumns(20);
+        txtAddress.setRows(5);
+        txtAddress.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
+        jScrollPane1.setViewportView(txtAddress);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("Carrier");
+
+        jPanel1.setBackground(new java.awt.Color(235, 122, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("VOLUNTEER REGISTRATION");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+
+        txtName.setForeground(new java.awt.Color(15, 19, 52));
+        txtName.setToolTipText("");
+        txtName.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtName.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtName.setPhColor(new java.awt.Color(235, 122, 102));
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
             }
         });
 
+        txtUserName.setForeground(new java.awt.Color(15, 19, 52));
+        txtUserName.setToolTipText("");
+        txtUserName.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtUserName.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtUserName.setPhColor(new java.awt.Color(235, 122, 102));
         txtUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUserNameActionPerformed(evt);
             }
         });
 
+        txtPassword.setForeground(new java.awt.Color(15, 19, 52));
+        txtPassword.setToolTipText("");
+        txtPassword.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtPassword.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtPassword.setPhColor(new java.awt.Color(235, 122, 102));
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+
+        txtdob.setBackground(new java.awt.Color(255, 255, 255));
+        txtdob.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
+        txtSSN.setForeground(new java.awt.Color(15, 19, 52));
+        txtSSN.setToolTipText("");
+        txtSSN.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtSSN.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtSSN.setPhColor(new java.awt.Color(235, 122, 102));
         txtSSN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSSNActionPerformed(evt);
             }
         });
 
+        txtPassport.setForeground(new java.awt.Color(15, 19, 52));
+        txtPassport.setToolTipText("");
+        txtPassport.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtPassport.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtPassport.setPhColor(new java.awt.Color(235, 122, 102));
         txtPassport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPassportActionPerformed(evt);
             }
         });
 
-        txtAddress.setColumns(20);
-        txtAddress.setRows(5);
-        jScrollPane1.setViewportView(txtAddress);
-
-        txtnumber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnumberActionPerformed(evt);
-            }
-        });
-
+        txtemail.setForeground(new java.awt.Color(15, 19, 52));
+        txtemail.setToolTipText("");
+        txtemail.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtemail.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtemail.setPhColor(new java.awt.Color(235, 122, 102));
         txtemail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtemailActionPerformed(evt);
             }
         });
 
-        roleCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VolunteerCampRole", "VolunteerEventRole" }));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("Provider");
-
-        comboProvider.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT", "ATT", "TMobile", "Sprint", "Verizon" }));
-
-        buttonSubmit.setText("REGISTER");
-        buttonSubmit.addActionListener(new java.awt.event.ActionListener() {
+        txtnumber.setForeground(new java.awt.Color(15, 19, 52));
+        txtnumber.setToolTipText("");
+        txtnumber.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtnumber.setBotonColor(new java.awt.Color(235, 122, 102));
+        txtnumber.setPhColor(new java.awt.Color(235, 122, 102));
+        txtnumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSubmitActionPerformed(evt);
+                txtnumberActionPerformed(evt);
+            }
+        });
+
+        comboProvider.setBackground(new java.awt.Color(235, 122, 102));
+        comboProvider.setForeground(new java.awt.Color(51, 51, 51));
+        comboProvider.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SELECT", "ATT", "TMobile", "Sprint", "Verizon" }));
+        comboProvider.setColorArrow(new java.awt.Color(235, 122, 102));
+        comboProvider.setColorBorde(new java.awt.Color(51, 51, 51));
+        comboProvider.setColorFondo(new java.awt.Color(235, 122, 102));
+        comboProvider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboProviderActionPerformed(evt);
+            }
+        });
+
+        roleCombo.setBackground(new java.awt.Color(235, 122, 102));
+        roleCombo.setForeground(new java.awt.Color(51, 51, 51));
+        roleCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "VolunteerCampRole", "VolunteerEventRole" }));
+        roleCombo.setColorArrow(new java.awt.Color(235, 122, 102));
+        roleCombo.setColorBorde(new java.awt.Color(51, 51, 51));
+        roleCombo.setColorFondo(new java.awt.Color(235, 122, 102));
+        roleCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roleComboActionPerformed(evt);
+            }
+        });
+
+        bttnBack.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack.setForeground(new java.awt.Color(51, 51, 51));
+        bttnBack.setText("Register");
+        bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnBackActionPerformed(evt);
             }
         });
 
@@ -319,101 +405,107 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel10)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
+                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel12))
-                        .addGap(55, 55, 55)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtnumber)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-                            .addComponent(txtPassport, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSSN, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtdob, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUserName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboProvider, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtemail)
-                            .addComponent(roleCombo, 0, 205, Short.MAX_VALUE))))
-                .addContainerGap(95, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(buttonSubmit)
-                .addGap(234, 234, 234))
+                            .addComponent(roleCombo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboProvider, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtnumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtdob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtPassport, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(199, 199, 199))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtdob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPassport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel6))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtdob, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPassport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel7))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(comboProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(roleCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonSubmit)
-                .addContainerGap(38, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(roleCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10)))
+                .addGap(18, 18, 18)
+                .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(186, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -425,6 +517,10 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUserNameActionPerformed
 
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
+
     private void txtSSNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSSNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSSNActionPerformed
@@ -433,15 +529,23 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPassportActionPerformed
 
-    private void txtnumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtnumberActionPerformed
-
     private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtemailActionPerformed
 
-    private void buttonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSubmitActionPerformed
+    private void txtnumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnumberActionPerformed
+
+    private void comboProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboProviderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboProviderActionPerformed
+
+    private void roleComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roleComboActionPerformed
+
+    private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
         int check = 0;
         int co = 1;
         int checkMail = 0;
@@ -468,6 +572,7 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
         Date sysDate = new Date();
         if (txtName.getText().isEmpty() || txtUserName.getText().isEmpty() || txtPassword.getText().isEmpty() || txtemail.getText().isEmpty() || txtPassport.getText().isEmpty() || txtSSN.getText().isEmpty() || txtdob.getDate() == null || txtnumber.getText().isEmpty() || txtAddress.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Registration cannot be completed as one or more fields are empty");
+            return;
         } else {
             check = 1;
 
@@ -599,7 +704,7 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
                     //Step 2.a: check against each enterprise
                     for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                         for (UserAccount user : enterprise.getUserAccountDirectory().getUserAccountList()) {
-                            if ((enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Event) && (roleCombo.getSelectedItem() == "VolunteerEventRole") && (user.getUsername().equals("mafund"))) {
+                            if ((enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Event) && (roleCombo.getSelectedItem() == "VolunteerEventRole") && ((user.getUsername().equals("mafund"))||(user.getUsername().equals("BOSFUND1"))||(user.getUsername().equals("BOSFUND2"))||(user.getUsername().equals("BOSFUND3")))) {
                                 //System.out.println(user);
                                 user.getWorkQueue().getWorkRequestList().add(request);
                                 JOptionPane.showMessageDialog(this, "Registration submitted Successfully. Sent to Fund Admin for Approval!");
@@ -613,7 +718,7 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
                                 txtdob.setDate(null);
                                 txtAddress.setText("");
 
-                            } else if ((enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Camp) && (roleCombo.getSelectedItem() == "VolunteerCampRole") && user.getUsername().equals("macamp")) {
+                            } else if ((enterprise.getEnterpriseType() == Enterprise.EnterpriseType.Camp) && (roleCombo.getSelectedItem() == "VolunteerCampRole") && (user.getUsername().equals("macamp")||user.getUsername().equals("BOSCAMP1")||user.getUsername().equals("BOSCAMP2")||user.getUsername().equals("BOSCAMP3"))) {
                                 // System.out.println(user);
                                 user.getWorkQueue().getWorkRequestList().add(request);
                                 JOptionPane.showMessageDialog(this, "Registration submitted Successfully. Sent to Camp Admin for Approval!");
@@ -645,34 +750,35 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
         sendEmailMessage(mail);
         System.out.println("**********" + contact);
         sendTextMessage(contact);
-    }//GEN-LAST:event_buttonSubmitActionPerformed
+    }//GEN-LAST:event_bttnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonSubmit;
-    private javax.swing.JComboBox<String> comboProvider;
-    private javax.swing.JLabel jLabel1;
+    private rojerusan.RSMaterialButtonRectangle bttnBack;
+    private rojerusan.RSComboMetro comboProvider;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox<String> roleCombo;
+    private rojerusan.RSComboMetro roleCombo;
     private javax.swing.JTextArea txtAddress;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPassport;
-    private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JTextField txtSSN;
-    private javax.swing.JTextField txtUserName;
+    private rojerusan.RSMetroTextPlaceHolder txtName;
+    private rojerusan.RSMetroTextPlaceHolder txtPassport;
+    private rojerusan.RSMetroTextPlaceHolder txtPassword;
+    private rojerusan.RSMetroTextPlaceHolder txtSSN;
+    private rojerusan.RSMetroTextPlaceHolder txtUserName;
     private com.toedter.calendar.JDateChooser txtdob;
-    private javax.swing.JTextField txtemail;
-    private javax.swing.JTextField txtnumber;
+    private rojerusan.RSMetroTextPlaceHolder txtemail;
+    private rojerusan.RSMetroTextPlaceHolder txtnumber;
     // End of variables declaration//GEN-END:variables
 }

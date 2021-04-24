@@ -19,6 +19,7 @@ import javax.mail.*;
 import java.util.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -189,20 +190,20 @@ public class VolunteerCampApprovalJPanel extends javax.swing.JPanel {
         bttnBack = new rojerusan.RSMaterialButtonRectangle();
         bttanApprove = new rojerusan.RSMaterialButtonRectangle();
 
-        setBackground(new java.awt.Color(232, 243, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
+        jPanel1.setBackground(new java.awt.Color(235, 122, 102));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("VOLUNTEER CAMP ROLE APPROVAL");
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
-        enterpriseLabel.setForeground(new java.awt.Color(255, 255, 255));
+        enterpriseLabel.setForeground(new java.awt.Color(51, 51, 51));
         enterpriseLabel.setText("Enterprise Name:");
 
         valueLabel.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
-        valueLabel.setForeground(new java.awt.Color(255, 255, 255));
+        valueLabel.setForeground(new java.awt.Color(51, 51, 51));
         valueLabel.setText("<value>");
 
         bttnRefresh.setBackground(new java.awt.Color(255, 255, 255));
@@ -271,10 +272,12 @@ public class VolunteerCampApprovalJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        workRequestJTable.setSelectionBackground(new java.awt.Color(15, 19, 52));
+        workRequestJTable.setSelectionBackground(new java.awt.Color(235, 122, 102));
+        workRequestJTable.setSelectionForeground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(workRequestJTable);
 
-        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
+        bttnBack.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack.setForeground(new java.awt.Color(51, 51, 51));
         bttnBack.setText("Back");
         bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -283,7 +286,8 @@ public class VolunteerCampApprovalJPanel extends javax.swing.JPanel {
             }
         });
 
-        bttanApprove.setBackground(new java.awt.Color(15, 19, 52));
+        bttanApprove.setBackground(new java.awt.Color(235, 122, 102));
+        bttanApprove.setForeground(new java.awt.Color(51, 51, 51));
         bttanApprove.setText("APPROVE");
         bttanApprove.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttanApprove.addActionListener(new java.awt.event.ActionListener() {
@@ -340,12 +344,13 @@ public class VolunteerCampApprovalJPanel extends javax.swing.JPanel {
         }
         Employee employee = null;
         Role role = null;
+            System.out.println(enterprise.getOrganizationDirectory().getOrganizationList());
         for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
-            //System.out.println(request.getRole().equals(org.getOrganType().VolunteerCamp.toString()));
-            //System.out.println(request.getRole());
+            System.out.println(request.getRole());
             //System.out.println(request.getRole().equals("VolunteerCampRole"));
             if (request.getRole().equals("VolunteerCampRole")) {
                 org.getEmployeeDirectory().createEmployee(request.getVolunteerName());
+                System.out.println("loooooooooooooooooooooooooooooooooooooooooool");
                 for (Employee e : org.getEmployeeDirectory().getEmployeeList()) {
                     if (request.getVolunteerName() == e.getName()) {
                         employee = e;
@@ -358,6 +363,7 @@ public class VolunteerCampApprovalJPanel extends javax.swing.JPanel {
                     }
                 }
                 org.getUserAccountDirectory().createUserAccount(request.getUsername(), request.getPassword(), employee, role);
+                
                 break;
             } else if (request.getRole().equals("VolunteerEventRole")) {
                 if (org.toString().equals("Event Organization")) {
@@ -380,14 +386,15 @@ public class VolunteerCampApprovalJPanel extends javax.swing.JPanel {
         request.setStatus("Completed");
         populateRequestTable();
         if (request.getStatus().equals("Completed")) {
+
             String email = request.getMailid();
             System.out.println(email);
             sendEmailMessage(email);
             String provider = request.getNetworkProvider();
             long num = request.getNumber();
             String numStr = Long.toString(num);
-            System.out.println("N"+numStr);
-             System.out.println("P"+provider);
+            System.out.println("N" + numStr);
+            System.out.println("P" + provider);
             String contact = "";
             if (provider.equals("ATT")) {
                 contact = numStr + "@txt.att.net";
@@ -400,6 +407,7 @@ public class VolunteerCampApprovalJPanel extends javax.swing.JPanel {
             }
             System.out.println("*****VCamp*****" + contact);
             sendTextMessage(contact);
+
         }
     }//GEN-LAST:event_bttanApproveActionPerformed
 

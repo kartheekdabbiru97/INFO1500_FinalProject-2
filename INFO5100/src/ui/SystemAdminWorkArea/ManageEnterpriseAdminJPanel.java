@@ -114,7 +114,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         enterpriseJTable = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(232, 243, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Network");
@@ -131,10 +131,11 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Name");
 
-        jPanel1.setBackground(new java.awt.Color(15, 19, 52));
+        jPanel1.setBackground(new java.awt.Color(235, 122, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("WELCOME TO ENTERPRISE ADMIN");
 
@@ -155,27 +156,30 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 .addContainerGap(65, Short.MAX_VALUE))
         );
 
-        comboNetwork.setBackground(new java.awt.Color(15, 19, 52));
-        comboNetwork.setColorArrow(new java.awt.Color(15, 19, 52));
-        comboNetwork.setColorBorde(new java.awt.Color(15, 19, 52));
-        comboNetwork.setColorFondo(new java.awt.Color(15, 19, 52));
+        comboNetwork.setBackground(new java.awt.Color(235, 122, 102));
+        comboNetwork.setForeground(new java.awt.Color(51, 51, 51));
+        comboNetwork.setColorArrow(new java.awt.Color(235, 122, 102));
+        comboNetwork.setColorBorde(new java.awt.Color(51, 51, 51));
+        comboNetwork.setColorFondo(new java.awt.Color(235, 122, 102));
         comboNetwork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboNetworkActionPerformed(evt);
             }
         });
 
-        comboEnterpriseType.setBackground(new java.awt.Color(15, 19, 52));
-        comboEnterpriseType.setColorArrow(new java.awt.Color(15, 19, 52));
-        comboEnterpriseType.setColorBorde(new java.awt.Color(15, 19, 52));
-        comboEnterpriseType.setColorFondo(new java.awt.Color(15, 19, 52));
+        comboEnterpriseType.setBackground(new java.awt.Color(235, 122, 102));
+        comboEnterpriseType.setForeground(new java.awt.Color(51, 51, 51));
+        comboEnterpriseType.setColorArrow(new java.awt.Color(235, 122, 102));
+        comboEnterpriseType.setColorBorde(new java.awt.Color(51, 51, 51));
+        comboEnterpriseType.setColorFondo(new java.awt.Color(235, 122, 102));
         comboEnterpriseType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboEnterpriseTypeActionPerformed(evt);
             }
         });
 
-        bttnBack.setBackground(new java.awt.Color(15, 19, 52));
+        bttnBack.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack.setForeground(new java.awt.Color(51, 51, 51));
         bttnBack.setText("Back");
         bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -184,7 +188,8 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
 
-        bttnSubmit.setBackground(new java.awt.Color(15, 19, 52));
+        bttnSubmit.setBackground(new java.awt.Color(235, 122, 102));
+        bttnSubmit.setForeground(new java.awt.Color(51, 51, 51));
         bttnSubmit.setText("Submit");
         bttnSubmit.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +198,8 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
 
-        bttnUpdate.setBackground(new java.awt.Color(15, 19, 52));
+        bttnUpdate.setBackground(new java.awt.Color(235, 122, 102));
+        bttnUpdate.setForeground(new java.awt.Color(51, 51, 51));
         bttnUpdate.setText("Update");
         bttnUpdate.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -202,7 +208,8 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
 
-        bttnDelete.setBackground(new java.awt.Color(15, 19, 52));
+        bttnDelete.setBackground(new java.awt.Color(235, 122, 102));
+        bttnDelete.setForeground(new java.awt.Color(51, 51, 51));
         bttnDelete.setText("Delete");
         bttnDelete.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -211,27 +218,28 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtUserName.setForeground(new java.awt.Color(15, 19, 52));
+        txtUserName.setForeground(new java.awt.Color(51, 51, 51));
         txtUserName.setToolTipText("");
-        txtUserName.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtUserName.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtUserName.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtUserName.setBotonColor(new java.awt.Color(235, 122, 102));
 
-        txtPassword.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(15, 19, 52), 2), null));
+        txtPassword.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2), null));
         txtPassword.setForeground(new java.awt.Color(15, 19, 52));
         txtPassword.setToolTipText("");
         txtPassword.setCaretColor(new java.awt.Color(15, 19, 52));
-        txtPassword.setPhColor(new java.awt.Color(15, 19, 52));
-        txtPassword.setSelectionColor(new java.awt.Color(15, 19, 52));
+        txtPassword.setPhColor(new java.awt.Color(235, 122, 102));
+        txtPassword.setSelectionColor(new java.awt.Color(235, 122, 102));
 
-        txtName.setForeground(new java.awt.Color(15, 19, 52));
+        txtName.setForeground(new java.awt.Color(51, 51, 51));
         txtName.setToolTipText("");
-        txtName.setBorderColor(new java.awt.Color(15, 19, 52));
-        txtName.setBotonColor(new java.awt.Color(15, 19, 52));
+        txtName.setBorderColor(new java.awt.Color(51, 51, 51));
+        txtName.setBotonColor(new java.awt.Color(235, 122, 102));
 
-        comboEnterprise.setBackground(new java.awt.Color(15, 19, 52));
-        comboEnterprise.setColorArrow(new java.awt.Color(15, 19, 52));
-        comboEnterprise.setColorBorde(new java.awt.Color(15, 19, 52));
-        comboEnterprise.setColorFondo(new java.awt.Color(15, 19, 52));
+        comboEnterprise.setBackground(new java.awt.Color(235, 122, 102));
+        comboEnterprise.setForeground(new java.awt.Color(51, 51, 51));
+        comboEnterprise.setColorArrow(new java.awt.Color(235, 122, 102));
+        comboEnterprise.setColorBorde(new java.awt.Color(51, 51, 51));
+        comboEnterprise.setColorFondo(new java.awt.Color(235, 122, 102));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Enterprise");
@@ -252,6 +260,8 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        enterpriseJTable.setSelectionBackground(new java.awt.Color(235, 122, 102));
+        enterpriseJTable.setSelectionForeground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(enterpriseJTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -270,7 +280,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                         .addComponent(bttnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bttnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 42, Short.MAX_VALUE))
+                        .addGap(0, 448, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -330,7 +340,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
                     .addComponent(bttnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

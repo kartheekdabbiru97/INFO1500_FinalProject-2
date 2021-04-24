@@ -34,7 +34,7 @@ public class AdminWorkEventAreaJPanel extends javax.swing.JPanel {
         this.account = account;
         this.ecosystem = ecosystem;
         this.network = network;
-        labelValue.setText(enterprise.getName());
+        valueLabel1.setText(enterprise.getName());
     }
 
     /**
@@ -46,7 +46,6 @@ public class AdminWorkEventAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         bttnSponsorApproval = new rojerusan.RSMaterialButtonRectangle();
         bttnManageOrganization = new rojerusan.RSMaterialButtonRectangle();
         manageEmployee = new rojerusan.RSMaterialButtonRectangle();
@@ -54,20 +53,15 @@ public class AdminWorkEventAreaJPanel extends javax.swing.JPanel {
         bttnFundRequest = new rojerusan.RSMaterialButtonRectangle();
         bttnFundRaiserEvent = new rojerusan.RSMaterialButtonRectangle();
         bttnVolunteerApproval = new rojerusan.RSMaterialButtonRectangle();
-        labelValue = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        enterpriseLabel1 = new javax.swing.JLabel();
+        valueLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(232, 243, 255));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("FUNDRAISER ADMINISTRATOR HOME");
-        jLabel1.setOpaque(true);
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 90));
-
-        bttnSponsorApproval.setBackground(new java.awt.Color(15, 19, 52));
+        bttnSponsorApproval.setBackground(new java.awt.Color(235, 122, 102));
+        bttnSponsorApproval.setForeground(new java.awt.Color(51, 51, 51));
         bttnSponsorApproval.setText("SPONSOR APPROVAL");
         bttnSponsorApproval.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnSponsorApproval.addActionListener(new java.awt.event.ActionListener() {
@@ -75,9 +69,9 @@ public class AdminWorkEventAreaJPanel extends javax.swing.JPanel {
                 bttnSponsorApprovalActionPerformed(evt);
             }
         });
-        add(bttnSponsorApproval, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 580, 300, 70));
 
-        bttnManageOrganization.setBackground(new java.awt.Color(15, 19, 52));
+        bttnManageOrganization.setBackground(new java.awt.Color(235, 122, 102));
+        bttnManageOrganization.setForeground(new java.awt.Color(51, 51, 51));
         bttnManageOrganization.setText("MANAGE ORGANIZATION");
         bttnManageOrganization.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnManageOrganization.addActionListener(new java.awt.event.ActionListener() {
@@ -85,9 +79,9 @@ public class AdminWorkEventAreaJPanel extends javax.swing.JPanel {
                 bttnManageOrganizationActionPerformed(evt);
             }
         });
-        add(bttnManageOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 300, 70));
 
-        manageEmployee.setBackground(new java.awt.Color(15, 19, 52));
+        manageEmployee.setBackground(new java.awt.Color(235, 122, 102));
+        manageEmployee.setForeground(new java.awt.Color(51, 51, 51));
         manageEmployee.setText("MANAGE EMPLOYEE");
         manageEmployee.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         manageEmployee.addActionListener(new java.awt.event.ActionListener() {
@@ -95,9 +89,9 @@ public class AdminWorkEventAreaJPanel extends javax.swing.JPanel {
                 manageEmployeeActionPerformed(evt);
             }
         });
-        add(manageEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 300, 70));
 
-        bttnManageUser.setBackground(new java.awt.Color(15, 19, 52));
+        bttnManageUser.setBackground(new java.awt.Color(235, 122, 102));
+        bttnManageUser.setForeground(new java.awt.Color(51, 51, 51));
         bttnManageUser.setText("MANAGE USER");
         bttnManageUser.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnManageUser.addActionListener(new java.awt.event.ActionListener() {
@@ -105,9 +99,9 @@ public class AdminWorkEventAreaJPanel extends javax.swing.JPanel {
                 bttnManageUserActionPerformed(evt);
             }
         });
-        add(bttnManageUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 300, 70));
 
-        bttnFundRequest.setBackground(new java.awt.Color(15, 19, 52));
+        bttnFundRequest.setBackground(new java.awt.Color(235, 122, 102));
+        bttnFundRequest.setForeground(new java.awt.Color(51, 51, 51));
         bttnFundRequest.setText("FUND REQUEST");
         bttnFundRequest.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnFundRequest.addActionListener(new java.awt.event.ActionListener() {
@@ -115,9 +109,9 @@ public class AdminWorkEventAreaJPanel extends javax.swing.JPanel {
                 bttnFundRequestActionPerformed(evt);
             }
         });
-        add(bttnFundRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 300, 70));
 
-        bttnFundRaiserEvent.setBackground(new java.awt.Color(15, 19, 52));
+        bttnFundRaiserEvent.setBackground(new java.awt.Color(235, 122, 102));
+        bttnFundRaiserEvent.setForeground(new java.awt.Color(51, 51, 51));
         bttnFundRaiserEvent.setText("FUNDRAISER EVENT");
         bttnFundRaiserEvent.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnFundRaiserEvent.addActionListener(new java.awt.event.ActionListener() {
@@ -125,9 +119,9 @@ public class AdminWorkEventAreaJPanel extends javax.swing.JPanel {
                 bttnFundRaiserEventActionPerformed(evt);
             }
         });
-        add(bttnFundRaiserEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 300, 70));
 
-        bttnVolunteerApproval.setBackground(new java.awt.Color(15, 19, 52));
+        bttnVolunteerApproval.setBackground(new java.awt.Color(235, 122, 102));
+        bttnVolunteerApproval.setForeground(new java.awt.Color(51, 51, 51));
         bttnVolunteerApproval.setText("VOUNTEER APPROVAL");
         bttnVolunteerApproval.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         bttnVolunteerApproval.addActionListener(new java.awt.event.ActionListener() {
@@ -135,12 +129,84 @@ public class AdminWorkEventAreaJPanel extends javax.swing.JPanel {
                 bttnVolunteerApprovalActionPerformed(evt);
             }
         });
-        add(bttnVolunteerApproval, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, 300, 70));
 
-        labelValue.setBackground(new java.awt.Color(15, 19, 52));
-        labelValue.setForeground(new java.awt.Color(255, 255, 255));
-        labelValue.setOpaque(true);
-        add(labelValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 150, 30));
+        jPanel1.setBackground(new java.awt.Color(235, 122, 102));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("FUNDRAISER ADMINISTRATOR HOME");
+
+        enterpriseLabel1.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        enterpriseLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        enterpriseLabel1.setText("ENTERPRISE:");
+
+        valueLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        valueLabel1.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        valueLabel1.setForeground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(enterpriseLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(valueLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(338, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(enterpriseLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valueLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(235, 235, 235)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bttnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnFundRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnFundRaiserEvent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnVolunteerApproval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnSponsorApproval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(275, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(bttnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(manageEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(bttnManageUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(bttnFundRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(bttnFundRaiserEvent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(bttnVolunteerApproval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(bttnSponsorApproval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnSponsorApprovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnSponsorApprovalActionPerformed
@@ -200,8 +266,10 @@ public class AdminWorkEventAreaJPanel extends javax.swing.JPanel {
     private rojerusan.RSMaterialButtonRectangle bttnManageUser;
     private rojerusan.RSMaterialButtonRectangle bttnSponsorApproval;
     private rojerusan.RSMaterialButtonRectangle bttnVolunteerApproval;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel labelValue;
+    private javax.swing.JLabel enterpriseLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private rojerusan.RSMaterialButtonRectangle manageEmployee;
+    private javax.swing.JLabel valueLabel1;
     // End of variables declaration//GEN-END:variables
 }

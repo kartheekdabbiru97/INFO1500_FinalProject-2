@@ -37,6 +37,7 @@ public class VolunteerHomePage extends javax.swing.JPanel {
         this.account = account;
         this.business = business;
         valueLabel.setText(enterprise.getName());
+        bttnManageOrganization4.setVisible(false);
     }
 
     /**
@@ -48,62 +49,117 @@ public class VolunteerHomePage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        enterpriseLabel = new javax.swing.JLabel();
+        bttnManageOrganization3 = new rojerusan.RSMaterialButtonRectangle();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        enterpriseLabel1 = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
-        buttonBack = new javax.swing.JButton();
-        buttonRequestForHealthCamp = new javax.swing.JButton();
-        buttonEnrollForHealthCamp = new javax.swing.JButton();
-        buttonPatientRegistration = new javax.swing.JButton();
-        buttonChat = new javax.swing.JButton();
+        bttnManageOrganization = new rojerusan.RSMaterialButtonRectangle();
+        bttnManageOrganization1 = new rojerusan.RSMaterialButtonRectangle();
+        bttnManageOrganization2 = new rojerusan.RSMaterialButtonRectangle();
+        bttnManageOrganization4 = new rojerusan.RSMaterialButtonRectangle();
+        bttnBack = new rojerusan.RSMaterialButtonRectangle();
 
-        setBackground(new java.awt.Color(232, 243, 255));
+        bttnManageOrganization3.setBackground(new java.awt.Color(235, 122, 102));
+        bttnManageOrganization3.setForeground(new java.awt.Color(51, 51, 51));
+        bttnManageOrganization3.setText("REQUEST FOR HEALTH CAMP");
+        bttnManageOrganization3.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnManageOrganization3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnManageOrganization3ActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setBackground(new java.awt.Color(15, 19, 52));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("VOLUNTEER CAMP ROLE - WORK AREA");
-        jLabel1.setOpaque(true);
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
-        enterpriseLabel.setText("Enterprise Name:");
+        jPanel2.setBackground(new java.awt.Color(235, 122, 102));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setText("VOLUNTEER CAMP ROLE - WORK AREA");
+
+        enterpriseLabel1.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        enterpriseLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        enterpriseLabel1.setText("ENTERPRISE NAME :");
 
         valueLabel.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        valueLabel.setForeground(new java.awt.Color(51, 51, 51));
         valueLabel.setText("<value>");
 
-        buttonBack.setText("BACK");
-        buttonBack.addActionListener(new java.awt.event.ActionListener() {
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(enterpriseLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enterpriseLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        bttnManageOrganization.setBackground(new java.awt.Color(235, 122, 102));
+        bttnManageOrganization.setForeground(new java.awt.Color(51, 51, 51));
+        bttnManageOrganization.setText("REQUEST FOR HEALTH CAMP");
+        bttnManageOrganization.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnManageOrganization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonBackActionPerformed(evt);
+                bttnManageOrganizationActionPerformed(evt);
             }
         });
 
-        buttonRequestForHealthCamp.setText("REQUEST FOR HEALTH CAMP");
-        buttonRequestForHealthCamp.addActionListener(new java.awt.event.ActionListener() {
+        bttnManageOrganization1.setBackground(new java.awt.Color(235, 122, 102));
+        bttnManageOrganization1.setForeground(new java.awt.Color(51, 51, 51));
+        bttnManageOrganization1.setText("ENROLL FOR HEALTH CAMP");
+        bttnManageOrganization1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnManageOrganization1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRequestForHealthCampActionPerformed(evt);
+                bttnManageOrganization1ActionPerformed(evt);
             }
         });
 
-        buttonEnrollForHealthCamp.setText("ENROLLMENT FOR HEALTH CAMP ");
-        buttonEnrollForHealthCamp.addActionListener(new java.awt.event.ActionListener() {
+        bttnManageOrganization2.setBackground(new java.awt.Color(235, 122, 102));
+        bttnManageOrganization2.setForeground(new java.awt.Color(51, 51, 51));
+        bttnManageOrganization2.setText("PATIENT REGISTRATION");
+        bttnManageOrganization2.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnManageOrganization2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEnrollForHealthCampActionPerformed(evt);
+                bttnManageOrganization2ActionPerformed(evt);
             }
         });
 
-        buttonPatientRegistration.setText("PATIENT REGISTRATION");
-        buttonPatientRegistration.addActionListener(new java.awt.event.ActionListener() {
+        bttnManageOrganization4.setBackground(new java.awt.Color(235, 122, 102));
+        bttnManageOrganization4.setForeground(new java.awt.Color(51, 51, 51));
+        bttnManageOrganization4.setText("CHAT");
+        bttnManageOrganization4.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnManageOrganization4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPatientRegistrationActionPerformed(evt);
+                bttnManageOrganization4ActionPerformed(evt);
             }
         });
 
-        buttonChat.setText("CHAT");
-        buttonChat.addActionListener(new java.awt.event.ActionListener() {
+        bttnBack.setBackground(new java.awt.Color(235, 122, 102));
+        bttnBack.setForeground(new java.awt.Color(51, 51, 51));
+        bttnBack.setText("Back");
+        bttnBack.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        bttnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonChatActionPerformed(evt);
+                bttnBackActionPerformed(evt);
             }
         });
 
@@ -111,97 +167,97 @@ public class VolunteerHomePage extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(buttonBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(333, 333, 333)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(bttnManageOrganization2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(251, 251, 251)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonEnrollForHealthCamp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonRequestForHealthCamp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonPatientRegistration, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonChat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bttnManageOrganization4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bttnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(bttnManageOrganization1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 367, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonBack)
-                            .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonRequestForHealthCamp, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonEnrollForHealthCamp, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonPatientRegistration, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonChat, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addComponent(bttnManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bttnManageOrganization1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(bttnManageOrganization2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bttnManageOrganization4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonRequestForHealthCampActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRequestForHealthCampActionPerformed
+    private void bttnManageOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganizationActionPerformed
         VolunteerCampRequestJPanel volunteerCampRequestJPanel = new VolunteerCampRequestJPanel(userProcessContainer, account, (VolunteerCampOrganization) organization, enterprise);
         userProcessContainer.add("VolunteerCampRequestJPanel", volunteerCampRequestJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_buttonRequestForHealthCampActionPerformed
+    }//GEN-LAST:event_bttnManageOrganizationActionPerformed
 
-    private void buttonEnrollForHealthCampActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEnrollForHealthCampActionPerformed
+    private void bttnManageOrganization1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganization1ActionPerformed
+        // TODO add your handling code here:
         EnrollHealthCamp enrollHealthJPanel = new EnrollHealthCamp(userProcessContainer, account, business, enterprise);
         userProcessContainer.add("EnrollHealthCamp", enrollHealthJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_buttonEnrollForHealthCampActionPerformed
+    }//GEN-LAST:event_bttnManageOrganization1ActionPerformed
 
-    private void buttonPatientRegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPatientRegistrationActionPerformed
+    private void bttnManageOrganization2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganization2ActionPerformed
+        // TODO add your handling code here:
         PatientRegistration patientJPanel = new PatientRegistration(userProcessContainer, account, (VolunteerCampOrganization) organization, enterprise);
         userProcessContainer.add("PatientRegistration", patientJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_buttonPatientRegistrationActionPerformed
+    }//GEN-LAST:event_bttnManageOrganization2ActionPerformed
 
-    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
-        userProcessContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_buttonBackActionPerformed
+    private void bttnManageOrganization3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganization3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bttnManageOrganization3ActionPerformed
 
-    private void buttonChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChatActionPerformed
+    private void bttnManageOrganization4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnManageOrganization4ActionPerformed
+        // TODO add your handling code here:
         log.info("Chat");
         ClientUI c = new ClientUI();
         //UpdateEnterpriseJFrame f = new UpdateEnterpriseJFrame(system, network, enterpriseName, type, this);
         c.setLocationRelativeTo(null);
         c.setVisible(true);
-    }//GEN-LAST:event_buttonChatActionPerformed
+    }//GEN-LAST:event_bttnManageOrganization4ActionPerformed
+
+    private void bttnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBackActionPerformed
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_bttnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonBack;
-    private javax.swing.JButton buttonChat;
-    private javax.swing.JButton buttonEnrollForHealthCamp;
-    private javax.swing.JButton buttonPatientRegistration;
-    private javax.swing.JButton buttonRequestForHealthCamp;
-    private javax.swing.JLabel enterpriseLabel;
-    private javax.swing.JLabel jLabel1;
+    private rojerusan.RSMaterialButtonRectangle bttnBack;
+    private rojerusan.RSMaterialButtonRectangle bttnManageOrganization;
+    private rojerusan.RSMaterialButtonRectangle bttnManageOrganization1;
+    private rojerusan.RSMaterialButtonRectangle bttnManageOrganization2;
+    private rojerusan.RSMaterialButtonRectangle bttnManageOrganization3;
+    private rojerusan.RSMaterialButtonRectangle bttnManageOrganization4;
+    private javax.swing.JLabel enterpriseLabel1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
 }
