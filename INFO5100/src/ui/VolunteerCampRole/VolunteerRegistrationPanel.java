@@ -306,7 +306,7 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Provider");
 
-        comboProvider.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT", "ATT", "TMobile", "Sprint", "TMobile" }));
+        comboProvider.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECT", "ATT", "TMobile", "Sprint", "Verizon" }));
 
         buttonSubmit.setText("REGISTER");
         buttonSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -341,22 +341,21 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
                         .addGap(55, 55, 55)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtnumber)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtPassport)
-                                    .addComponent(txtSSN)
-                                    .addComponent(txtdob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(comboProvider, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                            .addComponent(txtPassport, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSSN, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtdob, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUserName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboProvider, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtemail)
-                            .addComponent(roleCombo, 0, 205, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(buttonSubmit)))))
+                            .addComponent(roleCombo, 0, 205, Short.MAX_VALUE))))
                 .addContainerGap(95, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(buttonSubmit)
+                .addGap(234, 234, 234))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -412,9 +411,9 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(roleCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(buttonSubmit)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -459,6 +458,8 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
         String role = "null";
         String passport1 = null;
         String address1 = null;
+        String phonenum = null;
+        String networkProvider = null;
         long ssn1 = 0;
         long pass1 = 0;
         long number1 = 0;
@@ -478,6 +479,8 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
             userName = txtUserName.getText();
             pass = txtPassword.getText();
             mail = txtemail.getText();
+            phonenum = txtnumber.getText();
+            networkProvider = comboProvider.getSelectedItem().toString();
             role = "null";
             passport1 = txtPassport.getText();
             checkMail = validateMail(txtemail.getText());
@@ -579,6 +582,7 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
                 request.setSsn(ssn1);
                 request.setAddress(address1);
                 request.setStatus("Pending");
+                request.setNetworkProvider(networkProvider);
                 if (roleCombo.getSelectedItem() == "VolunteerCampRole") {
                     role = (String) roleCombo.getSelectedItem();
                     request.setRole(role);
@@ -630,15 +634,16 @@ public class VolunteerRegistrationPanel extends javax.swing.JPanel {
         }
         String contact = "";
         if (comboProvider.getSelectedItem().equals("ATT")) {
-            contact = txtnumber.getText() + "@txt.att.net";
+            contact = phonenum + "@txt.att.net";
         } else if (comboProvider.getSelectedItem().equals("Verizon")) {
-            contact = txtnumber.getText() + "@vmobl.com";
+            contact = phonenum + "@vmobl.com";
         } else if (comboProvider.getSelectedItem().equals("Sprint")) {
-            contact = txtnumber.getText() + "@messaging.sprintpcs.com";
+            contact = phonenum + "@messaging.sprintpcs.com";
         } else if (comboProvider.getSelectedItem().equals("TMobile")) {
-            contact = txtnumber.getText() + "@tmomail.net";
+            contact = phonenum + "@tmomail.net";
         }
         sendEmailMessage(mail);
+        System.out.println("**********" + contact);
         sendTextMessage(contact);
     }//GEN-LAST:event_buttonSubmitActionPerformed
 

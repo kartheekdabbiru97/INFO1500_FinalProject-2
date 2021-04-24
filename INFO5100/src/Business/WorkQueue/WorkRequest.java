@@ -35,6 +35,15 @@ public abstract class WorkRequest {
     private String passport;
     private Date dob;
     private String address;
+    private String networkProvider;
+
+    public String getNetworkProvider() {
+        return networkProvider;
+    }
+
+    public void setNetworkProvider(String networkProvider) {
+        this.networkProvider = networkProvider;
+    }
 
 //    Health Camp Model 
     private String street;

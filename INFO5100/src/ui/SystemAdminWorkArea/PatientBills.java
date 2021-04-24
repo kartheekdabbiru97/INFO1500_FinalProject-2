@@ -8,14 +8,22 @@ package ui.SystemAdminWorkArea;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.FundCharityEnterprise;
+import Business.Enterprise.HealthCampEnterprise;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import java.util.logging.*;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -67,9 +75,9 @@ public class PatientBills extends javax.swing.JPanel {
                         fundsCollected = temp;
                     }
                     System.out.println(fundsCollected);
-                   }
                 }
             }
+        }
     }
 
     /**
@@ -88,6 +96,7 @@ public class PatientBills extends javax.swing.JPanel {
         workRequestJTable = new javax.swing.JTable();
         bttnBack = new rojerusan.RSMaterialButtonRectangle();
         bttnPay = new rojerusan.RSMaterialButtonRectangle();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(232, 243, 255));
 
@@ -174,6 +183,13 @@ public class PatientBills extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setText("Generate graphs");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -183,9 +199,11 @@ public class PatientBills extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(210, 210, 210)
                         .addComponent(bttnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -198,7 +216,8 @@ public class PatientBills extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bttnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bttnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addContainerGap(275, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -238,11 +257,39 @@ public class PatientBills extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_bttnRefreshActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        // dataset.setValue(80, "M", "M");
+        for (Network network : ecosystem.getNetworkList()) {
+            for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+
+                //System.out.println(e.getName()+ "---" +e.getEnterpriseType().equals(Enterprise.EnterpriseType.Camp));
+                if (e.getEnterpriseType().equals(Enterprise.EnterpriseType.Event)) {
+                    FundCharityEnterprise f= (FundCharityEnterprise) e;
+                    System.out.println(f.getName());
+                    System.out.println(f.getFundsCollected());
+                    if (f.getFundsCollected()!=0) {
+                        dataset.setValue(f.getFundsCollected(), "Funds Collected", f.getName());
+                    }
+                }
+
+            }
+        }
+
+        JFreeChart chart = ChartFactory.createBarChart("Total Funds Collected", "FundRaiser Name", "Funds", dataset, PlotOrientation.VERTICAL, false, true, false);
+        CategoryPlot p = chart.getCategoryPlot();
+        p.setRangeGridlinePaint(Color.BLACK);
+        ChartFrame frame = new ChartFrame("Plot for funds collected in different events", chart);
+        frame.setVisible(true);
+        frame.setSize(500, 500);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojerusan.RSMaterialButtonRectangle bttnBack;
     private rojerusan.RSMaterialButtonRectangle bttnPay;
     private rojerusan.RSMaterialButtonRectangle bttnRefresh;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

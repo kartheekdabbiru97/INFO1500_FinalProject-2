@@ -239,9 +239,9 @@ public class RequestHealthCampJPanel extends javax.swing.JPanel {
                 req.setCity(city1);
                 req.setState(state1);
                 req.setZipcode(zipcode1);
-                req.setPercentChild(txtnoOfPeople.getText());
-                req.setPercentElder(txtpercentChild.getText());
-                req.setPeopleAffected(txtpercentElder.getText());
+                req.setPercentChild(txtpercentChild.getText());
+                req.setPercentElder(txtpercentElder.getText());
+                req.setPeopleAffected(txtnoOfPeople.getText());
                 req.setStatus("Pending");
                 req.setReceiver(userAccount);
                 req.setName(userAccount.toString());

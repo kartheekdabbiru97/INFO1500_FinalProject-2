@@ -11,7 +11,9 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.SponsorApprovalStatus;
+import Business.WorkQueue.WorkRequest;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 import java.util.regex.Matcher;
@@ -23,6 +25,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import static ui.VolunteerCampRole.VolunteerRegistrationPanel.sendEmailMessage;
+import static ui.VolunteerCampRole.VolunteerRegistrationPanel.sendTextMessage;
 
 /**
  *
@@ -108,19 +112,19 @@ public class SponsorRegistrationPanel extends javax.swing.JPanel {
         Session session = Session.getDefaultInstance(properties);
 
         try {
-        // Create a default MimeMessage object.
+            // Create a default MimeMessage object.
             MimeMessage message = new MimeMessage(session);
 
-        // Set From: header field of the header.
+            // Set From: header field of the header.
             message.setFrom(new InternetAddress(from));
 
-        // Set To: header field of the header.
+            // Set To: header field of the header.
             message.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(to));
 
-        // Set Subject: header field
+            // Set Subject: header field
             message.setSubject("Sponsor Registration");
             message.setText("Thank you for registering with us. Your account will be approved as soon as possible and will be notified to you in the next email.");
-        // Send message
+            // Send message
             Transport transport = session.getTransport("smtp");
             transport.connect(host, from, pass);
             transport.sendMessage(message, message.getAllRecipients());
@@ -178,10 +182,10 @@ public class SponsorRegistrationPanel extends javax.swing.JPanel {
             transport.connect(host, from, pass);
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
-            System.out.println("Sent message successfully....");
+            System.out.println("Sent message!");
         } catch (MessagingException mex) {
             mex.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Invalid email id");
+            JOptionPane.showMessageDialog(null, "Invalid Number!");
         }
 
     }
@@ -477,6 +481,8 @@ public class SponsorRegistrationPanel extends javax.swing.JPanel {
         int checkPass = 0;
         int checkPhone = 0;
         int checkdate = 0;
+        int ssnDup = 0;
+        int passDup = 0;
 
         String name = null;
         String userName = null;
@@ -485,6 +491,8 @@ public class SponsorRegistrationPanel extends javax.swing.JPanel {
         String role = "null";
         String passport1 = null;
         String address1 = null;
+        String phonenum = null;
+        String networkProvider = null;
         long ssn1 = 0;
         long pass1 = 0;
         long number1 = 0;
@@ -504,6 +512,8 @@ public class SponsorRegistrationPanel extends javax.swing.JPanel {
             userName = txtUsername.getText();
             pass = txtPassword.getText();
             mail = txtEmail.getText();
+            phonenum = txtNumber.getText();
+            networkProvider = comboProvider.getSelectedItem().toString();
             role = "null";
             passport1 = txtpassport.getText();
             checkMail = validateMail(txtEmail.getText());
@@ -564,7 +574,6 @@ public class SponsorRegistrationPanel extends javax.swing.JPanel {
             }
             address1 = txtAddress.getText();
         }
-        //
         UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userName, pass);
         if (userAccount == null) {
             for (Network network : system.getNetworkList()) {
@@ -585,6 +594,7 @@ public class SponsorRegistrationPanel extends javax.swing.JPanel {
                 }
             }
         }
+
         System.out.println(userCheck);
         if (userCheck > 0) {
             JOptionPane.showMessageDialog(this, "User name already exists!");
@@ -602,6 +612,7 @@ public class SponsorRegistrationPanel extends javax.swing.JPanel {
                 request.setSsn(ssn1);
                 request.setAddress(address1);
                 request.setStatus("Pending");
+                request.setNetworkProvider(networkProvider);
                 if (roleCombo.getSelectedItem() == "GeneralRole") {
                     role = (String) roleCombo.getSelectedItem();
                     request.setRole(role);
@@ -615,7 +626,7 @@ public class SponsorRegistrationPanel extends javax.swing.JPanel {
                 if (roleCombo.getSelectedItem() == "StudentRole") {
                     role = (String) roleCombo.getSelectedItem();
                     request.setRole(role);
-                    
+
 //                    System.out.println(role);
                 }
                 for (Network network : system.getNetworkList()) {
@@ -669,18 +680,20 @@ public class SponsorRegistrationPanel extends javax.swing.JPanel {
                 }
             }
         }
+
         String contact = "";
         if (comboProvider.getSelectedItem().equals("ATT")) {
-            contact = txtNumber.getText() + "@txt.att.net";
+            contact = phonenum + "@txt.att.net";
         } else if (comboProvider.getSelectedItem().equals("Verizon")) {
-            contact = txtNumber.getText() + "@vmobl.com";
+            contact = phonenum + "@vmobl.com";
         } else if (comboProvider.getSelectedItem().equals("Sprint")) {
-            contact = txtNumber.getText() + "@messaging.sprintpcs.com";
+            contact = phonenum + "@messaging.sprintpcs.com";
         } else if (comboProvider.getSelectedItem().equals("TMobile")) {
-            contact = txtNumber.getText() + "@tmomail.net";
+            contact = phonenum + "@tmomail.net";
         }
         sendEmailMessage(mail);
-//        sendTextMessage(contact);
+        System.out.println("**********" + contact);
+        sendTextMessage(contact);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

@@ -263,6 +263,8 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
 
     private void bttnCreateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnCreateEmployeeActionPerformed
         int check = 0;
+        int usernamecheck = 0;
+        
         Organization organization = (Organization) cmboOrganizationEmployee.getSelectedItem();
         if (txtEmployeeName.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please enter a employee name");
@@ -270,10 +272,22 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         }
         if (check == 0) {
             String name = txtEmployeeName.getText();
-            organization.getEmployeeDirectory().createEmployee(name);
-            populateTable(organization);
-            txtEmployeeName.setText("");
-            JOptionPane.showMessageDialog(null, "Employee has been added successfully");
+            
+            for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()){
+                if(employee.getName().equals(name)){
+                    usernamecheck = 1;
+                }
+            }
+            
+            if(usernamecheck == 0){
+                organization.getEmployeeDirectory().createEmployee(name);
+                populateTable(organization);
+                txtEmployeeName.setText("");
+                JOptionPane.showMessageDialog(null, "Employee has been added successfully");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Employee already exists!");
+            }
         }
     }//GEN-LAST:event_bttnCreateEmployeeActionPerformed
 

@@ -29,11 +29,6 @@ public class SponsorApprovalJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private JPanel userProcessContainer;
     private UserAccount userAccount;
-    private static String emailMsgTxt = "";
-    private static String emailSubjectTxt = "";
-    private static String emailFromAddress = "";
-// Add List of Email address to who email needs to be sent to
-    private static String[] emailList = new String[1];
 
     /**
      * Creates new form VolunteerAprovalJPanel
@@ -106,14 +101,14 @@ public class SponsorApprovalJPanel extends javax.swing.JPanel {
             message.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(to));
 
 // Set Subject: header field
-            message.setSubject("Volunteer Registration Update");
+            message.setSubject("Sponsor Registration Update");
             message.setText("Thank you for registering with us. Your account has been approved");
 // Send message
             Transport transport = session.getTransport("smtp");
             transport.connect(host, from, pass);
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
-            System.out.println("Sent message successfully....");
+            System.out.println("Sent message!");
         } catch (MessagingException mex) {
             mex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Invalid email id");
@@ -156,10 +151,10 @@ public class SponsorApprovalJPanel extends javax.swing.JPanel {
             message.setFrom(new InternetAddress(from));
 
             // Set To: header field of the header.
-            message.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress("6177510819@tmomail.net"));
+            message.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(contact));
 
             // Set Subject: header field
-            message.setSubject("Volunteer Registration Update");
+            message.setSubject("Sponsor Registration Update");
             message.setText("Thank you for registering with us. Your account has been approved");
             // Send message
             Transport transport = session.getTransport("smtp");
@@ -169,7 +164,7 @@ public class SponsorApprovalJPanel extends javax.swing.JPanel {
             System.out.println("Sent message!");
         } catch (MessagingException mex) {
             mex.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Invalid email id");
+            JOptionPane.showMessageDialog(null, "Invalid number");
         }
     }
 
@@ -309,104 +304,91 @@ public class SponsorApprovalJPanel extends javax.swing.JPanel {
         WorkRequest request = (WorkRequest) workRequestJTable.getValueAt(selectedRow, 0);
         Employee employee = null;
         Role role = null;
-        
+
         for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
-            if(org.toString().equals("Fundraiser Organization")){
-            //System.out.println(request.getRole().equals(org.getOrganType().VolunteerCamp.toString()));
-            //System.out.println(request.getRole());
-            //System.out.println(request.getRole().equals("VolunteerCampRole"));
-            if (request.getRole().equals("GeneralRole")) {
-                org.getEmployeeDirectory().createEmployee(request.getVolunteerName());
-                for (Employee e : org.getEmployeeDirectory().getEmployeeList()) {
-                    if (request.getVolunteerName() == e.getName()) {
-                        employee = e;
+            if (org.toString().equals("Fundraiser Organization")) {
+                //System.out.println(request.getRole().equals(org.getOrganType().VolunteerCamp.toString()));
+                //System.out.println(request.getRole());
+                //System.out.println(request.getRole().equals("VolunteerCampRole"));
+                if (request.getRole().equals("GeneralRole")) {
+                    org.getEmployeeDirectory().createEmployee(request.getVolunteerName());
+                    for (Employee e : org.getEmployeeDirectory().getEmployeeList()) {
+                        if (request.getVolunteerName() == e.getName()) {
+                            employee = e;
+                        }
                     }
-                }
-                System.out.println(org.getName());
-                for (Role r : org.getSupportedRole()) {
-                    //System.out.println(r);
-                    //System.out.println(request.getRole().equals(r.toString()));
-                    //System.out.println(r.toString());
+                    System.out.println(org.getName());
+                    for (Role r : org.getSupportedRole()) {
+                        //System.out.println(r);
+                        //System.out.println(request.getRole().equals(r.toString()));
+                        //System.out.println(r.toString());
                         System.out.println("break over");
                         System.out.println(r.toString());
-                    if (request.getRole().equals(r.toString())) {
-                        role = r;
-                        //System.out.println(r);
-                        System.out.println("break into");
-                        System.out.println(role);
-                    }
-                }
-                org.getUserAccountDirectory().createUserAccount(request.getUsername(), request.getPassword(), employee, role);
-                break;
-            } else if (request.getRole().equals("StudentRole")) {
-                org.getEmployeeDirectory().createEmployee(request.getVolunteerName());
-                for (Employee e : org.getEmployeeDirectory().getEmployeeList()) {
-                    if (request.getVolunteerName() == e.getName()) {
-                        employee = e;
-                    }
-                    for (Role r : org.getSupportedRole()) {
-                        //System.out.println(r);
                         if (request.getRole().equals(r.toString())) {
                             role = r;
+                            //System.out.println(r);
+                            System.out.println("break into");
+                            System.out.println(role);
                         }
                     }
-                }
-                org.getUserAccountDirectory().createUserAccount(request.getUsername(), request.getPassword(), employee, role);
-                break;
-            } else if (request.getRole().equals("CorporateRole")) {
-                org.getEmployeeDirectory().createEmployee(request.getVolunteerName());
-                for (Employee e : org.getEmployeeDirectory().getEmployeeList()) {
-                    if (request.getVolunteerName() == e.getName()) {
-                        employee = e;
-                    }
-                    for (Role r : org.getSupportedRole()) {
-                        //System.out.println(r);
-                        if (request.getRole().equals(r.toString())) {
-                            role = r;
+                    org.getUserAccountDirectory().createUserAccount(request.getUsername(), request.getPassword(), employee, role);
+                    break;
+                } else if (request.getRole().equals("StudentRole")) {
+                    org.getEmployeeDirectory().createEmployee(request.getVolunteerName());
+                    for (Employee e : org.getEmployeeDirectory().getEmployeeList()) {
+                        if (request.getVolunteerName() == e.getName()) {
+                            employee = e;
+                        }
+                        for (Role r : org.getSupportedRole()) {
+                            //System.out.println(r);
+                            if (request.getRole().equals(r.toString())) {
+                                role = r;
+                            }
                         }
                     }
+                    org.getUserAccountDirectory().createUserAccount(request.getUsername(), request.getPassword(), employee, role);
+                    break;
+                } else if (request.getRole().equals("CorporateRole")) {
+                    org.getEmployeeDirectory().createEmployee(request.getVolunteerName());
+                    for (Employee e : org.getEmployeeDirectory().getEmployeeList()) {
+                        if (request.getVolunteerName() == e.getName()) {
+                            employee = e;
+                        }
+                        for (Role r : org.getSupportedRole()) {
+                            //System.out.println(r);
+                            if (request.getRole().equals(r.toString())) {
+                                role = r;
+                            }
+                        }
+                    }
+                    org.getUserAccountDirectory().createUserAccount(request.getUsername(), request.getPassword(), employee, role);
+                    break;
                 }
-                org.getUserAccountDirectory().createUserAccount(request.getUsername(), request.getPassword(), employee, role);
-                break;
             }
-        }
         }
         request.setStatus("Completed");
         populateRequestTable();
         if (request.getStatus().equals("Completed")) {
-//            // System.out.println("Mail Begins");
-//            String ab = request.getVolunteerName();
-//            emailMsgTxt = "Hi " + ab.toUpperCase() + ", " + "\n" + "\n" + "Your User Account has been Created. You may login into the system now!" + "\n" + "\n" + "Regards," + "\n" + "NGO Admin";
-//            emailSubjectTxt = "Sponsor Request Approved";
-//            emailFromAddress = SendMailUsingAuthentication.SMTP_AUTH_USER;
-//
-//            // Add List of Email address to who email needs to be sent to
-//            StringBuffer sb = new StringBuffer(request.getMailid());
-//            StringTokenizer st = new StringTokenizer(request.getMailid());
-//            int i = 0;
-//            while (st.hasMoreTokens()) {
-//                emailList[i] = st.nextToken(",");
-//                // System.err.println(emailList[i]);
-//                i++;
-//            }
-//            String emailReceipeint[] = new String[i];
-//            for (int j = 0; j < i; j++) {
-//                emailReceipeint[j] = emailList[j];
-//                //System.out.println("Actually emails are " + j);
-//            }
-//
-//            SendMailUsingAuthentication smtpMailSender = new SendMailUsingAuthentication();
-//            try {
-//                smtpMailSender.postMail(emailReceipeint, emailSubjectTxt, emailMsgTxt, emailFromAddress);
-//                JOptionPane.showMessageDialog(null, "Request Approved and mail has been sent to the Sponsor. Sponsors can enroll for FundRaiser Events!");
-//            } catch (MessagingException ex) {
-//                //Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            System.out.println("Sucessfully Sent mail to All Users - Sponsor");
-            sendEmailMessage(request.getMailid());
+            String email = request.getMailid();
+            System.out.println(email);
+            sendEmailMessage(email);
+            String provider = request.getNetworkProvider();
             long num = request.getNumber();
             String numStr = Long.toString(num);
-            sendTextMessage(numStr);
+            System.out.println("N"+numStr);
+            System.out.println("P"+provider);
+            String contact = "";
+            if (provider.equals("ATT")) {
+                contact = numStr + "@txt.att.net";
+            } else if (provider.equals("Verizon")) {
+                contact = numStr + "@vmobl.com";
+            } else if (provider.equals("Sprint")) {
+                contact = numStr + "@messaging.sprintpcs.com";
+            } else if (provider.equals("TMobile")) {
+                contact = numStr + "@tmomail.net";
+            }
+            System.out.println("***Sponsor*******" + contact);
+            sendTextMessage(contact);
 
     }//GEN-LAST:event_buttonApproveActionPerformed
     }

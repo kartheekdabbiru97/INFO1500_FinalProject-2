@@ -17,8 +17,8 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import javax.mail.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,11 +30,6 @@ public class VolunteerCampApprovalJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private JPanel userProcessContainer;
     private UserAccount userAccount;
-    private static String emailMsgTxt = "";
-    private static String emailSubjectTxt = "";
-    private static String emailFromAddress = "";
-// Add List of Email address to who email needs to be sent to
-    private static String[] emailList = new String[1];
 
     /**
      * Creates new form VolunteerAprovalJPanel
@@ -68,6 +63,110 @@ public class VolunteerCampApprovalJPanel extends javax.swing.JPanel {
                 // row[3] = result == null ? "Waiting" : result;
                 model.addRow(row);
             }
+        }
+    }
+
+    public static void sendEmailMessage(String emailId) {
+// Recipient's email ID needs to be mentioned.
+        String to = emailId;
+        String from = "aedxaxis@gmail.com";
+        String pass = "info5000";
+// Assuming you are sending email from localhost
+// String host = "192.168.0.16";
+
+// Get system properties
+        Properties properties = System.getProperties();
+        String host = "smtp.gmail.com";
+
+        properties.put("mail.smtp.starttls.enable", "true");
+
+        properties.put("mail.smtp.ssl.trust", host);
+        properties.put("mail.smtp.user", from);
+// properties.put("mail.smtp.password", pass);
+        properties.put("mail.smtp.port", "587");
+        properties.put("mail.smtp.auth", "true");
+
+// Setup mail server
+// properties.setProperty("mail.smtp.host", host);
+// properties.put("mail.smtp.starttls.enable", "true");
+// Get the default Session object.
+        Session session = Session.getDefaultInstance(properties);
+
+        try {
+// Create a default MimeMessage object.
+            MimeMessage message = new MimeMessage(session);
+
+// Set From: header field of the header.
+            message.setFrom(new InternetAddress(from));
+
+// Set To: header field of the header.
+            message.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(to));
+
+// Set Subject: header field
+            message.setSubject("Volunteer Registration Update");
+            message.setText("Thank you for registering with us. Your account has been approved");
+// Send message
+            Transport transport = session.getTransport("smtp");
+            transport.connect(host, from, pass);
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+            System.out.println("Sent message successfully....");
+        } catch (MessagingException mex) {
+            mex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Invalid email id");
+        }
+    }
+
+    public static void sendTextMessage(String contact) {
+        // Recipient's email ID needs to be mentioned.
+        String to = contact;
+        System.out.println(contact);
+        String from = "aedxaxis@gmail.com";
+        String pass = "info5000";
+        // Assuming you are sending email from localhost
+        // String host = "192.168.0.16";
+        // Get system properties
+        Properties properties = System.getProperties();
+        String host = "smtp.gmail.com";
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.ssl.trust", host);
+        properties.put("mail.smtp.user", from);
+        // properties.put("mail.smtp.password", pass);
+        properties.put("mail.smtp.port", "587");
+        properties.put("mail.smtp.auth", "true");
+        // Setup mail server
+        // properties.setProperty("mail.smtp.host", host);
+        //  properties.put("mail.smtp.starttls.enable", "true");
+        // Get the default Session object.
+        Session session = Session.getDefaultInstance(properties);
+        //       final PasswordAuthentication auth = new PasswordAuthentication(from, pass);
+//Session session = Session.getDefaultInstance(properties, new Authenticator() {
+//    @Override
+//    protected PasswordAuthentication getPasswordAuthentication() { return auth; }
+//});
+//Session session = Session.getInstance(properties);
+        try {
+            // Create a default MimeMessage object.
+            MimeMessage message = new MimeMessage(session);
+
+            // Set From: header field of the header.
+            message.setFrom(new InternetAddress(from));
+
+            // Set To: header field of the header.
+            message.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(contact));
+
+            // Set Subject: header field
+            message.setSubject("Volunteer Registration Update");
+            message.setText("Thank you for registering with us. Your account has been approved");
+            // Send message
+            Transport transport = session.getTransport("smtp");
+            transport.connect(host, from, pass);
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+            System.out.println("Sent message!");
+        } catch (MessagingException mex) {
+            mex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Invalid number");
         }
     }
 
@@ -281,38 +380,26 @@ public class VolunteerCampApprovalJPanel extends javax.swing.JPanel {
         request.setStatus("Completed");
         populateRequestTable();
         if (request.getStatus().equals("Completed")) {
-
-            // System.out.println("Mail Begins");
-            String ab = request.getVolunteerName();
-            emailMsgTxt = "Hi " + ab.toUpperCase() + ", " + "\n" + "\n" + "Your User Account has been Created. You may login into the system now!" + "\n" + "\n" + "Regards," + "\n" + "NGO Admin";
-            emailSubjectTxt = "Volunteer Request Approved";
-            emailFromAddress = SendMailUsingAuthentication.SMTP_AUTH_USER;
-
-            // Add List of Email address to who email needs to be sent to
-            StringBuffer sb = new StringBuffer(request.getMailid());
-            StringTokenizer st = new StringTokenizer(request.getMailid());
-            int i = 0;
-            while (st.hasMoreTokens()) {
-                emailList[i] = st.nextToken(",");
-                // System.err.println(emailList[i]);
-                i++;
+            String email = request.getMailid();
+            System.out.println(email);
+            sendEmailMessage(email);
+            String provider = request.getNetworkProvider();
+            long num = request.getNumber();
+            String numStr = Long.toString(num);
+            System.out.println("N"+numStr);
+             System.out.println("P"+provider);
+            String contact = "";
+            if (provider.equals("ATT")) {
+                contact = numStr + "@txt.att.net";
+            } else if (provider.equals("Verizon")) {
+                contact = numStr + "@vmobl.com";
+            } else if (provider.equals("Sprint")) {
+                contact = numStr + "@messaging.sprintpcs.com";
+            } else if (provider.equals("TMobile")) {
+                contact = numStr + "@tmomail.net";
             }
-            String emailReceipeint[] = new String[i];
-            for (int j = 0; j < i; j++) {
-                emailReceipeint[j] = emailList[j];
-                //System.out.println("Actually emails are " + j);
-            }
-
-            SendMailUsingAuthentication smtpMailSender = new SendMailUsingAuthentication();
-            try {
-                smtpMailSender.postMail(emailReceipeint, emailSubjectTxt, emailMsgTxt, emailFromAddress);
-                JOptionPane.showMessageDialog(null, "Request Approved and mail has been sent to Volunteer. Volunteer can request for Health Camp now!");
-            } catch (MessagingException ex) {
-                //    Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println("Exception");
-            }
-            //  System.out.println("Sucessfully Sent mail to All Users");
-
+            System.out.println("*****VCamp*****" + contact);
+            sendTextMessage(contact);
         }
     }//GEN-LAST:event_bttanApproveActionPerformed
 

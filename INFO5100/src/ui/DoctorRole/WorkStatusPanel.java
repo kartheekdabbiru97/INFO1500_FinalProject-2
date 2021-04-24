@@ -48,8 +48,13 @@ public class WorkStatusPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
 
         model.setRowCount(0);
+        System.out.println(userAccount.getWorkQueue().getWorkRequestList());
+        System.out.println("***************************");
+        
         for (WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()) {
             if ((request.getStatus().equals("Treatment/Test Completed")) || (request.getStatus().equals("Bill Generated"))) {
+                System.out.println(request.getPdiagnosis());
+                
                 Object[] row = new Object[8];
                 row[0] = request;
                 row[1] = request.getPatientFirstname();

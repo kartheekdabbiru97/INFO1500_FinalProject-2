@@ -45,28 +45,25 @@
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="txtnumber" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jScrollPane1" pref="202" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtPassport" max="32767" attributes="0"/>
-                                  <Component id="txtSSN" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtdob" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtPassword" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="txtName" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
-                                  <Component id="txtUserName" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="comboProvider" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jScrollPane1" alignment="0" pref="205" max="32767" attributes="0"/>
+                          <Component id="txtPassport" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtSSN" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtdob" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtPassword" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="txtName" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
+                          <Component id="txtUserName" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
+                          <Component id="comboProvider" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtemail" alignment="1" max="32767" attributes="0"/>
                           <Component id="roleCombo" pref="205" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="buttonSubmit" min="-2" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace pref="95" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="buttonSubmit" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="234" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -134,9 +131,9 @@
                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="roleCombo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="buttonSubmit" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <EmptySpace pref="38" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -316,7 +313,7 @@
             <StringItem index="1" value="ATT"/>
             <StringItem index="2" value="TMobile"/>
             <StringItem index="3" value="Sprint"/>
-            <StringItem index="4" value="TMobile"/>
+            <StringItem index="4" value="Verizon"/>
           </StringArray>
         </Property>
       </Properties>

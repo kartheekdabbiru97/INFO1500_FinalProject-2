@@ -11,6 +11,8 @@ import Business.UserAccount.UserAccount;
 import Business.WorkQueue.PatientTestRequest;
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamResolution;
+import java.awt.CardLayout;
+import java.awt.Component;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -290,7 +292,13 @@ public class PatientRegistration extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonSubmitActionPerformed
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
-        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        VolunteerHomePage vol = (VolunteerHomePage) component;
+//        vol.populateRequestTable();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_buttonBackActionPerformed
     public String getPic(String name) throws IOException {
         JOptionPane.showMessageDialog(this, "Please look into the camera for picture!");

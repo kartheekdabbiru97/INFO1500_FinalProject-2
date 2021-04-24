@@ -250,7 +250,7 @@ public class HealthcampRequestJPanel extends javax.swing.JPanel {
         p.setRangeGridlinePaint(Color.BLACK);
         ChartFrame frame = new ChartFrame("Plot for Most Affected People in Different Areas", chart);
         frame.setVisible(true);
-        frame.setSize(450, 350);
+        frame.setSize(500, 500);
     }//GEN-LAST:event_buttonGenerateGraphsActionPerformed
 
     private void buttonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshActionPerformed

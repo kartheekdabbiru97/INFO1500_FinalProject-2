@@ -49,7 +49,7 @@ public class ViewCampRequestJPanel extends javax.swing.JPanel {
         txtName.setText(request.getVolunteerName());
         txtNumberPeopleAffected.setText(request.getPeopleAffected());
         txtAffectedChildren.setText(request.getPercentChild());
-        txtAffectedChildren.setText(request.getPercentElder());
+        txtAddectedElders.setText(request.getPercentElder());
         txtState.setText(request.getState());
         txtStreetAddress.setText(request.getStreet());
         txtZipCode.setText(request.getZipcode());

@@ -227,7 +227,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         OrganizationType type = (OrganizationType) organizationJComboBox.getSelectedItem();
         enterprise.getOrganizationDirectory().createOrganization(type);
         populateTable();
-        JOptionPane.showMessageDialog(null, "An Organization has beesn added successfully");
+        JOptionPane.showMessageDialog(null, "An Organization has been added successfully");
 
     }//GEN-LAST:event_buttonAddActionPerformed
 

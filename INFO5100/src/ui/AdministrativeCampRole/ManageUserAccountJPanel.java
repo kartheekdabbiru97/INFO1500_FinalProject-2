@@ -62,7 +62,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
     public void popData() {
 
-        DefaultTableModel model = (DefaultTableModel) userJTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) userJTable1.getModel();
 
         model.setRowCount(0);
 
@@ -72,7 +72,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                 row[0] = ua;
                 row[1] = ua.getRole();
                 row[2] = organization;
-                ((DefaultTableModel) userJTable.getModel()).addRow(row);
+                ((DefaultTableModel) userJTable1.getModel()).addRow(row);
             }
         }
     }

@@ -41,7 +41,8 @@ public class NGOPatientRequest extends javax.swing.JPanel {
 
         model.setRowCount(0);
         System.out.println(userAccount.getWorkQueue().getWorkRequestList());
-        for (UserAccount user : organization.getUserAccountDirectory().getUserAccountList()) {
+        UserAccount user = organization.getUserAccountDirectory().getUserAccountList().get(0);
+//        for (UserAccount user : organization.getUserAccountDirectory().getUserAccountList()) {
             System.out.println(user.getRole().toString());
             for (WorkRequest req : user.getWorkQueue().getWorkRequestList()) {
                 if (req.getStatus().equals("Hospital Sent")) {
@@ -59,7 +60,7 @@ public class NGOPatientRequest extends javax.swing.JPanel {
                 }
 
             }
-        }
+//        }
     }
 
     /**
@@ -91,7 +92,7 @@ public class NGOPatientRequest extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Patient Name", "Patient ", "Priority", "Age", "Request Type", "Status", "Disease", "Funded Amount"
+                "Patient FirstName", "Patient  LastName", "Priority", "Age", "Request Type", "Status", "Disease", "Funded Amount"
             }
         ) {
             Class[] types = new Class [] {

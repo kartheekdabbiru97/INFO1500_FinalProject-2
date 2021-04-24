@@ -121,7 +121,7 @@ public class VolunteerCampRequestJPanel extends javax.swing.JPanel {
             }
         });
 
-        buttonRequest.setText("REQUEST HELP");
+        buttonRequest.setText("REQUEST CAMP");
         buttonRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonRequestActionPerformed(evt);

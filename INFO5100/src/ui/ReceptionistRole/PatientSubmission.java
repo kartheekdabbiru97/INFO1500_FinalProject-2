@@ -44,8 +44,11 @@ public class PatientSubmission extends javax.swing.JPanel {
     public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
         model.setRowCount(0);
-        for (UserAccount user : organization.getUserAccountDirectory().getUserAccountList()) {
+        System.out.println(organization.getUserAccountDirectory().getUserAccountList());
+        UserAccount user = organization.getUserAccountDirectory().getUserAccountList().get(0);
+//        for (UserAccount user : organization.getUserAccountDirectory().getUserAccountList()) {
             System.out.println(user.getWorkQueue().getWorkRequestList());
+            System.out.println("***CALLING POPULATE TABLE***");
             for (WorkRequest req : user.getWorkQueue().getWorkRequestList()) {
                 System.out.println(req.getStatus());
                 if ((req.getStatus().equals("Bill Generated")) || (req.getStatus().equals("Hospital Treatment Completed"))) {
@@ -60,7 +63,7 @@ public class PatientSubmission extends javax.swing.JPanel {
                     model.addRow(row);
                 }
             }
-        }
+//        }
 
     }
 
@@ -94,7 +97,7 @@ public class PatientSubmission extends javax.swing.JPanel {
 
             },
             new String [] {
-                "First Name", "Last Name", "Request Type", "Status", "Hospital Fee", "Funded Amount"
+                "First Name", "Last Name", "Request Type", "Assigned Doctor", "Hospital Fee", "Funded Amount"
             }
         ) {
             Class[] types = new Class [] {

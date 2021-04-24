@@ -19,6 +19,8 @@ import java.util.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
+import static ui.AdministrativeCampRole.VolunteerCampApprovalJPanel.sendEmailMessage;
+import static ui.AdministrativeCampRole.VolunteerCampApprovalJPanel.sendTextMessage;
 
 /**
  *
@@ -157,7 +159,7 @@ public class VolunteerEventApprovalJPanel extends javax.swing.JPanel {
             message.setFrom(new InternetAddress(from));
 
             // Set To: header field of the header.
-            message.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress("6177510819@tmomail.net"));
+            message.addRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(contact));
 
             // Set Subject: header field
             message.setSubject("Volunteer Registration Update");
@@ -170,7 +172,7 @@ public class VolunteerEventApprovalJPanel extends javax.swing.JPanel {
             System.out.println("Sent message!");
         } catch (MessagingException mex) {
             mex.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Invalid email id");
+            JOptionPane.showMessageDialog(null, "Invalid number");
         }
     }
 
@@ -355,40 +357,26 @@ public class VolunteerEventApprovalJPanel extends javax.swing.JPanel {
         request.setStatus("Completed");
         populateRequestTable();
         if (request.getStatus().equals("Completed")) {
-//            // System.out.println("Mail Begins");
-//            String ab = request.getVolunteerName();
-//            emailMsgTxt = "Hi " + ab.toUpperCase() + ", " + "\n" + "\n" + "Your User Account got Created, You can login into the system now" + "\n" + "\n" + "Regards," + "\n" + "NGO Admin";
-//            emailSubjectTxt = "Volunteer Request Approved";
-//            emailFromAddress = SendMailUsingAuthentication.SMTP_AUTH_USER;
-//
-//            // Add List of Email address to who email needs to be sent to
-//            StringBuffer sb = new StringBuffer(request.getMailid());
-//            StringTokenizer st = new StringTokenizer(request.getMailid());
-//            int i = 0;
-//            while (st.hasMoreTokens()) {
-//                emailList[i] = st.nextToken(",");
-//                // System.err.println(emailList[i]);
-//                i++;
-//            }
-//            String emailReceipeint[] = new String[i];
-//            for (int j = 0; j < i; j++) {
-//                emailReceipeint[j] = emailList[j];
-//                //System.out.println("Actually emails are " + j);
-//            }
-//
-//            SendMailUsingAuthentication smtpMailSender = new SendMailUsingAuthentication();
-//            try {
-//                smtpMailSender.postMail(emailReceipeint, emailSubjectTxt, emailMsgTxt, emailFromAddress);
-//                JOptionPane.showMessageDialog(null, "Request Approved and mail has been sent to Volunteer");
-//            } catch (MessagingException ex) {
-//                //Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            //    System.out.println("Sucessfully Sent mail to All Users");
-            sendEmailMessage(request.getMailid());
+            String email = request.getMailid();
+            System.out.println(email);
+            sendEmailMessage(email);
+            String provider = request.getNetworkProvider();
             long num = request.getNumber();
             String numStr = Long.toString(num);
-            sendTextMessage(numStr);
-
+            System.out.println("N"+numStr);
+             System.out.println("P"+provider);
+            String contact = "";
+            if (provider.equals("ATT")) {
+                contact = numStr + "@txt.att.net";
+            } else if (provider.equals("Verizon")) {
+                contact = numStr + "@vmobl.com";
+            } else if (provider.equals("Sprint")) {
+                contact = numStr + "@messaging.sprintpcs.com";
+            } else if (provider.equals("TMobile")) {
+                contact = numStr + "@tmomail.net";
+            }
+            System.out.println("*****VEvent*****" + contact);
+            sendTextMessage(contact);
         }
     }//GEN-LAST:event_buttonApproveActionPerformed
 
